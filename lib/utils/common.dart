@@ -18,9 +18,9 @@ class Common {
     TextDecoration? textDecoration,
     Color? textDecorationColor,
     double? latterSpace,
-    bool isScl = false,
+    bool isSpl = false,
   }) => TextStyle(
-    fontFamily: isScl ? "dr" : "gr",
+    fontFamily: isSpl ? "dr" : "gr",
     color: color ?? soft,
     fontSize: size ?? 16.sp,
     fontWeight: weight ?? FontWeight.w400,
