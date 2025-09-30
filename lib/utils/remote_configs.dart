@@ -1,0 +1,35 @@
+import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:flutter/services.dart';
+import 'package:live_cric/utils/ads.dart';
+import 'package:nb_utils/nb_utils.dart' as nb;
+
+class RemoteConfigs {
+  static final _config = FirebaseRemoteConfig.instance;
+
+  static final defaulValue = {"app_name": 'LiveCric'};
+
+  static String get appNameRc => _config.getString("app_name");
+
+  static Future<void> initConfig() async {
+    try {
+      await _config.setConfigSettings(
+        RemoteConfigSettings(
+          fetchTimeout: const Duration(seconds: 1),
+          minimumFetchInterval: const Duration(hours: 1),
+        ),
+      );
+
+      await _config.setDefaults(defaulValue);
+
+      _config.onConfigUpdated.listen((event) async {
+        await _config.activate();
+      });
+    } on PlatformException catch (e) {
+      nb.log("initConfig: $e");
+    } catch (e) {
+      nb.log("initConfig: $e");
+    } finally {
+      Ads.initAds();
+    }
+  }
+}
