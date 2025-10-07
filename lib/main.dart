@@ -1,13 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:live_cric/firebase_options.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/theme/app_theme.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   nb.initialize();
   RemoteConfigs.initConfig();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

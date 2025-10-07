@@ -56,7 +56,7 @@ class Common {
 
   static Widget loader({Color? color}) =>
       LoadingAnimationWidget.fourRotatingDots(
-        color: color ?? text,
+        color: color ?? soft,
         size: 35.w,
       ).center();
 

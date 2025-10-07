@@ -6,9 +6,15 @@ import 'package:nb_utils/nb_utils.dart' as nb;
 class RemoteConfigs {
   static final _config = FirebaseRemoteConfig.instance;
 
-  static final defaulValue = {"app_name": 'LiveCric'};
+  static final defaulValue = {
+    "app_name": 'LiveCric',
+    "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com",
+    "x-rapidapi-key": "c89783400cmsh40a6a97cc3e0dd4p11104bjsnd09af3840a52",
+  };
 
   static String get appNameRc => _config.getString("app_name");
+  static String get xRapidapiHostRc => _config.getString("x-rapidapi-host");
+  static String get xRapidapiKeyRc => _config.getString("x-rapidapi-key");
 
   static Future<void> initConfig() async {
     try {

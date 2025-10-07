@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/remote_configs.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 Future<http.Response> buildHttpResponse(
@@ -64,8 +65,8 @@ Future<Map<String, String>> buildHeaderTokens() async {
   Map<String, String> header = {};
 
   header.putIfAbsent(HttpHeaders.contentTypeHeader, () => 'application/json');
-  header.putIfAbsent(xRapidapiHostKey, () => Configs.rapidApiHost);
-  header.putIfAbsent(xRapidapiKey, () => Configs.rapidApiKey);
+  header.putIfAbsent(xRapidapiHostKey, () => RemoteConfigs.xRapidapiHostRc);
+  header.putIfAbsent(xRapidapiKey, () => RemoteConfigs.xRapidapiKeyRc);
 
   log(jsonEncode(header));
   return header;
