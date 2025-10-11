@@ -111,7 +111,7 @@ class CustomExpantionTile extends StatelessWidget {
                     ),
                   ).center().expand(flex: 2),
                 ],
-              ).paddingSymmetric(horizontal: 13.sp, vertical: 10.h),
+              ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             ),
             ...List.generate(
               inning.batsman.length,
@@ -125,7 +125,7 @@ class CustomExpantionTile extends StatelessWidget {
                           Text(
                             inning.batsman[index].name,
                             style: Common.textStyle(
-                              size: 14.sp,
+                              size: 15.sp,
                               color: primary50,
                             ),
                           ),
@@ -160,7 +160,7 @@ class CustomExpantionTile extends StatelessWidget {
                         style: Common.textStyle(size: 14.sp),
                       ).center().expand(flex: 2),
                     ],
-                  ).paddingSymmetric(horizontal: 13.sp, vertical: 13.h),
+                  ).paddingSymmetric(horizontal: 13.w, vertical: 13.h),
                   Divider(color: text, thickness: 0.5, height: 0),
                 ],
               ),
@@ -188,7 +188,7 @@ class CustomExpantionTile extends StatelessWidget {
                   ),
                 ),
               ],
-            ).paddingSymmetric(horizontal: 13.sp, vertical: 10.h),
+            ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             Container(
               decoration: BoxDecoration(
                 color: const Color.fromARGB(55, 250, 209, 28),
@@ -213,8 +213,29 @@ class CustomExpantionTile extends StatelessWidget {
                     ),
                   ),
                 ],
-              ).paddingSymmetric(horizontal: 13.sp, vertical: 10.h),
+              ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Yet to Bat",
+                  style: Common.textStyle(
+                    size: 14.sp,
+                    color: soft,
+                    weight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: 7.h),
+                Text(
+                  inning.batsman
+                      .where((element) => (element.outdec ?? "") == "")
+                      .map((e) => e.name)
+                      .join(", "),
+                  style: Common.textStyle(size: 14.sp, color: primary50),
+                ),
+              ],
+            ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
           ],
           if (inning.batsman.isNotEmpty) ...[
             SizedBox(height: 13.h),
@@ -267,7 +288,7 @@ class CustomExpantionTile extends StatelessWidget {
                     ),
                   ).center().expand(flex: 2),
                 ],
-              ).paddingSymmetric(horizontal: 13.sp, vertical: 10.h),
+              ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             ),
             ...List.generate(
               inning.bowlers.length,
@@ -277,7 +298,7 @@ class CustomExpantionTile extends StatelessWidget {
                     children: [
                       Text(
                         inning.bowlers[index].nickname,
-                        style: Common.textStyle(size: 14.sp, color: primary50),
+                        style: Common.textStyle(size: 15.sp, color: primary50),
                       ).expand(flex: 9),
                       Text(
                         inning.bowlers[index].overs,
@@ -303,7 +324,7 @@ class CustomExpantionTile extends StatelessWidget {
                         style: Common.textStyle(size: 14.sp),
                       ).center().expand(flex: 2),
                     ],
-                  ).paddingSymmetric(horizontal: 13.sp, vertical: 13.h),
+                  ).paddingSymmetric(horizontal: 13.w, vertical: 13.h),
                   Divider(color: text, thickness: 0.5, height: 0),
                 ],
               ),
@@ -339,7 +360,7 @@ class CustomExpantionTile extends StatelessWidget {
                     ),
                   ).center().expand(flex: 2),
                 ],
-              ).paddingSymmetric(horizontal: 13.sp, vertical: 10.h),
+              ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             ),
             ...List.generate(
               inning.fow.length,
@@ -349,7 +370,7 @@ class CustomExpantionTile extends StatelessWidget {
                     children: [
                       Text(
                         inning.fow[index].batsmanName,
-                        style: Common.textStyle(size: 14.sp, color: primary50),
+                        style: Common.textStyle(size: 15.sp, color: primary50),
                       ).expand(flex: 7),
                       Text(
                         "${inning.fow[index].runs}-${index + 1}",
@@ -363,7 +384,7 @@ class CustomExpantionTile extends StatelessWidget {
                         style: Common.textStyle(size: 14.sp),
                       ).center().expand(flex: 2),
                     ],
-                  ).paddingSymmetric(horizontal: 13.sp, vertical: 13.h),
+                  ).paddingSymmetric(horizontal: 13.w, vertical: 13.h),
                   Divider(color: text, thickness: 0.5, height: 0),
                 ],
               ),
@@ -399,7 +420,7 @@ class CustomExpantionTile extends StatelessWidget {
                     ),
                   ).center().expand(flex: 3),
                 ],
-              ).paddingSymmetric(horizontal: 13.sp, vertical: 10.h),
+              ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             ),
             ...List.generate(
               inning.pp.length,
@@ -423,7 +444,7 @@ class CustomExpantionTile extends StatelessWidget {
                         style: Common.textStyle(size: 14.sp),
                       ).center().expand(flex: 3),
                     ],
-                  ).paddingSymmetric(horizontal: 13.sp, vertical: 13.h),
+                  ).paddingSymmetric(horizontal: 13.w, vertical: 13.h),
                   Divider(color: text, thickness: 0.5, height: 0),
                 ],
               ),
@@ -439,7 +460,7 @@ class CustomExpantionTile extends StatelessWidget {
               child: Text(
                 "Partnerships",
                 style: Common.textStyle(size: 14.sp, weight: FontWeight.w600),
-              ).paddingSymmetric(horizontal: 13.sp, vertical: 10.h),
+              ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             ),
             ...List.generate(
               inning.ps.length,
@@ -453,7 +474,7 @@ class CustomExpantionTile extends StatelessWidget {
                           Text(
                             inning.ps[index].bat1Name,
                             style: Common.textStyle(
-                              size: 14.sp,
+                              size: 15.sp,
                               color: primary50,
                             ),
                           ),
@@ -473,7 +494,7 @@ class CustomExpantionTile extends StatelessWidget {
                           Text(
                             inning.ps[index].bat2Name,
                             style: Common.textStyle(
-                              size: 14.sp,
+                              size: 15.sp,
                               color: primary50,
                             ),
                           ),
@@ -484,7 +505,7 @@ class CustomExpantionTile extends StatelessWidget {
                         ],
                       ).expand(flex: 5),
                     ],
-                  ).paddingSymmetric(horizontal: 13.sp, vertical: 13.h),
+                  ).paddingSymmetric(horizontal: 13.w, vertical: 13.h),
                   Divider(color: text, thickness: 0.5, height: 0),
                 ],
               ),

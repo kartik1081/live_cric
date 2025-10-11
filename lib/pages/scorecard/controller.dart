@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:live_cric/models/crt/crt_match_info.dart';
 import 'package:live_cric/models/crt/crt_match_scorecard_model.dart';
-import 'package:live_cric/network_services/network_endpoint.dart';
-import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/response_data.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
@@ -41,22 +39,22 @@ class ScorecardController extends ChangeNotifier {
     }
 
     try {
-      final response = await buildHttpResponse(
-        getMatchScorecard(matchId),
-        method: nb.HttpMethodType.GET,
-      );
+      // final response = await buildHttpResponse(
+      //   getMatchScorecardEp(matchId),
+      //   method: nb.HttpMethodType.GET,
+      // );
 
-      switch (response.statusCode) {
-        case 200:
-          final data = jsonDecode(response.body);
-          _scorecardModel = CrtMatchScorecardModel.fromJson(data);
-          if (context.mounted) {
-            await getMatchInfo(context);
-          }
-          break;
-        default:
-          throw Exception([response.statusCode]);
+      // switch (response.statusCode) {
+      //   case 200:
+      final data = jsonDecode(ResponseData.scorecard);
+      _scorecardModel = CrtMatchScorecardModel.fromJson(data);
+      if (context.mounted) {
+        await getMatchInfo(context);
       }
+      //     break;
+      //   default:
+      //     throw Exception([response.statusCode]);
+      // }
     } catch (e) {
       nb.log("getScorecard: $e");
       if (context.mounted) {
@@ -72,8 +70,19 @@ class ScorecardController extends ChangeNotifier {
     if (!await Common.checkNetwork(context)) return;
 
     try {
+      // final response = await buildHttpResponse(
+      //   getMatchInfoEp(matchId),
+      //   method: nb.HttpMethodType.GET,
+      // );
+
+      // switch (response.statusCode) {
+      //   case 200:
       final data = jsonDecode(ResponseData.matchInfo);
       _matchInfo = CrtMatchInfoModel.fromJson(data);
+      //     break;
+      //   default:
+      //     throw Exception([response.statusCode]);
+      // }
     } catch (e) {
       nb.log("getMatchInfo: $e");
       if (context.mounted) {

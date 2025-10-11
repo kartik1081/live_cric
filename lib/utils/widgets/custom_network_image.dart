@@ -25,14 +25,14 @@ class CustomNetworkImage extends StatelessWidget {
       width: width,
       height: height,
       child: CachedNetworkImage(
-        imageUrl: "${Configs.baseURL}${getImage(imageId)}",
+        imageUrl: "${Configs.baseURL}${getImageEp(imageId)}",
         httpHeaders: {
           "x-rapidapi-host": RemoteConfigs.xRapidapiHostRc,
           "x-rapidapi-key": RemoteConfigs.xRapidapiKeyRc,
         },
         fit: BoxFit.cover,
         errorWidget: (context, url, error) =>
-            const Icon(Icons.info_outline, color: Colors.grey),
+            Icon(Icons.info_outline, color: Colors.grey, size: 20.w),
       ),
     ).cornerRadiusWithClipRRect(radius.r);
   }
