@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:live_cric/models/crt_match_type_model.dart';
+import 'package:live_cric/models/crt/crt_match_type_model.dart';
 import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/pages/home/widgets/match_tile.dart';
 import 'package:live_cric/utils/color.dart';

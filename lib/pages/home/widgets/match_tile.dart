@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:live_cric/models/crt_match_model.dart';
+import 'package:live_cric/models/crt/crt_match_model.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -179,11 +181,15 @@ class MatchTile extends StatelessWidget {
             children: [
               Text(
                 match.status,
-                style: Common.textStyle(color: soft, size: 14.sp),
+                style: Common.textStyle(color: primary50, size: 14.sp),
                 // overflow: TextOverflow.ellipsis,
               ).expand(),
               IconButton(
-                onPressed: () {},
+                onPressed: () => Navigator.pushNamed(
+                  context,
+                  Routes.scorecardRt,
+                  arguments: {matchIdKey: match.matchId},
+                ),
                 icon: const Icon(Icons.auto_graph_rounded, color: text),
               ),
             ],

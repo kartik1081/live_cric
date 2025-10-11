@@ -1,4 +1,4 @@
-import 'package:live_cric/models/crt_match_model.dart';
+import 'package:live_cric/models/crt/crt_match_model.dart';
 
 class CrtMatchTypeModel {
   final String matchType;
