@@ -49,12 +49,16 @@ class HomeController extends ChangeNotifier {
       final List<CrtMatchTypeModel> x = [];
       for (Map<String, dynamic> matchType in data[typeMatchesKey]) {
         String mType = matchType[matchTypeKey];
-        List<CrtMatchModel> matchList = [];
+        List<CrtMatchModel?> matchList = [];
         if (matchType[seriesMatchesKey] != null) {
           for (var series in matchType[seriesMatchesKey]) {
             if (series[seriesAdWrapperKey] != null) {
               for (var match in series[seriesAdWrapperKey][matchesKey]) {
                 matchList.add(CrtMatchModel.fromJson(match));
+                if (matchList.where((element) => element != null).length % 2 ==
+                    1) {
+                  matchList.add(null);
+                }
               }
             }
           }

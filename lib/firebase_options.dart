@@ -53,10 +53,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCjKuYxOv_5_ujS9W-umcpZxrvM5KNRm5U',
-    appId: '1:360944616473:android:dbd72d85f9a884d2635688',
-    messagingSenderId: '360944616473',
-    projectId: 'livecric-a2558',
-    storageBucket: 'livecric-a2558.firebasestorage.app',
+    apiKey: 'AIzaSyC040zUqyKACR_kEgKSZUIiCU_1rQCX27c',
+    appId: '1:722476945071:android:3dc0700a8f3a20b8dcce5a',
+    messagingSenderId: '722476945071',
+    projectId: 'livecric-b5226',
+    storageBucket: 'livecric-b5226.firebasestorage.app',
   );
+
 }

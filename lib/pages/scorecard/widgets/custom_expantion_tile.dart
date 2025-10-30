@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/models/crt/crt_match_scorecard_model.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/remote_configs.dart';
+import 'package:live_cric/utils/routes.dart';
+import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class CustomExpantionTile extends StatelessWidget {
@@ -128,6 +133,15 @@ class CustomExpantionTile extends StatelessWidget {
                               size: 15.sp,
                               color: primary50,
                             ),
+                          ).onTap(
+                            () => Navigator.pushNamed(
+                              context,
+                              Routes.playerProfileRt,
+                              arguments: {
+                                playerIdKey: inning.batsman[index].id,
+                                playerNameKey: inning.batsman[index].name,
+                              },
+                            ),
                           ),
                           if ((inning.batsman[index].outdec ?? "") != "")
                             Text(
@@ -216,7 +230,7 @@ class CustomExpantionTile extends StatelessWidget {
               ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   "Yet to Bat",
@@ -227,17 +241,53 @@ class CustomExpantionTile extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 7.h),
-                Text(
-                  inning.batsman
-                      .where((element) => (element.outdec ?? "") == "")
-                      .map((e) => e.name)
-                      .join(", "),
-                  style: Common.textStyle(size: 14.sp, color: primary50),
+                Wrap(
+                  children: List.generate(
+                    inning.batsman
+                        .where((element) => (element.outdec ?? "") == "")
+                        .length,
+                    (index) =>
+                        Text(
+                          "${inning.batsman.where((element) => (element.outdec ?? "") == "").toList()[index].name}${index == inning.batsman.where((element) => (element.outdec ?? "") == "").length - 1 ? "" : ", "}",
+                          style: Common.textStyle(
+                            size: 14.sp,
+                            color: primary50,
+                          ),
+                        ).onTap(
+                          () => Navigator.pushNamed(
+                            context,
+                            Routes.playerProfileRt,
+                            arguments: {
+                              playerIdKey: inning.batsman
+                                  .where(
+                                    (element) => (element.outdec ?? "") == "",
+                                  )
+                                  .toList()[index]
+                                  .id,
+                              playerNameKey: inning.batsman
+                                  .where(
+                                    (element) => (element.outdec ?? "") == "",
+                                  )
+                                  .toList()[index]
+                                  .name,
+                            },
+                          ),
+                        ),
+                  ),
                 ),
               ],
             ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
           ],
           if (inning.batsman.isNotEmpty) ...[
+            CustomNative(
+              nativeType: "",
+              nativeId: "",
+              showNative: false,
+              bannerType: AdSize.banner,
+              bannerId: RemoteConfigs.bannerIdRc,
+              showBanner: true,
+              topPadding: 13,
+            ),
             SizedBox(height: 13.h),
             Container(
               decoration: BoxDecoration(
@@ -297,9 +347,23 @@ class CustomExpantionTile extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        inning.bowlers[index].nickname,
-                        style: Common.textStyle(size: 15.sp, color: primary50),
-                      ).expand(flex: 9),
+                            inning.bowlers[index].nickname,
+                            style: Common.textStyle(
+                              size: 15.sp,
+                              color: primary50,
+                            ),
+                          )
+                          .onTap(
+                            () => Navigator.pushNamed(
+                              context,
+                              Routes.playerProfileRt,
+                              arguments: {
+                                playerIdKey: inning.bowlers[index].id,
+                                playerNameKey: inning.bowlers[index].name,
+                              },
+                            ),
+                          )
+                          .expand(flex: 9),
                       Text(
                         inning.bowlers[index].overs,
                         style: Common.textStyle(
@@ -331,6 +395,15 @@ class CustomExpantionTile extends StatelessWidget {
             ),
           ],
           if (inning.fow.isNotEmpty) ...[
+            CustomNative(
+              nativeType: "",
+              nativeId: "",
+              showNative: false,
+              bannerType: AdSize.banner,
+              bannerId: RemoteConfigs.bannerIdRc,
+              showBanner: true,
+              topPadding: 13,
+            ),
             SizedBox(height: 13.h),
             Container(
               decoration: BoxDecoration(
@@ -339,7 +412,7 @@ class CustomExpantionTile extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "Faal of Wickets",
+                    "Fall of Wickets",
                     style: Common.textStyle(
                       size: 14.sp,
                       weight: FontWeight.w600,
@@ -369,9 +442,23 @@ class CustomExpantionTile extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        inning.fow[index].batsmanName,
-                        style: Common.textStyle(size: 15.sp, color: primary50),
-                      ).expand(flex: 7),
+                            inning.fow[index].batsmanName,
+                            style: Common.textStyle(
+                              size: 15.sp,
+                              color: primary50,
+                            ),
+                          )
+                          .onTap(
+                            () => Navigator.pushNamed(
+                              context,
+                              Routes.playerProfileRt,
+                              arguments: {
+                                playerIdKey: inning.fow[index].batsmanId,
+                                playerNameKey: inning.fow[index].batsmanName,
+                              },
+                            ),
+                          )
+                          .expand(flex: 7),
                       Text(
                         "${inning.fow[index].runs}-${index + 1}",
                         style: Common.textStyle(
@@ -477,6 +564,15 @@ class CustomExpantionTile extends StatelessWidget {
                               size: 15.sp,
                               color: primary50,
                             ),
+                          ).onTap(
+                            () => Navigator.pushNamed(
+                              context,
+                              Routes.playerProfileRt,
+                              arguments: {
+                                playerIdKey: inning.ps[index].bat1Id,
+                                playerNameKey: inning.ps[index].bat1Name,
+                              },
+                            ),
                           ),
                           Text(
                             "${inning.ps[index].bat1Runs} (${inning.ps[index].bat1Balls})",
@@ -496,6 +592,15 @@ class CustomExpantionTile extends StatelessWidget {
                             style: Common.textStyle(
                               size: 15.sp,
                               color: primary50,
+                            ),
+                          ).onTap(
+                            () => Navigator.pushNamed(
+                              context,
+                              Routes.playerProfileRt,
+                              arguments: {
+                                playerIdKey: inning.ps[index].bat2Id,
+                                playerNameKey: inning.ps[index].bat2Name,
+                              },
                             ),
                           ),
                           Text(

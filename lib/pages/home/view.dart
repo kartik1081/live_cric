@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/models/crt/crt_match_type_model.dart';
 import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/pages/home/widgets/match_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/remote_configs.dart';
+import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nb_utils/nb_utils.dart' hide black;
 import 'package:nb_utils/nb_utils.dart' as nb;
@@ -41,7 +44,7 @@ class HomeView extends StatelessWidget {
                     style: Common.textStyle(color: text),
                   ).paddingBottom(100.h).center()
                 : Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SingleChildScrollView(
                         padding: EdgeInsets.only(left: 0),
@@ -115,12 +118,25 @@ class HomeView extends StatelessWidget {
                                 context,
                                 listen: false,
                               ).matchTypes.elementAt(index).matchList.length,
-                              itemBuilder: (p0, index2) => MatchTile(
-                                match: Provider.of<HomeController>(
+                              itemBuilder: (p0, index2) {
+                                final element = Provider.of<HomeController>(
                                   context,
                                   listen: false,
-                                ).matchTypes.elementAt(index).matchList[index2],
-                              ).paddingBottom(16.h),
+                                ).matchTypes.elementAt(index).matchList[index2];
+                                return element == null
+                                    ? CustomNative(
+                                        nativeType: "",
+                                        nativeId: "",
+                                        showNative: false,
+                                        bannerType: AdSize.largeBanner,
+                                        bannerId: RemoteConfigs.bannerIdRc,
+                                        showBanner: true,
+                                        bottomPadding: 13,
+                                      )
+                                    : MatchTile(
+                                        match: element,
+                                      ).paddingBottom(13.h);
+                              },
                             ).paddingTop(15.h),
                           ),
                         ),

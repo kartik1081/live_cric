@@ -25,7 +25,11 @@ class ScorecardView extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: const Icon(Icons.arrow_back_ios_new_rounded, color: soft),
+                icon: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  color: soft,
+                  size: 23.w,
+                ),
               ),
               SizedBox(width: 7.w),
               Text(

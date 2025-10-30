@@ -12,6 +12,7 @@ class Routes {
   static const String splashRt = "/";
   static const String homeRt = "/home";
   static const String scorecardRt = "/scorecard";
+  static const String playerProfileRt = "/player_profile";
 
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {

@@ -10,11 +10,17 @@ class RemoteConfigs {
     "app_name": 'LiveCric',
     "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com",
     "x-rapidapi-key": "c89783400cmsh40a6a97cc3e0dd4p11104bjsnd09af3840a52",
+    "show_banner": true,
+    "show_native": true,
+    "banner_id": "ca-app-pub-3940256099942544/6300978111",
   };
 
   static String get appNameRc => _config.getString("app_name");
   static String get xRapidapiHostRc => _config.getString("x-rapidapi-host");
   static String get xRapidapiKeyRc => _config.getString("x-rapidapi-key");
+  static bool get showBannerRc => _config.getBool("show_banner");
+  static bool get showNativeRc => _config.getBool("show_native");
+  static String get bannerIdRc => _config.getString("banner_id");
 
   static Future<void> initConfig() async {
     try {

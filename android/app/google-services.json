@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "360944616473",
-    "project_id": "livecric-a2558",
-    "storage_bucket": "livecric-a2558.firebasestorage.app"
+    "project_number": "722476945071",
+    "project_id": "livecric-b5226",
+    "storage_bucket": "livecric-b5226.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:360944616473:android:dbd72d85f9a884d2635688",
+        "mobilesdk_app_id": "1:722476945071:android:3dc0700a8f3a20b8dcce5a",
         "android_client_info": {
           "package_name": "com.apps.live_cric"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCjKuYxOv_5_ujS9W-umcpZxrvM5KNRm5U"
+          "current_key": "AIzaSyC040zUqyKACR_kEgKSZUIiCU_1rQCX27c"
         }
       ],
       "services": {

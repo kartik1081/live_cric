@@ -1,3 +1,7 @@
+const String nativeMedium = 'nativeAdFactoryMedium';
+const String nativeSmall = 'nativeAdFactorySmall';
+const String nativeVideo = 'nativeAdFactoryVideo';
+
 const String xRapidapiHostKey = "x-rapidapi-host";
 const String xRapidapiKey = "x-rapidapi-key";
 const String responseKey = "response";
@@ -122,3 +126,5 @@ const String tossstatusKey = "tossstatus";
 const String umpire1Key = "umpire1";
 const String umpire2Key = "umpire2";
 const String umpire3Key = "umpire3";
+const String playerIdKey = "player_id";
+const String playerNameKey = "player_name";
