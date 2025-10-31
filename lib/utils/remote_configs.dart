@@ -12,7 +12,12 @@ class RemoteConfigs {
     "x-rapidapi-key": "c89783400cmsh40a6a97cc3e0dd4p11104bjsnd09af3840a52",
     "show_banner": true,
     "show_native": true,
+    "show_interstitial": true,
+    "show_reward": true,
     "banner_id": "ca-app-pub-3940256099942544/6300978111",
+    "native_id": "ca-app-pub-3940256099942544/2247696110",
+    "interstitial_id": "ca-app-pub-3940256099942544/1033173712",
+    "reward_id": "ca-app-pub-3940256099942544/5224354917",
   };
 
   static String get appNameRc => _config.getString("app_name");
@@ -20,7 +25,12 @@ class RemoteConfigs {
   static String get xRapidapiKeyRc => _config.getString("x-rapidapi-key");
   static bool get showBannerRc => _config.getBool("show_banner");
   static bool get showNativeRc => _config.getBool("show_native");
+  static bool get showInterstitialRc => _config.getBool("show_interstitial");
+  static bool get showRewardRc => _config.getBool("show_reward");
   static String get bannerIdRc => _config.getString("banner_id");
+  static String get nativeIdRc => _config.getString("native_id");
+  static String get interstitialIdRc => _config.getString("interstitial_id");
+  static String get rewardedIdRc => _config.getString("reward_id");
 
   static Future<void> initConfig() async {
     try {
@@ -41,7 +51,8 @@ class RemoteConfigs {
     } catch (e) {
       nb.log("initConfig: $e");
     } finally {
-      Ads.initAds();
+      Ads.loadInterstitial();
+      Ads.loadReward();
     }
   }
 }

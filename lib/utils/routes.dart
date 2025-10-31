@@ -5,6 +5,8 @@ import 'package:live_cric/pages/scorecard/controller.dart';
 import 'package:live_cric/pages/scorecard/view.dart';
 import 'package:live_cric/pages/splash/controller.dart';
 import 'package:live_cric/pages/splash/view.dart';
+import 'package:live_cric/pages/video_stream/controller.dart';
+import 'package:live_cric/pages/video_stream/view.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +15,7 @@ class Routes {
   static const String homeRt = "/home";
   static const String scorecardRt = "/scorecard";
   static const String playerProfileRt = "/player_profile";
+  static const String videoStreamRt = "/video_stream";
 
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
@@ -41,6 +44,19 @@ class Routes {
             create: (context) =>
                 ScorecardController(context, matchId: args[matchIdKey]),
             child: ScorecardView(),
+          ),
+        );
+      case videoStreamRt:
+        final args = setting.arguments as dynamic;
+        return MaterialPageRoute(
+          settings: RouteSettings(name: homeRt),
+          builder: (context) => ChangeNotifierProvider<VideoStreamController>(
+            create: (context) => VideoStreamController(
+              context,
+              match: args[matchKey],
+              streamUrl: args[streamUrlKey],
+            ),
+            child: VideoStreamView(),
           ),
         );
       default:

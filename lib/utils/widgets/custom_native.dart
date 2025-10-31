@@ -55,16 +55,17 @@ class _CustomNativeState extends State<CustomNative> {
   Widget build(BuildContext context) {
     return _isNativeAdLoaded && _nativeAd != null
         ? Container(
-            height: widget.nativeType == nativeVideo
-                ? 365
-                : widget.nativeType == nativeMedium
-                ? 350
-                : 150,
             alignment: Alignment.center,
+
+            height: widget.nativeType == nativeVideo
+                ? 350
+                : widget.nativeType == nativeMedium
+                ? 320
+                : 125,
             child: AdWidget(ad: _nativeAd!),
           ).paddingOnly(
-            top: widget.topPadding.h,
-            bottom: widget.bottomPadding.h,
+            top: widget.topPadding == 0 ? 0 : widget.topPadding.h,
+            bottom: widget.bottomPadding == 0 ? 0 : widget.bottomPadding.h,
           )
         : _isBannerAdLoaded && _bannerAd != null
         ? SizedBox(
@@ -72,8 +73,10 @@ class _CustomNativeState extends State<CustomNative> {
             height: _bannerAd!.size.height.toDouble(),
             child: AdWidget(ad: _bannerAd!),
           ).paddingOnly(
-            top: widget.topPadding.h,
-            bottom: widget.bottomPadding.h,
+            top: widget.topPadding == 0 ? 0 : widget.topPadding.h,
+            bottom: widget.bottomPadding == 0
+                ? 0
+                : (widget.bottomPadding + 7).h,
           )
         : SizedBox.shrink();
   }
@@ -83,7 +86,7 @@ class _CustomNativeState extends State<CustomNative> {
       adUnitId: widget.nativeId,
       factoryId: widget.nativeType,
       nativeAdOptions: NativeAdOptions(
-        videoOptions: VideoOptions(startMuted: false),
+        videoOptions: VideoOptions(startMuted: true),
       ),
       listener: NativeAdListener(
         onAdLoaded: (ad) {
@@ -118,7 +121,6 @@ class _CustomNativeState extends State<CustomNative> {
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
           ad.dispose();
-          nb.log('Ad load failed: $error');
         },
       ),
     );

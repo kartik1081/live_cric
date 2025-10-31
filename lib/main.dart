@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/firebase_options.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
@@ -13,7 +14,14 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   nb.initialize();
   RemoteConfigs.initConfig();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  MobileAds.instance.initialize();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(systemNavigationBarContrastEnforced: false),
+  );
 
   runApp(const MyApp());
 }
@@ -29,6 +37,7 @@ class MyApp extends StatelessWidget {
         title: 'LiveCric',
         theme: AppTheme.lightTheme,
         initialRoute: Routes.splashRt,
+        debugShowCheckedModeBanner: false,
         onGenerateRoute: (settings) => Routes.onGenerateRoute(settings),
       ),
     );

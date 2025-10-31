@@ -1,3 +1,5 @@
+const String streamLinksFc = "Stream Links";
+
 const String nativeMedium = 'nativeAdFactoryMedium';
 const String nativeSmall = 'nativeAdFactorySmall';
 const String nativeVideo = 'nativeAdFactoryVideo';
@@ -128,3 +130,6 @@ const String umpire2Key = "umpire2";
 const String umpire3Key = "umpire3";
 const String playerIdKey = "player_id";
 const String playerNameKey = "player_name";
+const String matchKey = "match";
+const String streamUrlKey = "stream_url";
+const String streamUrlsKey = "stream_urls";

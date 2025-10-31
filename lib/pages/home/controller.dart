@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:live_cric/models/crt/crt_match_model.dart';
 import 'package:live_cric/models/crt/crt_match_type_model.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/response_data.dart';
+import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class HomeController extends ChangeNotifier {
@@ -13,9 +15,11 @@ class HomeController extends ChangeNotifier {
   int _selectedIndex = 0;
   bool _mounted = false;
   bool _loading = true;
+  bool _streamLinkLoading = false;
   List<CrtMatchTypeModel> _matchTypes = [];
 
   bool get loading => _loading;
+  bool get streamLinkLoading => _streamLinkLoading;
   int get selectedIndex => _selectedIndex;
   List<CrtMatchTypeModel> get matchTypes => _matchTypes;
 
@@ -97,6 +101,55 @@ class HomeController extends ChangeNotifier {
       duration: 300.milliseconds,
       curve: Curves.ease,
     );
+  }
+
+  void getStreamingLink(
+    BuildContext context, {
+    required CrtMatchModel match,
+  }) async {
+    if (!await Common.checkNetwork(context)) return;
+
+    _streamLinkLoading = true;
+    notify();
+    try {
+      await Configs.firestore
+          .collection(streamLinksFc)
+          .doc(0.toString())
+          .get()
+          .then((value) {
+            if (value.exists &&
+                value.data() != null &&
+                ((value.data()?[streamUrlsKey] as List<dynamic>?) ?? [])
+                    .isNotEmpty) {
+              if (context.mounted) {
+                Navigator.pushNamed(
+                  context,
+                  Routes.videoStreamRt,
+                  arguments: {
+                    matchKey: match,
+                    streamUrlKey: value.data()![streamUrlsKey][0],
+                  },
+                );
+              }
+            } else {
+              if (context.mounted) {
+                Navigator.pushNamed(
+                  context,
+                  Routes.scorecardRt,
+                  arguments: {matchIdKey: match.matchId},
+                );
+              }
+            }
+          });
+    } catch (e) {
+      nb.log("getStreamingLink: $e");
+      if (context.mounted) {
+        Common.showSnackbar(context, nb.errorMessage);
+      }
+    } finally {
+      _streamLinkLoading = false;
+      notify();
+    }
   }
 
   void notify() {

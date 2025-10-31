@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:live_cric/models/crt/crt_match_model.dart';
+import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
+import 'package:provider/provider.dart';
 
 class MatchTile extends StatelessWidget {
   final CrtMatchModel match;
@@ -36,10 +38,6 @@ class MatchTile extends StatelessWidget {
                   ),
                   Text(
                     match.date,
-                    style: Common.textStyle(color: text, size: 13.sp),
-                  ),
-                  Text(
-                    "${match.venue.ground}, ${match.venue.city}",
                     style: Common.textStyle(color: text, size: 13.sp),
                   ),
                 ],
@@ -115,11 +113,11 @@ class MatchTile extends StatelessWidget {
               ).expand(),
               Column(
                 children: [
-                  Icon(Icons.circle, color: Colors.redAccent, size: 10.w),
+                  Icon(Icons.circle, color: Colors.greenAccent, size: 10.w),
                   Text(
                     "Live",
                     style: Common.textStyle(
-                      color: Colors.redAccent,
+                      color: Colors.greenAccent,
                       size: 13.sp,
                     ),
                   ),
@@ -196,6 +194,11 @@ class MatchTile extends StatelessWidget {
           ),
         ],
       ),
+    ).onTap(
+      () => Provider.of<HomeController>(
+        context,
+        listen: false,
+      ).getStreamingLink(context, match: match),
     );
   }
 }

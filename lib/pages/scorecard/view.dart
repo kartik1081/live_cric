@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/models/crt/crt_match_info.dart';
 import 'package:live_cric/models/crt/crt_match_scorecard_model.dart';
 import 'package:live_cric/pages/scorecard/controller.dart';
 import 'package:live_cric/pages/scorecard/widgets/custom_expantion_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/remote_configs.dart';
+import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:provider/provider.dart';
 
@@ -306,6 +309,13 @@ class ScorecardView extends StatelessWidget {
                     ),
                   ),
           ).expand(),
+          CustomNative(
+            nativeType: "",
+            bannerType: AdSize.fullBanner,
+            nativeId: "",
+            bannerId: RemoteConfigs.bannerIdRc,
+          ),
+          SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],
       ),
     );

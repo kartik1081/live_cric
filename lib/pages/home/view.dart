@@ -6,6 +6,7 @@ import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/pages/home/widgets/match_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:lottie/lottie.dart';
@@ -125,9 +126,9 @@ class HomeView extends StatelessWidget {
                                 ).matchTypes.elementAt(index).matchList[index2];
                                 return element == null
                                     ? CustomNative(
-                                        nativeType: "",
-                                        nativeId: "",
-                                        showNative: false,
+                                        nativeType: nativeSmall,
+                                        nativeId: RemoteConfigs.nativeIdRc,
+                                        showNative: true,
                                         bannerType: AdSize.largeBanner,
                                         bannerId: RemoteConfigs.bannerIdRc,
                                         showBanner: true,
@@ -144,6 +145,13 @@ class HomeView extends StatelessWidget {
                     ],
                   ),
           ).expand(),
+          CustomNative(
+            nativeType: "",
+            bannerType: AdSize.fullBanner,
+            nativeId: "",
+            bannerId: RemoteConfigs.bannerIdRc,
+          ),
+          SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],
       ),
     );

@@ -29,7 +29,9 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   auto_size_text: ^3.0.0
+  better_player_plus: ^1.0.8
   cached_network_image: ^3.4.1
+  cloud_firestore: ^6.0.3
   cupertino_icons: ^1.0.8
   firebase_core: ^4.1.1
   firebase_remote_config: ^6.0.2

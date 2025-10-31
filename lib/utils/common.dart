@@ -54,10 +54,10 @@ class Common {
     shape: RoundedRectangleBorder(borderRadius: nb.radius(54.r)),
   );
 
-  static Widget loader({Color? color}) =>
+  static Widget loader({Color? color, int size = 35}) =>
       LoadingAnimationWidget.fourRotatingDots(
         color: color ?? soft,
-        size: 35.w,
+        size: size.w,
       ).center();
 
   static String generateId({int length = 16}) {
