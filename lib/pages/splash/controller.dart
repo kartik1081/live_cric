@@ -6,7 +6,11 @@ class SplashController extends ChangeNotifier {
   SplashController(BuildContext context) {
     Future.delayed(3.seconds).whenComplete(() {
       if (context.mounted) {
-        Navigator.pushNamed(context, Routes.homeRt);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          Routes.homeRt,
+          (route) => false,
+        );
       }
     });
   }

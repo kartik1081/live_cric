@@ -7,6 +7,7 @@ import 'package:live_cric/pages/scorecard/controller.dart';
 import 'package:live_cric/pages/scorecard/widgets/custom_expantion_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
@@ -25,9 +26,7 @@ class ScorecardView extends StatelessWidget {
           Row(
             children: [
               IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+                onPressed: () => Navigator.pop(context),
                 icon: Icon(
                   Icons.arrow_back_ios_new_rounded,
                   color: soft,
@@ -78,6 +77,15 @@ class ScorecardView extends StatelessWidget {
                                     ),
                                   ],
                                 ),
+                        ),
+                        CustomNative(
+                          nativeType: "",
+                          nativeId: "",
+                          showNative: false,
+                          bannerType: AdSize.banner,
+                          bannerId: RemoteConfigs.bannerIdRc,
+                          showBanner: true,
+                          topPadding: 13,
                         ),
                         Selector<ScorecardController, CrtMatchInfoModel?>(
                           selector: (p0, p1) => p1.matchInfo,
@@ -301,6 +309,15 @@ class ScorecardView extends StatelessWidget {
                                   ),
                                 ],
                               ],
+                              CustomNative(
+                                nativeType: nativeSmall,
+                                nativeId: RemoteConfigs.nativeIdRc,
+                                showNative: true,
+                                bannerType: AdSize.largeBanner,
+                                bannerId: RemoteConfigs.bannerIdRc,
+                                showBanner: true,
+                                topPadding: 11,
+                              ).paddingSymmetric(horizontal: 18.w),
                             ],
                           ),
                         ),

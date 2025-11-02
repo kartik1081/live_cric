@@ -4,11 +4,12 @@ import 'dart:convert';
 import 'package:better_player_plus/better_player_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:live_cric/models/crt/crt_match_comm_model.dart';
 import 'package:live_cric/models/crt/crt_match_model.dart';
-import 'package:live_cric/models/crt/crt_match_scorecard_model.dart';
+import 'package:live_cric/network_services/network_endpoint.dart';
+import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/ads.dart';
 import 'package:live_cric/utils/common.dart';
-import 'package:live_cric/utils/response_data.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class VideoStreamController extends ChangeNotifier {
@@ -19,15 +20,15 @@ class VideoStreamController extends ChangeNotifier {
 
   bool _mounted = false;
   bool _initialLoading = true;
-  bool _scorecardLoading = true;
+  bool _commentryLoading = true;
   int _lastStreamingSeconds = 300;
   Timer? timer;
-  CrtMatchScorecardModel? _scorecardModel;
+  CrtMatchCommModel? _comm;
 
   bool get initialLoading => _initialLoading;
-  bool get scorecardLoading => _scorecardLoading;
+  bool get commentryLoading => _commentryLoading;
   int get lastStreamingSeconds => _lastStreamingSeconds;
-  CrtMatchScorecardModel? get scorecardModel => _scorecardModel;
+  CrtMatchCommModel? get comm => _comm;
 
   VideoStreamController(
     BuildContext context, {
@@ -39,6 +40,7 @@ class VideoStreamController extends ChangeNotifier {
       BetterPlayerDataSourceType.network,
       streamUrl,
       liveStream: true,
+      videoFormat: BetterPlayerVideoFormat.hls,
     );
     controller = BetterPlayerController(
       BetterPlayerConfiguration(
@@ -67,7 +69,7 @@ class VideoStreamController extends ChangeNotifier {
     adInit(context);
     _initialLoading = false;
     notify();
-    getScorecard(context, load: true);
+    getCommentry(context, load: true);
   }
 
   @override
@@ -75,6 +77,7 @@ class VideoStreamController extends ChangeNotifier {
     super.dispose();
     _mounted = false;
     _initialLoading = false;
+    controller.pause();
     controller.dispose();
     timer?.cancel();
     nb.setValue(match.matchId.toString(), _lastStreamingSeconds);
@@ -85,9 +88,7 @@ class VideoStreamController extends ChangeNotifier {
       _lastStreamingSeconds--;
       if (_lastStreamingSeconds % 300 == 0) {
         timer?.cancel();
-
         controller.pause();
-
         Ads.showInterstitialAd(
           true,
           onDismiss: () async {
@@ -102,39 +103,37 @@ class VideoStreamController extends ChangeNotifier {
     });
   }
 
-  Future<void> getScorecard(BuildContext context, {bool load = false}) async {
+  void getCommentry(BuildContext context, {bool load = false}) async {
     if (!await Common.checkNetwork(context)) return;
 
     if (load) {
-      _scorecardLoading = true;
+      _commentryLoading = true;
       notify();
     }
-
     try {
-      // final response = await buildHttpResponse(
-      //   getMatchScorecardEp(matchId),
-      //   method: nb.HttpMethodType.GET,
-      // );
+      final response = await buildHttpResponse(
+        getCommentryEp(match.matchId),
+        method: nb.HttpMethodType.GET,
+      );
 
-      // switch (response.statusCode) {
-      //   case 200:
-      await Future.delayed(3.seconds);
-      final data = jsonDecode(ResponseData.scorecard);
-      _scorecardModel = CrtMatchScorecardModel.fromJson(data);
-      // if (context.mounted) {
-      //   await getMatchInfo(context);
-      // }
-      //     break;
-      //   default:
-      //     throw Exception([response.statusCode]);
-      // }
+      switch (response.statusCode) {
+        case 200:
+          final data = jsonDecode(response.body);
+          _comm = CrtMatchCommModel.fromJson(data);
+          break;
+        default:
+          throw Exception([response.statusCode]);
+      }
     } catch (e) {
-      nb.log("getScorecard: $e");
+      nb.log("getCommentry: $e");
       if (context.mounted) {
-        Common.showSnackbar(context, nb.errorSomethingWentWrong);
+        Common.showSnackbar(
+          context,
+          "Failed to load Commentry! ${nb.errorMessage}",
+        );
       }
     } finally {
-      _scorecardLoading = false;
+      _commentryLoading = false;
       notify();
     }
   }

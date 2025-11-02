@@ -229,56 +229,59 @@ class CustomExpantionTile extends StatelessWidget {
                 ],
               ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  "Yet to Bat",
-                  style: Common.textStyle(
-                    size: 14.sp,
-                    color: soft,
-                    weight: FontWeight.w600,
+            if (inning.batsman
+                .where((element) => (element.outdec ?? "") == "")
+                .isNotEmpty)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    "Yet to Bat",
+                    style: Common.textStyle(
+                      size: 14.sp,
+                      color: soft,
+                      weight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                SizedBox(height: 7.h),
-                Wrap(
-                  children: List.generate(
-                    inning.batsman
-                        .where((element) => (element.outdec ?? "") == "")
-                        .length,
-                    (index) =>
-                        Text(
-                          "${inning.batsman.where((element) => (element.outdec ?? "") == "").toList()[index].name}${index == inning.batsman.where((element) => (element.outdec ?? "") == "").length - 1 ? "" : ", "}",
-                          style: Common.textStyle(
-                            size: 14.sp,
-                            color: primary50,
+                  SizedBox(height: 7.h),
+                  Wrap(
+                    children: List.generate(
+                      inning.batsman
+                          .where((element) => (element.outdec ?? "") == "")
+                          .length,
+                      (index) =>
+                          Text(
+                            "${inning.batsman.where((element) => (element.outdec ?? "") == "").toList()[index].name}${index == inning.batsman.where((element) => (element.outdec ?? "") == "").length - 1 ? "" : ", "}",
+                            style: Common.textStyle(
+                              size: 14.sp,
+                              color: primary50,
+                            ),
+                          ).onTap(
+                            () => Navigator.pushNamed(
+                              context,
+                              Routes.playerProfileRt,
+                              arguments: {
+                                playerIdKey: inning.batsman
+                                    .where(
+                                      (element) => (element.outdec ?? "") == "",
+                                    )
+                                    .toList()[index]
+                                    .id,
+                                playerNameKey: inning.batsman
+                                    .where(
+                                      (element) => (element.outdec ?? "") == "",
+                                    )
+                                    .toList()[index]
+                                    .name,
+                              },
+                            ),
                           ),
-                        ).onTap(
-                          () => Navigator.pushNamed(
-                            context,
-                            Routes.playerProfileRt,
-                            arguments: {
-                              playerIdKey: inning.batsman
-                                  .where(
-                                    (element) => (element.outdec ?? "") == "",
-                                  )
-                                  .toList()[index]
-                                  .id,
-                              playerNameKey: inning.batsman
-                                  .where(
-                                    (element) => (element.outdec ?? "") == "",
-                                  )
-                                  .toList()[index]
-                                  .name,
-                            },
-                          ),
-                        ),
+                    ),
                   ),
-                ),
-              ],
-            ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
+                ],
+              ).paddingSymmetric(horizontal: 13.w, vertical: 10.h),
           ],
-          if (inning.batsman.isNotEmpty) ...[
+          if (inning.bowlers.isNotEmpty) ...[
             CustomNative(
               nativeType: "",
               nativeId: "",
@@ -347,7 +350,9 @@ class CustomExpantionTile extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                            inning.bowlers[index].nickname,
+                            inning.bowlers[index].nickname == ""
+                                ? inning.bowlers[index].name
+                                : inning.bowlers[index].nickname,
                             style: Common.textStyle(
                               size: 15.sp,
                               color: primary50,
@@ -478,6 +483,15 @@ class CustomExpantionTile extends StatelessWidget {
             ),
           ],
           if (inning.pp.isNotEmpty) ...[
+            CustomNative(
+              nativeType: "",
+              nativeId: "",
+              showNative: false,
+              bannerType: AdSize.banner,
+              bannerId: RemoteConfigs.bannerIdRc,
+              showBanner: true,
+              topPadding: 13,
+            ),
             SizedBox(height: 13.h),
             Container(
               decoration: BoxDecoration(
@@ -538,6 +552,15 @@ class CustomExpantionTile extends StatelessWidget {
             ),
           ],
           if (inning.ps.isNotEmpty) ...[
+            CustomNative(
+              nativeType: "",
+              nativeId: "",
+              showNative: false,
+              bannerType: AdSize.banner,
+              bannerId: RemoteConfigs.bannerIdRc,
+              showBanner: true,
+              topPadding: 13,
+            ),
             SizedBox(height: 13.h),
             Container(
               alignment: Alignment.centerLeft,

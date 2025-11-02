@@ -10,10 +10,15 @@ import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:provider/provider.dart';
 
-class MatchTile extends StatelessWidget {
-  final CrtMatchModel match;
-  const MatchTile({super.key, required this.match});
+class MatchTile extends StatefulWidget {
+  CrtMatchModel match;
+  MatchTile({super.key, required this.match});
 
+  @override
+  State<MatchTile> createState() => _MatchTileState();
+}
+
+class _MatchTileState extends State<MatchTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +33,7 @@ class MatchTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${match.matchDesc} | ${match.seriesName}",
+                    "${widget.match.matchDesc} | ${widget.match.seriesName}",
                     style: Common.textStyle(
                       color: soft,
                       size: 14.sp,
@@ -37,7 +42,7 @@ class MatchTile extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    match.date,
+                    widget.match.date,
                     style: Common.textStyle(color: text, size: 13.sp),
                   ),
                 ],
@@ -50,7 +55,7 @@ class MatchTile extends StatelessWidget {
                   borderRadius: nb.radius(4.r),
                 ),
                 child: Text(
-                  match.matchFormat,
+                  widget.match.matchFormat,
                   style: Common.textStyle(
                     color: black,
                     size: 13.sp,
@@ -66,19 +71,19 @@ class MatchTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Column(
                     children: [
                       CustomNetworkImage(
-                        imageId: match.team1.imageId,
+                        imageId: widget.match.team1.imageId,
                         width: 47.w,
                         height: 35.h,
                       ),
                       SizedBox(height: 7.h),
                       Text(
-                        match.team1.teamSName,
+                        widget.match.team1.teamSName,
                         style: Common.textStyle(
                           color: soft,
                           size: 14.sp,
@@ -87,28 +92,38 @@ class MatchTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 7.w),
-                  Column(
-                    children: List.generate(
-                      match.team1Scores.length,
-                      (index) => Row(
-                        children: [
-                          Text(
-                            "${match.team1Scores[index].runs} / ${match.team1Scores[index].wickets}",
-                            style: Common.textStyle(
-                              color: soft,
-                              size: 14.sp,
-                              weight: FontWeight.w700,
+                  SizedBox(width: 10.w),
+                  if (widget.match.team1Scores.isEmpty)
+                    Text(
+                      "Yet to Bat",
+                      style: Common.textStyle(
+                        color: soft,
+                        size: 14.sp,
+                        weight: FontWeight.w700,
+                      ),
+                    )
+                  else
+                    Column(
+                      children: List.generate(
+                        widget.match.team1Scores.length,
+                        (index) => Row(
+                          children: [
+                            Text(
+                              "${widget.match.team1Scores[index].runs} / ${widget.match.team1Scores[index].wickets}",
+                              style: Common.textStyle(
+                                color: soft,
+                                size: 14.sp,
+                                weight: FontWeight.w700,
+                              ),
                             ),
-                          ),
-                          Text(
-                            "  (${match.team1Scores[index].overs})",
-                            style: Common.textStyle(color: text, size: 12.sp),
-                          ),
-                        ],
+                            Text(
+                              "  (${widget.match.team1Scores[index].overs})",
+                              style: Common.textStyle(color: text, size: 12.sp),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
                 ],
               ).expand(),
               Column(
@@ -124,42 +139,52 @@ class MatchTile extends StatelessWidget {
                 ],
               ),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: List.generate(
-                      match.team2Scores.length,
-                      (index) => Row(
-                        children: [
-                          Text(
-                            "${match.team2Scores[index].runs} / ${match.team2Scores[index].wickets}",
-                            style: Common.textStyle(
-                              color: soft,
-                              size: 14.sp,
-                              weight: FontWeight.w600,
+                  if (widget.match.team2Scores.isEmpty)
+                    Text(
+                      "Yet to Bat",
+                      style: Common.textStyle(
+                        color: soft,
+                        size: 14.sp,
+                        weight: FontWeight.w700,
+                      ),
+                    )
+                  else
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: List.generate(
+                        widget.match.team2Scores.length,
+                        (index) => Row(
+                          children: [
+                            Text(
+                              "${widget.match.team2Scores[index].runs} / ${widget.match.team2Scores[index].wickets}",
+                              style: Common.textStyle(
+                                color: soft,
+                                size: 14.sp,
+                                weight: FontWeight.w600,
+                              ),
                             ),
-                          ),
-                          Text(
-                            "  (${match.team2Scores[index].overs})",
-                            style: Common.textStyle(color: text, size: 12.sp),
-                          ),
-                        ],
+                            Text(
+                              "  (${widget.match.team2Scores[index].overs})",
+                              style: Common.textStyle(color: text, size: 12.sp),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 7.w),
+                  SizedBox(width: 10.w),
                   Column(
                     children: [
                       CustomNetworkImage(
-                        imageId: match.team2.imageId,
+                        imageId: widget.match.team2.imageId,
                         width: 47.w,
                         height: 35.h,
                       ),
                       SizedBox(height: 7.h),
                       Text(
-                        match.team2.teamSName,
+                        widget.match.team2.teamSName,
                         style: Common.textStyle(
                           color: soft,
                           size: 14.sp,
@@ -178,27 +203,43 @@ class MatchTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                match.status,
+                widget.match.status,
                 style: Common.textStyle(color: primary50, size: 14.sp),
                 // overflow: TextOverflow.ellipsis,
               ).expand(),
               IconButton(
-                onPressed: () => Navigator.pushNamed(
-                  context,
-                  Routes.scorecardRt,
-                  arguments: {matchIdKey: match.matchId},
-                ),
+                onPressed: () async {
+                  final result = await Navigator.pushNamed(
+                    context,
+                    Routes.scorecardRt,
+                    arguments: {matchKey: widget.match},
+                  );
+                  if (result != null && result is Map) {
+                    setState(() {
+                      widget.match = (result[matchKey] as CrtMatchModel);
+                    });
+                  }
+                },
                 icon: const Icon(Icons.auto_graph_rounded, color: text),
               ),
             ],
           ),
         ],
       ),
-    ).onTap(
-      () => Provider.of<HomeController>(
+    ).onTap(() async {
+      if (widget.match.state == tossSt) {
+        Common.showSnackbar(context, "Match is not started yet!");
+        return;
+      }
+      final result = await Provider.of<HomeController>(
         context,
         listen: false,
-      ).getStreamingLink(context, match: match),
-    );
+      ).getStreamingLink(context, match: widget.match);
+      if (result != null && result is Map) {
+        setState(() {
+          widget.match = (result[matchKey] as CrtMatchModel);
+        });
+      }
+    });
   }
 }

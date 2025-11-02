@@ -3,10 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:live_cric/models/crt/crt_match_model.dart';
 import 'package:live_cric/models/crt/crt_match_type_model.dart';
+import 'package:live_cric/network_services/network_endpoint.dart';
+import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
-import 'package:live_cric/utils/response_data.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -42,46 +43,47 @@ class HomeController extends ChangeNotifier {
       notify();
     }
     try {
-      // final response = await buildHttpResponse(
-      //   matchListEp,
-      //   method: nb.HttpMethodType.GET,
-      // );
+      final response = await buildHttpResponse(
+        matchListEp,
+        method: nb.HttpMethodType.GET,
+      );
 
-      // switch (response.statusCode) {
-      //   case 200:
-      final data = jsonDecode(ResponseData.liveMatches);
-      final List<CrtMatchTypeModel> x = [];
-      for (Map<String, dynamic> matchType in data[typeMatchesKey]) {
-        String mType = matchType[matchTypeKey];
-        List<CrtMatchModel?> matchList = [];
-        if (matchType[seriesMatchesKey] != null) {
-          for (var series in matchType[seriesMatchesKey]) {
-            if (series[seriesAdWrapperKey] != null) {
-              for (var match in series[seriesAdWrapperKey][matchesKey]) {
-                matchList.add(CrtMatchModel.fromJson(match));
-                if (matchList.where((element) => element != null).length % 2 ==
-                    1) {
-                  matchList.add(null);
+      switch (response.statusCode) {
+        case 200:
+          final data = jsonDecode(response.body);
+          final List<CrtMatchTypeModel> x = [];
+          for (Map<String, dynamic> matchType in data[typeMatchesKey]) {
+            String mType = matchType[matchTypeKey];
+            List<CrtMatchModel?> matchList = [];
+            if (matchType[seriesMatchesKey] != null) {
+              for (var series in matchType[seriesMatchesKey]) {
+                if (series[seriesAdWrapperKey] != null) {
+                  for (var match in series[seriesAdWrapperKey][matchesKey]) {
+                    matchList.add(CrtMatchModel.fromJson(match));
+                    if (matchList.where((element) => element != null).length %
+                            2 ==
+                        1) {
+                      matchList.add(null);
+                    }
+                  }
                 }
               }
             }
+            x.add(CrtMatchTypeModel(matchType: mType, matchList: matchList));
           }
-        }
-        x.add(CrtMatchTypeModel(matchType: mType, matchList: matchList));
+          _matchTypes = x;
+          break;
+        case 404:
+          _matchTypes = [];
+          break;
+        case 401:
+          if (context.mounted) {
+            Common.showSnackbar(context, "Try again later!");
+          }
+          break;
+        default:
+          throw Exception([response.statusCode]);
       }
-      _matchTypes = x;
-      //     break;
-      //   case 404:
-      //     _matchTypes = [];
-      //     break;
-      //   case 401:
-      //     if (context.mounted) {
-      //       Common.showSnackbar(context, "Try again later!");
-      //     }
-      //     break;
-      //   default:
-      //     throw Exception([response.statusCode]);
-      // }
     } catch (e) {
       nb.log("getMatchesList: $e");
       if (context.mounted) {
@@ -103,26 +105,26 @@ class HomeController extends ChangeNotifier {
     );
   }
 
-  void getStreamingLink(
+  Future<dynamic> getStreamingLink(
     BuildContext context, {
     required CrtMatchModel match,
   }) async {
-    if (!await Common.checkNetwork(context)) return;
+    if (!await Common.checkNetwork(context)) return null;
 
     _streamLinkLoading = true;
     notify();
     try {
-      await Configs.firestore
+      return await Configs.firestore
           .collection(streamLinksFc)
           .doc(0.toString())
           .get()
-          .then((value) {
+          .then((value) async {
             if (value.exists &&
                 value.data() != null &&
                 ((value.data()?[streamUrlsKey] as List<dynamic>?) ?? [])
                     .isNotEmpty) {
               if (context.mounted) {
-                Navigator.pushNamed(
+                return await Navigator.pushNamed(
                   context,
                   Routes.videoStreamRt,
                   arguments: {
@@ -133,7 +135,7 @@ class HomeController extends ChangeNotifier {
               }
             } else {
               if (context.mounted) {
-                Navigator.pushNamed(
+                return await Navigator.pushNamed(
                   context,
                   Routes.scorecardRt,
                   arguments: {matchIdKey: match.matchId},

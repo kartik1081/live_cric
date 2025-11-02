@@ -8,61 +8,226 @@ class ResponseData {
         "seriesMatches": [
           {
             "seriesAdWrapper": {
-              "seriesId": 7572,
-              "seriesName": "ICC Cricket World Cup League Two 2023-27",
+              "seriesId": 9596,
+              "seriesName": "India tour of Australia, 2025",
               "matches": [
                 {
                   "matchInfo": {
-                    "matchId": 135261,
-                    "seriesId": 7572,
-                    "seriesName": "ICC Cricket World Cup League Two 2023-27",
-                    "matchDesc": "88th Match",
-                    "matchFormat": "ODI",
-                    "startDate": "1761802200000",
-                    "endDate": "1761831000000",
+                    "matchId": 116954,
+                    "seriesId": 9596,
+                    "seriesName": "India tour of Australia, 2025",
+                    "matchDesc": "3rd T20I",
+                    "matchFormat": "T20",
+                    "startDate": "1762071300000",
+                    "endDate": "1762083900000",
                     "state": "Complete",
-                    "status": "United Arab Emirates won by 5 wkts",
+                    "status": "India won by 5 wkts",
                     "team1": {
-                      "teamId": 72,
-                      "teamName": "Nepal",
-                      "teamSName": "NEP",
-                      "imageId": 776331,
+                      "teamId": 4,
+                      "teamName": "Australia",
+                      "teamSName": "AUS",
+                      "imageId": 776202,
                     },
                     "team2": {
-                      "teamId": 7,
-                      "teamName": "United Arab Emirates",
-                      "teamSName": "UAE",
-                      "imageId": 776242,
+                      "teamId": 2,
+                      "teamName": "India",
+                      "teamSName": "IND",
+                      "imageId": 776162,
                     },
                     "venueInfo": {
-                      "id": 289,
-                      "ground": "ICC Academy Ground",
-                      "city": "Dubai",
-                      "timezone": "+04:00",
-                      "latitude": "25.036563",
-                      "longitude": "55.227611",
+                      "id": 39,
+                      "ground": "Bellerive Oval",
+                      "city": "Hobart",
+                      "timezone": "+11:00",
+                      "latitude": "-42.877296",
+                      "longitude": "147.374013",
                     },
-                    "currBatTeamId": 7,
-                    "seriesStartDt": "1707955200000",
-                    "seriesEndDt": "1806537600000",
+                    "currBatTeamId": 2,
+                    "seriesStartDt": "1760832000000",
+                    "seriesEndDt": "1762732800000",
                     "isTimeAnnounced": true,
-                    "stateTitle": "UAE Won",
+                    "stateTitle": "Complete",
                   },
                   "matchScore": {
                     "team1Score": {
                       "inngs1": {
                         "inningsId": 1,
-                        "runs": 233,
-                        "wickets": 10,
-                        "overs": 49.6,
+                        "runs": 186,
+                        "wickets": 6,
+                        "overs": 19.6,
                       },
                     },
                     "team2Score": {
                       "inngs1": {
                         "inningsId": 2,
-                        "runs": 237,
+                        "runs": 188,
                         "wickets": 5,
-                        "overs": 43.3,
+                        "overs": 18.3,
+                      },
+                    },
+                  },
+                },
+              ],
+            },
+          },
+          {
+            "seriesAdWrapper": {
+              "seriesId": 11052,
+              "seriesName": "Afghanistan tour of Zimbabwe 2025",
+              "matches": [
+                {
+                  "matchInfo": {
+                    "matchId": 135472,
+                    "seriesId": 11052,
+                    "seriesName": "Afghanistan tour of Zimbabwe 2025",
+                    "matchDesc": "3rd T20I",
+                    "matchFormat": "T20",
+                    "startDate": "1762083000000",
+                    "endDate": "1762095600000",
+                    "state": "In Progress",
+                    "status": "Zimbabwe need 58 runs in 29 balls",
+                    "team1": {
+                      "teamId": 96,
+                      "teamName": "Afghanistan",
+                      "teamSName": "AFG",
+                      "imageId": 776177,
+                    },
+                    "team2": {
+                      "teamId": 12,
+                      "teamName": "Zimbabwe",
+                      "teamSName": "ZIM",
+                      "imageId": 776198,
+                    },
+                    "venueInfo": {
+                      "id": 69,
+                      "ground": "Harare Sports Club",
+                      "city": "Harare",
+                      "timezone": "+02:00",
+                      "latitude": "-17.814114",
+                      "longitude": "31.050962",
+                    },
+                    "currBatTeamId": 12,
+                    "seriesStartDt": "1760918400000",
+                    "seriesEndDt": "1762214400000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "In Progress",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 210,
+                        "wickets": 3,
+                        "overs": 19.6,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 153,
+                        "wickets": 4,
+                        "overs": 15.1,
+                      },
+                    },
+                  },
+                },
+              ],
+            },
+          },
+          {
+            "seriesAdWrapper": {
+              "seriesId": 11062,
+              "seriesName": "Cyprus Tri-Series 2025",
+              "matches": [
+                {
+                  "matchInfo": {
+                    "matchId": 135571,
+                    "seriesId": 11062,
+                    "seriesName": "Cyprus Tri-Series 2025",
+                    "matchDesc": "6th Match",
+                    "matchFormat": "T20",
+                    "startDate": "1762081500000",
+                    "endDate": "1762094100000",
+                    "state": "Toss",
+                    "status": "Bulgaria opt to bowl",
+                    "team1": {
+                      "teamId": 1111,
+                      "teamName": "Cyprus",
+                      "teamSName": "CYP",
+                      "imageId": 247198,
+                    },
+                    "team2": {
+                      "teamId": 558,
+                      "teamName": "Bulgaria",
+                      "teamSName": "BGR",
+                      "imageId": 172610,
+                    },
+                    "venueInfo": {
+                      "id": 1893,
+                      "ground": "Happy Valley Ground",
+                      "city": "Episkopi",
+                      "timezone": "+03:00",
+                      "latitude": "34.6741916",
+                      "longitude": "32.8010629",
+                    },
+                    "seriesStartDt": "1761868800000",
+                    "seriesEndDt": "1762214400000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Toss",
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 135549,
+                    "seriesId": 11062,
+                    "seriesName": "Cyprus Tri-Series 2025",
+                    "matchDesc": "4th Match",
+                    "matchFormat": "T20",
+                    "startDate": "1761995700000",
+                    "endDate": "1762008300000",
+                    "state": "Complete",
+                    "status": "Bulgaria won by 69 runs",
+                    "team1": {
+                      "teamId": 558,
+                      "teamName": "Bulgaria",
+                      "teamSName": "BGR",
+                      "imageId": 172610,
+                    },
+                    "team2": {
+                      "teamId": 1067,
+                      "teamName": "Serbia",
+                      "teamSName": "SRB",
+                      "imageId": 247205,
+                    },
+                    "venueInfo": {
+                      "id": 1893,
+                      "ground": "Happy Valley Ground",
+                      "city": "Episkopi",
+                      "timezone": "+03:00",
+                      "latitude": "34.6741916",
+                      "longitude": "32.8010629",
+                    },
+                    "currBatTeamId": 558,
+                    "seriesStartDt": "1761868800000",
+                    "seriesEndDt": "1762214400000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Complete",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 211,
+                        "wickets": 6,
+                        "overs": 19.6,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 142,
+                        "wickets": 5,
+                        "overs": 19.6,
                       },
                     },
                   },
@@ -73,47 +238,186 @@ class ResponseData {
         ],
       },
       {
+        "matchType": "League",
+        "seriesMatches": [
+          {
+            "seriesAdWrapper": {
+              "seriesId": 11110,
+              "seriesName": "CSA T20 Knock Out Competition 2025",
+              "matches": [
+                {
+                  "matchInfo": {
+                    "matchId": 136104,
+                    "seriesId": 11110,
+                    "seriesName": "CSA T20 Knock Out Competition 2025",
+                    "matchDesc": "9th Match",
+                    "matchFormat": "T20",
+                    "startDate": "1762081200000",
+                    "endDate": "1762093800000",
+                    "state": "Toss",
+                    "status": "Garden Route Badgers opt to bat",
+                    "team1": {
+                      "teamId": 918,
+                      "teamName": "Garden Route Badgers",
+                      "teamSName": "GRB",
+                      "imageId": 247396,
+                    },
+                    "team2": {
+                      "teamId": 923,
+                      "teamName": "Northern Cape",
+                      "teamSName": "NCAPE",
+                      "imageId": 248438,
+                    },
+                    "venueInfo": {
+                      "id": 148,
+                      "ground": "Diamond Oval",
+                      "city": "Kimberley",
+                      "timezone": "+02:00",
+                      "latitude": "-28.742487",
+                      "longitude": "24.742101",
+                    },
+                    "seriesStartDt": "1761264000000",
+                    "seriesEndDt": "1764028800000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Toss",
+                  },
+                },
+              ],
+            },
+          },
+          {
+            "seriesAdWrapper": {
+              "seriesId": 11032,
+              "seriesName": "CSA T20 Challenge 2025",
+              "matches": [
+                {
+                  "matchInfo": {
+                    "matchId": 136326,
+                    "seriesId": 11032,
+                    "seriesName": "CSA T20 Challenge 2025",
+                    "matchDesc": "7th Match",
+                    "matchFormat": "T20",
+                    "startDate": "1762083000000",
+                    "endDate": "1762095600000",
+                    "state": "Complete",
+                    "status": "Match starts at Nov 02, 11:30 GMT",
+                    "team1": {
+                      "teamId": 157,
+                      "teamName": "Lions",
+                      "teamSName": "LIONS",
+                      "imageId": 172224,
+                    },
+                    "team2": {
+                      "teamId": 1759,
+                      "teamName": "Boland",
+                      "teamSName": "BOL",
+                      "imageId": 349610,
+                    },
+                    "venueInfo": {
+                      "id": 88,
+                      "ground": "The Wanderers Stadium",
+                      "city": "Johannesburg",
+                      "timezone": "+02:00",
+                      "latitude": "-26.131141",
+                      "longitude": "28.057397",
+                    },
+                    "seriesStartDt": "1761696000000",
+                    "seriesEndDt": "1764633600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Upcoming Match",
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 136315,
+                    "seriesId": 11032,
+                    "seriesName": "CSA T20 Challenge 2025",
+                    "matchDesc": "6th Match",
+                    "matchFormat": "T20",
+                    "startDate": "1762077600000",
+                    "endDate": "1762090200000",
+                    "state": "Complete",
+                    "status": "Match starts at Nov 02, 10:00 GMT",
+                    "team1": {
+                      "teamId": 917,
+                      "teamName": "Western Province",
+                      "teamSName": "WPR",
+                      "imageId": 248460,
+                    },
+                    "team2": {
+                      "teamId": 922,
+                      "teamName": "North West - Eastvaal Renault Dragons",
+                      "teamSName": "NWEST",
+                      "imageId": 248439,
+                    },
+                    "venueInfo": {
+                      "id": 52,
+                      "ground": "Newlands",
+                      "city": "Cape Town",
+                      "timezone": "+02:00",
+                      "latitude": "-33.979629",
+                      "longitude": "18.459466",
+                    },
+                    "seriesStartDt": "1761696000000",
+                    "seriesEndDt": "1764633600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Upcoming Match",
+                  },
+                },
+              ],
+            },
+          },
+          {
+            "ad": {
+              "name": "native_matches",
+              "layout": "native_large",
+              "position": 5,
+            },
+          },
+        ],
+      },
+      {
         "matchType": "Domestic",
         "seriesMatches": [
           {
             "seriesAdWrapper": {
-              "seriesId": 9938,
-              "seriesName": "South Africa A tour of India, 2025",
+              "seriesId": 10317,
+              "seriesName": "Ranji Trophy Elite 2025-26",
               "matches": [
                 {
                   "matchInfo": {
-                    "matchId": 119879,
-                    "seriesId": 9938,
-                    "seriesName": "South Africa A tour of India, 2025",
-                    "matchDesc": "1st Unofficial Test",
+                    "matchId": 124436,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group B",
                     "matchFormat": "TEST",
-                    "startDate": "1761796800000",
-                    "endDate": "1762081200000",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
                     "state": "Stumps",
-                    "status": "Day 1: Stumps",
+                    "status": "Day 2: Stumps - Kerala trail by 565 runs",
                     "team1": {
-                      "teamId": 268,
-                      "teamName": "South Africa A",
-                      "teamSName": "RSAA",
-                      "imageId": 776296,
+                      "teamId": 128,
+                      "teamName": "Karnataka",
+                      "teamSName": "KAR",
+                      "imageId": 776345,
                     },
                     "team2": {
-                      "teamId": 78,
-                      "teamName": "India A",
-                      "teamSName": "INDA",
-                      "imageId": 776181,
+                      "teamId": 244,
+                      "teamName": "Kerala",
+                      "teamSName": "KER",
+                      "imageId": 172297,
                     },
                     "venueInfo": {
-                      "id": 1438087,
-                      "ground": "BCCI Centre of Excellence Ground 1",
-                      "city": "Bengaluru",
+                      "id": 866,
+                      "ground": "KCA Cricket Ground, Mangalapuram",
+                      "city": "Thiruvananthapuram",
                       "timezone": "+05:30",
-                      "latitude": "12.978853",
-                      "longitude": "77.599533",
+                      "latitude": "8.5602859",
+                      "longitude": "76.8449651",
                     },
-                    "currBatTeamId": 268,
-                    "seriesStartDt": "1761782400000",
-                    "seriesEndDt": "1763683200000",
+                    "currBatTeamId": 244,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
                     "isTimeAnnounced": true,
                     "stateTitle": "Stumps",
                   },
@@ -121,9 +425,802 @@ class ResponseData {
                     "team1Score": {
                       "inngs1": {
                         "inningsId": 1,
-                        "runs": 299,
+                        "runs": 586,
+                        "wickets": 5,
+                        "overs": 167,
+                        "isDeclared": true,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 21,
+                        "wickets": 3,
+                        "overs": 10,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124502,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group D",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Hyderabad trail by 44 runs",
+                    "team1": {
+                      "teamId": 251,
+                      "teamName": "Himachal Pradesh",
+                      "teamSName": "HP",
+                      "imageId": 172304,
+                    },
+                    "team2": {
+                      "teamId": 242,
+                      "teamName": "Hyderabad",
+                      "teamSName": "HYD",
+                      "imageId": 172295,
+                    },
+                    "venueInfo": {
+                      "id": 312,
+                      "ground": "Atal Bihari Vajpayee Stadium",
+                      "city": "Nadaun",
+                      "timezone": "+05:30",
+                      "latitude": "31.778851",
+                      "longitude": "76.343590",
+                    },
+                    "currBatTeamId": 242,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 318,
+                        "wickets": 10,
+                        "overs": 97.3,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 274,
+                        "wickets": 8,
+                        "overs": 70.6,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124381,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group A",
+                    "matchFormat": "TEST",
+                    "startDate": "1761967800000",
+                    "endDate": "1762252200000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Odisha trail by 395 runs",
+                    "team1": {
+                      "teamId": 241,
+                      "teamName": "Andhra",
+                      "teamSName": "AP",
+                      "imageId": 172294,
+                    },
+                    "team2": {
+                      "teamId": 249,
+                      "teamName": "Odisha",
+                      "teamSName": "ODSA",
+                      "imageId": 776395,
+                    },
+                    "venueInfo": {
+                      "id": 103,
+                      "ground": "Barabati Stadium",
+                      "city": "Cuttack",
+                      "timezone": "+05:30",
+                      "latitude": "20.481065",
+                      "longitude": "85.868545",
+                    },
+                    "currBatTeamId": 249,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 475,
+                        "wickets": 7,
+                        "overs": 123.1,
+                        "isDeclared": true,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 80,
+                        "wickets": 4,
+                        "overs": 28.6,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124469,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group C",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Services trail by 79 runs",
+                    "team1": {
+                      "teamId": 467,
+                      "teamName": "Uttarakhand",
+                      "teamSName": "UTK",
+                      "imageId": 172515,
+                    },
+                    "team2": {
+                      "teamId": 250,
+                      "teamName": "Services",
+                      "teamSName": "SER",
+                      "imageId": 172303,
+                    },
+                    "venueInfo": {
+                      "id": 321,
+                      "ground": "Palam A Stadium",
+                      "city": "Delhi",
+                      "timezone": "+05:30",
+                      "latitude": "28.591533",
+                      "longitude": "77.133741",
+                    },
+                    "currBatTeamId": 250,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 257,
+                        "wickets": 10,
+                        "overs": 110.2,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 178,
+                        "wickets": 7,
+                        "overs": 66.6,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124414,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group B",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Goa trail by 233 runs",
+                    "team1": {
+                      "teamId": 245,
+                      "teamName": "Punjab",
+                      "teamSName": "PUN",
+                      "imageId": 172298,
+                    },
+                    "team2": {
+                      "teamId": 253,
+                      "teamName": "Goa",
+                      "teamSName": "GOA",
+                      "imageId": 172306,
+                    },
+                    "venueInfo": {
+                      "id": 851,
+                      "ground":
+                          "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur",
+                      "city": "New Chandigarh",
+                      "timezone": "+05:30",
+                      "latitude": "30.741797",
+                      "longitude": "76.774915",
+                    },
+                    "currBatTeamId": 253,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 325,
+                        "wickets": 10,
+                        "overs": 135.4,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {"inningsId": 2, "runs": 92, "overs": 24},
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124491,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group D",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Rajasthan lead by 85 runs",
+                    "team1": {
+                      "teamId": 95,
+                      "teamName": "Mumbai",
+                      "teamSName": "MUM",
+                      "imageId": 172187,
+                    },
+                    "team2": {
+                      "teamId": 171,
+                      "teamName": "Rajasthan",
+                      "teamSName": "RAJ",
+                      "imageId": 172239,
+                    },
+                    "venueInfo": {
+                      "id": 76,
+                      "ground": "Sawai Mansingh Stadium",
+                      "city": "Jaipur",
+                      "timezone": "+05:30",
+                      "latitude": "26.894012",
+                      "longitude": "75.803225",
+                    },
+                    "currBatTeamId": 171,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 254,
+                        "wickets": 10,
+                        "overs": 76.3,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 339,
+                        "wickets": 4,
+                        "overs": 94,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124359,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group A",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps (No play due to wet outfield)",
+                    "team1": {
+                      "teamId": 170,
+                      "teamName": "Baroda",
+                      "teamSName": "BRD",
+                      "imageId": 172238,
+                    },
+                    "team2": {
+                      "teamId": 93,
+                      "teamName": "Uttar Pradesh",
+                      "teamSName": "UP",
+                      "imageId": 172185,
+                    },
+                    "venueInfo": {
+                      "id": 1843,
+                      "ground": "BCA Stadium, Kotambi",
+                      "city": "Vadodara",
+                      "timezone": "+05:30",
+                      "latitude": "22.3234",
+                      "longitude": "73.1607",
+                    },
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124447,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group C",
+                    "matchFormat": "TEST",
+                    "startDate": "1761966900000",
+                    "endDate": "1762251300000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps",
+                    "team1": {
+                      "teamId": 232,
+                      "teamName": "Bengal",
+                      "teamSName": "BEN",
+                      "imageId": 172285,
+                    },
+                    "team2": {
+                      "teamId": 247,
+                      "teamName": "Tripura",
+                      "teamSName": "TRI",
+                      "imageId": 172300,
+                    },
+                    "venueInfo": {
+                      "id": 316,
+                      "ground": "Maharaja Bir Bikram College Stadium",
+                      "city": "Agartala",
+                      "timezone": "+05:30",
+                      "latitude": "23.828066",
+                      "longitude": "91.297049",
+                    },
+                    "currBatTeamId": 232,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 336,
                         "wickets": 9,
-                        "overs": 85.2,
+                        "overs": 115,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124392,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group A",
+                    "matchFormat": "TEST",
+                    "startDate": "1761967800000",
+                    "endDate": "1762252200000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Nagaland trail by 473 runs",
+                    "team1": {
+                      "teamId": 243,
+                      "teamName": "Jharkhand",
+                      "teamSName": "JHKD",
+                      "imageId": 172296,
+                    },
+                    "team2": {
+                      "teamId": 464,
+                      "teamName": "Nagaland",
+                      "teamSName": "NGL",
+                      "imageId": 776394,
+                    },
+                    "venueInfo": {
+                      "id": 291,
+                      "ground": "JSCA International Stadium Complex",
+                      "city": "Ranchi",
+                      "timezone": "+05:30",
+                      "latitude": "23.310158",
+                      "longitude": "85.274824",
+                    },
+                    "currBatTeamId": 464,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 510,
+                        "wickets": 8,
+                        "overs": 105,
+                        "isDeclared": true,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {"inningsId": 2, "runs": 37, "overs": 17},
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124475,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group C",
+                    "matchFormat": "TEST",
+                    "startDate": "1761967800000",
+                    "endDate": "1762252200000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps",
+                    "team1": {
+                      "teamId": 246,
+                      "teamName": "Railways",
+                      "teamSName": "RLYS",
+                      "imageId": 172299,
+                    },
+                    "team2": {
+                      "teamId": 162,
+                      "teamName": "Assam",
+                      "teamSName": "ASM",
+                      "imageId": 172230,
+                    },
+                    "venueInfo": {
+                      "id": 1438171,
+                      "ground": "Tinsukia District Sports Association Ground",
+                      "city": "Kachujan, Tinsukia",
+                      "timezone": "+05:30",
+                      "latitude": "27.4966362",
+                      "longitude": "95.3608485",
+                    },
+                    "currBatTeamId": 246,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 57,
+                        "wickets": 2,
+                        "overs": 15.2,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124425,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group B",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps",
+                    "team1": {
+                      "teamId": 167,
+                      "teamName": "Madhya Pradesh",
+                      "teamSName": "MP",
+                      "imageId": 172236,
+                    },
+                    "team2": {
+                      "teamId": 595,
+                      "teamName": "Chandigarh",
+                      "teamSName": "CDG",
+                      "imageId": 244269,
+                    },
+                    "venueInfo": {
+                      "id": 152,
+                      "ground": "Holkar Cricket Stadium",
+                      "city": "Indore",
+                      "timezone": "+05:30",
+                      "latitude": "22.724371",
+                      "longitude": "75.879701",
+                    },
+                    "currBatTeamId": 167,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 384,
+                        "wickets": 8,
+                        "overs": 105.6,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124497,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group D",
+                    "matchFormat": "TEST",
+                    "startDate": "1761968700000",
+                    "endDate": "1762253100000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Chhattisgarh trail by 319 runs",
+                    "team1": {
+                      "teamId": 252,
+                      "teamName": "Jammu and Kashmir",
+                      "teamSName": "JK",
+                      "imageId": 172305,
+                    },
+                    "team2": {
+                      "teamId": 375,
+                      "teamName": "Chhattisgarh",
+                      "teamSName": "CG",
+                      "imageId": 172428,
+                    },
+                    "venueInfo": {
+                      "id": 335,
+                      "ground":
+                          "Shaheed Veer Narayan Singh International Stadium",
+                      "city": "Raipur",
+                      "timezone": "+05:30",
+                      "latitude": "21.203523",
+                      "longitude": "81.823929",
+                    },
+                    "currBatTeamId": 375,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 394,
+                        "wickets": 10,
+                        "overs": 122.1,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 75,
+                        "wickets": 1,
+                        "overs": 30,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124370,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group A",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Vidarbha trail by 80 runs",
+                    "team1": {
+                      "teamId": 92,
+                      "teamName": "Tamil Nadu",
+                      "teamSName": "TN",
+                      "imageId": 172184,
+                    },
+                    "team2": {
+                      "teamId": 248,
+                      "teamName": "Vidarbha",
+                      "teamSName": "VID",
+                      "imageId": 172301,
+                    },
+                    "venueInfo": {
+                      "id": 761,
+                      "ground":
+                          "Sri Ramakrishna College of Arts and Science Ground",
+                      "city": "Coimbatore",
+                      "timezone": "+05:30",
+                      "latitude": "11.0227749",
+                      "longitude": "76.9831109",
+                    },
+                    "currBatTeamId": 248,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 291,
+                        "wickets": 10,
+                        "overs": 107.1,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 211,
+                        "wickets": 2,
+                        "overs": 67.6,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124458,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group C",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Haryana trail by 73 runs",
+                    "team1": {
+                      "teamId": 163,
+                      "teamName": "Gujarat",
+                      "teamSName": "GUJ",
+                      "imageId": 172232,
+                    },
+                    "team2": {
+                      "teamId": 200,
+                      "teamName": "Haryana",
+                      "teamSName": "HAR",
+                      "imageId": 172260,
+                    },
+                    "venueInfo": {
+                      "id": 1237,
+                      "ground": "Gujarat College Ground",
+                      "city": "Ahmedabad",
+                      "timezone": "+05:30",
+                      "latitude": "23.042203",
+                      "longitude": "72.564375",
+                    },
+                    "currBatTeamId": 200,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 163,
+                        "wickets": 10,
+                        "overs": 63.5,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 90,
+                        "wickets": 4,
+                        "overs": 33.6,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124403,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group B",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps",
+                    "team1": {
+                      "teamId": 94,
+                      "teamName": "Saurashtra",
+                      "teamSName": "SAUR",
+                      "imageId": 172186,
+                    },
+                    "team2": {
+                      "teamId": 254,
+                      "teamName": "Maharashtra",
+                      "teamSName": "MAH",
+                      "imageId": 172307,
+                    },
+                    "venueInfo": {
+                      "id": 484,
+                      "ground": "Golf Club Ground",
+                      "city": "Nasik",
+                      "timezone": "+05:30",
+                      "latitude": "19.997453",
+                      "longitude": "73.789802",
+                    },
+                    "currBatTeamId": 94,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 61,
+                        "wickets": 1,
+                        "overs": 12,
+                      },
+                    },
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 124480,
+                    "seriesId": 10317,
+                    "seriesName": "Ranji Trophy Elite 2025-26",
+                    "matchDesc": "Elite Group D",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps - Puducherry trail by 54 runs",
+                    "team1": {
+                      "teamId": 81,
+                      "teamName": "Delhi",
+                      "teamSName": "DEL",
+                      "imageId": 172175,
+                    },
+                    "team2": {
+                      "teamId": 465,
+                      "teamName": "Puducherry",
+                      "teamSName": "PDC",
+                      "imageId": 172513,
+                    },
+                    "venueInfo": {
+                      "id": 51,
+                      "ground": "Arun Jaitley Stadium",
+                      "city": "Delhi",
+                      "timezone": "+05:30",
+                      "latitude": "28.637891",
+                      "longitude": "77.243073",
+                    },
+                    "currBatTeamId": 465,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1772409600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                  "matchScore": {
+                    "team1Score": {
+                      "inngs1": {
+                        "inningsId": 1,
+                        "runs": 294,
+                        "wickets": 10,
+                        "overs": 94.1,
+                      },
+                    },
+                    "team2Score": {
+                      "inngs1": {
+                        "inningsId": 2,
+                        "runs": 240,
+                        "wickets": 4,
+                        "overs": 56.6,
                       },
                     },
                   },
@@ -133,43 +1230,43 @@ class ResponseData {
           },
           {
             "seriesAdWrapper": {
-              "seriesId": 10823,
-              "seriesName": "Sheffield Shield 2025-26",
+              "seriesId": 10333,
+              "seriesName": "Ranji Trophy Plate 2025-26",
               "matches": [
                 {
                   "matchInfo": {
-                    "matchId": 133253,
-                    "seriesId": 10823,
-                    "seriesName": "Sheffield Shield 2025-26",
-                    "matchDesc": "8th Match",
+                    "matchId": 123754,
+                    "seriesId": 10333,
+                    "seriesName": "Ranji Trophy Plate 2025-26",
+                    "matchDesc": "Plate",
                     "matchFormat": "TEST",
-                    "startDate": "1761609600000",
-                    "endDate": "1761894000000",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
                     "state": "Stumps",
-                    "status": "Day 3: Stumps - Queensland trail by 191 runs",
+                    "status": "Day 2: Stumps",
                     "team1": {
-                      "teamId": 104,
-                      "teamName": "New South Wales",
-                      "teamSName": "NSW",
-                      "imageId": 172196,
+                      "teamId": 463,
+                      "teamName": "Mizoram",
+                      "teamSName": "MIZ",
+                      "imageId": 776489,
                     },
                     "team2": {
-                      "teamId": 164,
-                      "teamName": "Queensland",
-                      "teamSName": "QL",
-                      "imageId": 172233,
+                      "teamId": 466,
+                      "teamName": "Sikkim",
+                      "teamSName": "SKM",
+                      "imageId": 172514,
                     },
                     "venueInfo": {
-                      "id": 35,
-                      "ground": "The Gabba",
-                      "city": "Brisbane",
-                      "timezone": "+10:00",
-                      "latitude": "-27.485829",
-                      "longitude": "153.038055",
+                      "id": 1839,
+                      "ground": "Lal Bahadur Shastri Stadium",
+                      "city": "Vallabh Vidyanagar, Anand",
+                      "timezone": "+05:30",
+                      "latitude": "22.5535346",
+                      "longitude": "72.9622762",
                     },
-                    "currBatTeamId": 164,
-                    "seriesStartDt": "1759536000000",
-                    "seriesEndDt": "1774915200000",
+                    "currBatTeamId": 463,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1769558400000",
                     "isTimeAnnounced": true,
                     "stateTitle": "Stumps",
                   },
@@ -177,57 +1274,85 @@ class ResponseData {
                     "team1Score": {
                       "inngs1": {
                         "inningsId": 1,
-                        "runs": 429,
-                        "wickets": 7,
-                        "overs": 116.5,
-                        "isDeclared": true,
-                      },
-                    },
-                    "team2Score": {
-                      "inngs1": {
-                        "inningsId": 2,
-                        "runs": 238,
-                        "wickets": 4,
-                        "overs": 69.6,
+                        "runs": 244,
+                        "wickets": 3,
+                        "overs": 74,
                       },
                     },
                   },
                 },
                 {
                   "matchInfo": {
-                    "matchId": 133259,
-                    "seriesId": 10823,
-                    "seriesName": "Sheffield Shield 2025-26",
-                    "matchDesc": "9th Match",
+                    "matchId": 123738,
+                    "seriesId": 10333,
+                    "seriesName": "Ranji Trophy Plate 2025-26",
+                    "matchDesc": "Plate",
                     "matchFormat": "TEST",
-                    "startDate": "1761618600000",
-                    "endDate": "1761903000000",
+                    "startDate": "1761967800000",
+                    "endDate": "1762252200000",
+                    "state": "Stumps",
+                    "status": "Day 2: Stumps",
+                    "team1": {
+                      "teamId": 460,
+                      "teamName": "Bihar",
+                      "teamSName": "BIH",
+                      "imageId": 172508,
+                    },
+                    "team2": {
+                      "teamId": 462,
+                      "teamName": "Meghalaya",
+                      "teamSName": "MGLY",
+                      "imageId": 172510,
+                    },
+                    "venueInfo": {
+                      "id": 234,
+                      "ground": "Moin-ul-Haq Stadium",
+                      "city": "Patna",
+                      "timezone": "+05:30",
+                      "latitude": "25.607925",
+                      "longitude": "85.167619",
+                    },
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1769558400000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Stumps",
+                  },
+                },
+                {
+                  "matchInfo": {
+                    "matchId": 123749,
+                    "seriesId": 10333,
+                    "seriesName": "Ranji Trophy Plate 2025-26",
+                    "matchDesc": "Plate",
+                    "matchFormat": "TEST",
+                    "startDate": "1761969600000",
+                    "endDate": "1762254000000",
                     "state": "Stumps",
                     "status":
-                        "Day 3: Stumps - South Australia lead by 205 runs",
+                        "Day 2: Stumps - Arunachal Pradesh trail by 381 runs",
                     "team1": {
-                      "teamId": 158,
-                      "teamName": "South Australia",
-                      "teamSName": "SAUS",
-                      "imageId": 172225,
+                      "teamId": 461,
+                      "teamName": "Manipur",
+                      "teamSName": "MNP",
+                      "imageId": 172509,
                     },
                     "team2": {
-                      "teamId": 87,
-                      "teamName": "Western Australia",
-                      "teamSName": "WA",
-                      "imageId": 172180,
+                      "teamId": 468,
+                      "teamName": "Arunachal Pradesh",
+                      "teamSName": "ARNP",
+                      "imageId": 172516,
                     },
                     "venueInfo": {
-                      "id": 38,
-                      "ground": "W.A.C.A. Ground",
-                      "city": "Perth",
-                      "timezone": "+08:00",
-                      "latitude": "-31.959806",
-                      "longitude": "115.879585",
+                      "id": 347,
+                      "ground": "Narendra Modi Stadium B Ground",
+                      "city": "Ahmedabad",
+                      "timezone": "+05:30",
+                      "latitude": "23.042203",
+                      "longitude": "72.564375",
                     },
-                    "currBatTeamId": 158,
-                    "seriesStartDt": "1759536000000",
-                    "seriesEndDt": "1774915200000",
+                    "currBatTeamId": 468,
+                    "seriesStartDt": "1760486400000",
+                    "seriesEndDt": "1769558400000",
                     "isTimeAnnounced": true,
                     "stateTitle": "Stumps",
                   },
@@ -235,92 +1360,18 @@ class ResponseData {
                     "team1Score": {
                       "inngs1": {
                         "inningsId": 1,
-                        "runs": 215,
-                        "wickets": 10,
-                        "overs": 58.6,
-                      },
-                      "inngs2": {
-                        "inningsId": 3,
-                        "runs": 297,
-                        "wickets": 4,
-                        "overs": 96.4,
-                      },
-                    },
-                    "team2Score": {
-                      "inngs1": {
-                        "inningsId": 2,
-                        "runs": 307,
-                        "wickets": 10,
-                        "overs": 110.2,
-                      },
-                    },
-                  },
-                },
-                {
-                  "matchInfo": {
-                    "matchId": 133248,
-                    "seriesId": 10823,
-                    "seriesName": "Sheffield Shield 2025-26",
-                    "matchDesc": "7th Match",
-                    "matchFormat": "TEST",
-                    "startDate": "1761607800000",
-                    "endDate": "1761892200000",
-                    "state": "Stumps",
-                    "status": "Day 3: Stumps - Tasmania need 327 runs",
-                    "team1": {
-                      "teamId": 52,
-                      "teamName": "Victoria",
-                      "teamSName": "VIC",
-                      "imageId": 172153,
-                    },
-                    "team2": {
-                      "teamId": 166,
-                      "teamName": "Tasmania",
-                      "teamSName": "TAS",
-                      "imageId": 172235,
-                    },
-                    "venueInfo": {
-                      "id": 122,
-                      "ground": "Junction Oval",
-                      "city": "Melbourne",
-                      "timezone": "+11:00",
-                      "latitude": "-37.856007",
-                      "longitude": "144.980155",
-                    },
-                    "currBatTeamId": 166,
-                    "seriesStartDt": "1759536000000",
-                    "seriesEndDt": "1774915200000",
-                    "isTimeAnnounced": true,
-                    "stateTitle": "Stumps",
-                  },
-                  "matchScore": {
-                    "team1Score": {
-                      "inngs1": {
-                        "inningsId": 1,
-                        "runs": 256,
-                        "wickets": 10,
-                        "overs": 90.5,
-                      },
-                      "inngs2": {
-                        "inningsId": 3,
-                        "runs": 330,
-                        "wickets": 5,
-                        "overs": 96.6,
+                        "runs": 505,
+                        "wickets": 3,
+                        "overs": 106.2,
                         "isDeclared": true,
                       },
                     },
                     "team2Score": {
                       "inngs1": {
                         "inningsId": 2,
-                        "runs": 232,
-                        "wickets": 10,
-                        "overs": 80.4,
-                      },
-                      "inngs2": {
-                        "inningsId": 4,
-                        "runs": 28,
-                        "wickets": 1,
-                        "overs": 7.6,
+                        "runs": 124,
+                        "wickets": 5,
+                        "overs": 36,
                       },
                     },
                   },
@@ -340,26 +1391,26 @@ class ResponseData {
               "matches": [
                 {
                   "matchInfo": {
-                    "matchId": 121670,
+                    "matchId": 121681,
                     "seriesId": 10009,
                     "seriesName": "ICC Womens World Cup 2025",
-                    "matchDesc": "2nd Semi-Final",
+                    "matchDesc": "Final",
                     "matchFormat": "ODI",
-                    "startDate": "1761816600000",
-                    "endDate": "1761845400000",
-                    "state": "Complete",
-                    "status": "India Women won by 5 wkts",
+                    "startDate": "1762075800000",
+                    "endDate": "1762104600000",
+                    "state": "In Progress",
+                    "status": "South Africa Women opt to bowl",
                     "team1": {
-                      "teamId": 100,
-                      "teamName": "Australia Women",
-                      "teamSName": "AUSW",
-                      "imageId": 776205,
-                    },
-                    "team2": {
                       "teamId": 97,
                       "teamName": "India Women",
                       "teamSName": "INDW",
                       "imageId": 776182,
+                    },
+                    "team2": {
+                      "teamId": 260,
+                      "teamName": "South Africa Women",
+                      "teamSName": "RSAW",
+                      "imageId": 776293,
                     },
                     "venueInfo": {
                       "id": 132,
@@ -373,23 +1424,15 @@ class ResponseData {
                     "seriesStartDt": "1759190400000",
                     "seriesEndDt": "1762214400000",
                     "isTimeAnnounced": true,
-                    "stateTitle": "Complete",
+                    "stateTitle": "In Progress",
                   },
                   "matchScore": {
                     "team1Score": {
                       "inngs1": {
                         "inningsId": 1,
-                        "runs": 338,
-                        "wickets": 10,
-                        "overs": 49.5,
-                      },
-                    },
-                    "team2Score": {
-                      "inngs1": {
-                        "inningsId": 2,
-                        "runs": 341,
+                        "runs": 263,
                         "wickets": 5,
-                        "overs": 48.3,
+                        "overs": 45.4,
                       },
                     },
                   },
@@ -398,10 +1441,48 @@ class ResponseData {
             },
           },
           {
-            "ad": {
-              "name": "native_matches",
-              "layout": "native_large",
-              "position": 4,
+            "seriesAdWrapper": {
+              "seriesId": 11005,
+              "seriesName": "Canada Women tour of Tanzania, 2025",
+              "matches": [
+                {
+                  "matchInfo": {
+                    "matchId": 135327,
+                    "seriesId": 11005,
+                    "seriesName": "Canada Women tour of Tanzania, 2025",
+                    "matchDesc": "3rd T20I",
+                    "matchFormat": "T20",
+                    "startDate": "1762072200000",
+                    "endDate": "1762084800000",
+                    "state": "Complete",
+                    "status": "Match Postponed due to rain",
+                    "team1": {
+                      "teamId": 483,
+                      "teamName": "Tanzania Women",
+                      "teamSName": "TANW",
+                      "imageId": 172531,
+                    },
+                    "team2": {
+                      "teamId": 1426,
+                      "teamName": "Canada Women",
+                      "teamSName": "CANW",
+                      "imageId": 776230,
+                    },
+                    "venueInfo": {
+                      "id": 1437875,
+                      "ground": "University of Dar-es-Salaam",
+                      "city": "Dar-es-Salaam",
+                      "timezone": "+03:00",
+                      "latitude": "-6.779285",
+                      "longitude": "39.2088549",
+                    },
+                    "seriesStartDt": "1761782400000",
+                    "seriesEndDt": "1762473600000",
+                    "isTimeAnnounced": true,
+                    "stateTitle": "Abandon",
+                  },
+                },
+              ],
             },
           },
         ],
@@ -414,7 +1495,7 @@ class ResponseData {
       "seoTitle": "Live Cricket Score - Scorecard and Match Results",
       "webURL": "www.cricbuzz.com/live-cricket-scores/",
     },
-    "responseLastUpdated": "1761844986",
+    "responseLastUpdated": "1762093982",
   });
   static final String scorecard = jsonEncode({
     "scorecard": [
@@ -2053,4 +3134,2476 @@ class ResponseData {
     "islivestreamenabled": false,
     "isfantasyhandbookenabled": false,
   });
+
+  static final String comm = jsonEncode({
+    "inningsid": 0,
+    "comwrapper": [
+      {
+        "commentary": {
+          "commtxt": "B0\$",
+          "timestamp": 1762084160022,
+          "overnum": 0.0,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {"id": "B0\$", "value": "Arshdeep Singh | Player of the Match"},
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 0,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "B0\$ \\n197 Eng vs WI Bristol 2025 (HS Jos Buttler 47)  \\n187 Ind vs Aus Hobart 2025 (HS Washington Sundar 49*) * \\n179 Aus vs SA Cape Town 2016 (HS Steven Smith 44)   \\nFull Member sides",
+          "timestamp": 1762083786931,
+          "overnum": 0.0,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {
+                  "id": "B0\$",
+                  "value":
+                      "Highest successful targets chased down without an individual 50 (T20I) ",
+                },
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 0,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "B0\$  \\n  \\nB1\$  \\n198 Ind vs Aus Sydney 2016   \\n195 Ind vs Aus Sydney 2020   \\n187 Ind vs Aus Hobart 2025 *  \\n177 Ire vs Sco Hobart 2022   \\n174 SL vs Aus Geelong 2017",
+          "timestamp": 1762083786921,
+          "overnum": 0.0,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {
+                  "id": "B0\$",
+                  "value":
+                      "First defeat for Australia in six T20 Internationals in Hobart",
+                },
+                {
+                  "id": "B1\$",
+                  "value": "Highest successful T20I chases in Australia ",
+                },
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 0,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commsnippet": {
+          "infratype": "Content_Promotion - Video",
+          "headline":
+              "Cricbuzz Live: Australia vs India, 3rd T20I, Post-match show",
+          "commtimestamp": 1762083786911,
+          "eventtimestamp": 0,
+          "content": [],
+          "itemid": "147878",
+          "embedcode": "",
+          "applinkurl":
+              "cricbuzz://video?id=147878&name=Cricbuzz Live: Australia vs India, 3rd T20I, Post-match show",
+          "inningsid": 2,
+          "imageid": 779299,
+          "context": "",
+          "islive": true,
+          "mappingid": "1132882450",
+          "videourl":
+              "https://api.cricbuzz.com/a/videos/v1/videoUrl/vimeo/4878489",
+          "adtag": "vast-Cricbuzz-Live",
+          "category": [
+            {
+              "id": 16,
+              "name": "Cricbuzz Live",
+              "imageid": 244345,
+              "videocount": 0,
+            },
+          ],
+          "language": "English",
+          "planid": 0,
+          "premiumvideourl": "",
+          "videoid": 147878,
+          "videotype": "Analysis",
+          "batsmanid": 0,
+          "bowlerid": 0,
+          "tags": [],
+          "ispremiumfree": false,
+          "assetkey": "",
+          "starttime": 0,
+          "endtime": 0,
+          "isloginrequired": false,
+          "haslivestreamfreeminutes": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "B0\$ India square the series 1-1 with a game to go. In casy you didn't know, they have never dropped a T20I series in Australia. They were completely outplayed in Melbourne but from the moment SKY finally won a toss, they did a lot of things right. Arshdeep dismissing Head and Inglis early. David was going great guns but Varun struck twice in an over to dent the Aussies. He then found good company in Stoinis as the duo threatened to go big targetting Dube. The bowler had the last laugh as he managed to remove an ominous looking Stoinis. A lot of eyebrows were raised as Washi was never used with the ball but he added great value playing a brilliant 23-ball 49 to use the solid base and always keep India ahead of the asking rate. Abhishek and SKY ensured a good powerplay but Ellis used his smarts to get some quick wickets. Axar and Tilak shared a brisk partnership before Washi took the baton and guided the team home alongside Jitesh.",
+          "timestamp": 1762083786910,
+          "overnum": 0.0,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {
+                  "id": "B0\$",
+                  "value": "22:42 Local Time, 11:42 GMT, 17:12 IST:",
+                },
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 0,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Abbott to Jitesh Sharma, B0\$, he's timed the cover drive too well and Washi will not be able to get the fifty. Full and outside off stump, Jitesh came forward and placed the drive nicely over the infield. Did he not know that only 3 runs were needed? Looks back and then realizes that the game is over",
+          "timestamp": 1762083702284,
+          "overnum": 18.3,
+          "inningsid": 2,
+          "eventtype": "FOUR",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {"id": "B0\$", "value": "FOUR"},
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 111,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Abbott to Washington Sundar, 1 run, yorker on the off stump, digs out to mid-off and he's on 49 now with India needing 3 runs",
+          "timestamp": 1762083654912,
+          "overnum": 18.2,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 110,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Abbott to Jitesh Sharma, 1 run, full toss, Jitesh only wants to defend it for a run as Washi has a chance to get his fifty",
+          "timestamp": 1762083604756,
+          "overnum": 18.1,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 109,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt": "B0\$",
+          "timestamp": 1762083598084,
+          "overnum": 0.0,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {
+                  "id": "B0\$",
+                  "value": "Sean Abbott [3.0-0-50-0] is back into the attack",
+                },
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 0,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Stoinis to Washington Sundar, 2 runs, slices the loft over cover as Stoinis bowls pace off outside off stump. Gets two more",
+          "timestamp": 1762083524134,
+          "overnum": 17.6,
+          "inningsid": 2,
+          "eventtype": "over-break",
+          "oversep": {
+            "score": 182,
+            "wickets": 5,
+            "inningsid": 2,
+            "oversummary": "1 4 2 1 1 2 ",
+            "runs": 11,
+            "batstrikerdetails": "17(11)",
+            "batnonstrikerdetails": "48(22)",
+            "bowldetails": "2-0-22-1",
+            "timestamp": 1762083524134,
+            "overnum": 17.6,
+            "ovrbatnames": [],
+            "ovrbowlnames": [],
+            "batstrikername": "Jitesh Sharma",
+            "batnonstrikername": "Washington Sundar",
+            "bowlname": "Marcus Stoinis",
+            "battingteamname": "IND",
+          },
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 108,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Stoinis to Jitesh Sharma, 1 run, short ball, Jitesh rocks back to pull this behind square, Head cuts it off at the fence",
+          "timestamp": 1762083482149,
+          "overnum": 17.5,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 107,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Stoinis to Washington Sundar, 1 run, short slower delivery, Washi pulls to mid-wicket",
+          "timestamp": 1762083440138,
+          "overnum": 17.4,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 106,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Stoinis to Washington Sundar, 2 runs, oh almost smashed Stoinis on the way. Thankfully he took his head away and didn't get hit hands on it too. Full delivery, Washi hit that hard towards the bowler, cut off at long-on. Even the ump was ducking for cover",
+          "timestamp": 1762083406796,
+          "overnum": 17.3,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 105,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Stoinis to Washington Sundar, B0\$, low full toss, Washi smashes this over the ump's head for four more. Moves into the 40s",
+          "timestamp": 1762083365269,
+          "overnum": 17.2,
+          "inningsid": 2,
+          "eventtype": "FOUR",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {"id": "B0\$", "value": "FOUR"},
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 104,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Stoinis to Jitesh Sharma, 1 run, in the airrr, Owen backtracks, goes reverse cup style and B0\$. Full slower delivery, Jitesh backed away and mistimed the lofted drive, Owen seemed to have misjudged that",
+          "timestamp": 1762083313334,
+          "overnum": 17.1,
+          "inningsid": 2,
+          "eventtype": "DROPPED",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {"id": "B0\$", "value": "spills the catch"},
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 103,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt": "B0\$",
+          "timestamp": 1762083297848,
+          "overnum": 0.0,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {
+                  "id": "B0\$",
+                  "value":
+                      "Marcus Stoinis [1.0-0-11-1] is back into the attack",
+                },
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 0,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Kuhnemann to Washington Sundar, no run, looks to cut this short delivery but gets beaten as it sneaks under the bat",
+          "timestamp": 1762083225356,
+          "overnum": 16.6,
+          "inningsid": 2,
+          "eventtype": "over-break",
+          "oversep": {
+            "score": 171,
+            "wickets": 5,
+            "inningsid": 2,
+            "oversummary": "2 2 1 6 0 0 ",
+            "runs": 11,
+            "batstrikerdetails": "15(9)",
+            "batnonstrikerdetails": "39(18)",
+            "bowldetails": "4-0-31-0",
+            "timestamp": 1762083225356,
+            "overnum": 16.6,
+            "ovrbatnames": [],
+            "ovrbowlnames": [],
+            "batstrikername": "Jitesh Sharma",
+            "batnonstrikername": "Washington Sundar",
+            "bowlname": "Matthew Kuhnemann",
+            "battingteamname": "IND",
+          },
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 102,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Kuhnemann to Washington Sundar, no run, flatter delivery, Washi keeps it out",
+          "timestamp": 1762083207103,
+          "overnum": 16.5,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 101,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Kuhnemann to Washington Sundar, B0\$, full toss, hit too high, man under it but it just manages to evade him. Full toss down leg, Washi swung that too high than hitting it with power. Stoinis at deep backward square leg jumped and tried to grab the ball but tips it over the bar. No chance for him to be fair",
+          "timestamp": 1762083169054,
+          "overnum": 16.4,
+          "inningsid": 2,
+          "eventtype": "SIX",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {
+              "type": "bold",
+              "value": [
+                {"id": "B0\$", "value": "SIX"},
+              ],
+            },
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 100,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Kuhnemann to Jitesh Sharma, 1 run, short delivery outside off stump, Jitesh cuts it hard to deep cover",
+          "timestamp": 1762083129764,
+          "overnum": 16.3,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 99,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+      {
+        "commentary": {
+          "commtxt":
+              "Kuhnemann to Jitesh Sharma, 2 runs, now top-edges the sweep, ball teases Ellis at long leg. He runs to attack for the catch but it lands in front of him and escapes",
+          "timestamp": 1762083075635,
+          "overnum": 16.2,
+          "inningsid": 2,
+          "eventtype": "NONE",
+          "commentaryformats": [
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+            {"type": "", "value": []},
+          ],
+          "videotype": "",
+          "videourl": "",
+          "videoid": 0,
+          "ballnbr": 98,
+          "planid": 0,
+          "imageid": 0,
+          "premiumvideourl": "",
+          "ispremiumfree": false,
+          "batteamscore": 0,
+          "boundarytracker": false,
+        },
+      },
+    ],
+    "miniscore": {
+      "batsmanstriker": {
+        "id": 10214,
+        "balls": 13,
+        "runs": 22,
+        "fours": 3,
+        "sixes": 0,
+        "strkrate": "169.23076923076923",
+        "name": "Jitesh Sharma",
+        "nickname": "Jitesh Sharma",
+        "iscaptain": false,
+        "iskeeper": false,
+        "outdec": "",
+        "videotype": "",
+        "videourl": "",
+        "videoid": 0,
+        "planid": 0,
+        "imageid": 0,
+        "premiumvideourl": "",
+        "iscbplusfree": false,
+        "ispremiumfree": false,
+        "inmatchchange": "",
+        "isoverseas": false,
+        "playingxichange": "",
+      },
+      "batsmannonstriker": {
+        "id": 10945,
+        "balls": 23,
+        "runs": 49,
+        "fours": 3,
+        "sixes": 4,
+        "strkrate": "213.0434782608696",
+        "name": "Washington Sundar",
+        "nickname": "Washington Sundar",
+        "iscaptain": false,
+        "iskeeper": false,
+        "outdec": "",
+        "videotype": "",
+        "videourl": "",
+        "videoid": 0,
+        "planid": 0,
+        "imageid": 0,
+        "premiumvideourl": "",
+        "iscbplusfree": false,
+        "ispremiumfree": false,
+        "inmatchchange": "",
+        "isoverseas": false,
+        "playingxichange": "",
+      },
+      "bowlerstriker": {
+        "id": 8136,
+        "overs": "3.3",
+        "maidens": 0,
+        "wickets": 0,
+        "runs": 56,
+        "economy": "16",
+        "name": "Sean Abbott",
+        "nickname": "",
+        "iscaptain": false,
+        "iskeeper": false,
+        "videotype": "",
+        "videourl": "",
+        "videoid": 0,
+        "dots": 0,
+        "balls": 0,
+        "rpb": 0.0,
+        "planid": 0,
+        "imageid": 0,
+        "premiumvideourl": "",
+        "ispremiumfree": false,
+        "inmatchchange": "",
+        "isoverseas": false,
+        "playingxichange": "",
+      },
+      "bowlernonstriker": {
+        "id": 8989,
+        "overs": "2",
+        "maidens": 0,
+        "wickets": 1,
+        "runs": 22,
+        "economy": "11",
+        "name": "Marcus Stoinis",
+        "nickname": "",
+        "iscaptain": false,
+        "iskeeper": false,
+        "videotype": "",
+        "videourl": "",
+        "videoid": 0,
+        "dots": 0,
+        "balls": 0,
+        "rpb": 0.0,
+        "planid": 0,
+        "imageid": 0,
+        "premiumvideourl": "",
+        "ispremiumfree": false,
+        "inmatchchange": "",
+        "isoverseas": false,
+        "playingxichange": "",
+      },
+      "crr": 10.16,
+      "rrr": 0.0,
+      "inningsnbr": "1st inn",
+      "lastwkt":
+          "Tilak Varma  c Josh Inglis b Bartlett 29(26)  - 145/5 in 14.2 ov.",
+      "curovsstats": "... 6 0 0  | 1 4 2 1 1 2  | 1 1 4",
+      "inningsscores": {
+        "inningsscore": [
+          {
+            "inningsid": 2,
+            "batteamid": 2,
+            "batteamshortname": "IND",
+            "runs": 188,
+            "wickets": 5,
+            "overs": 18.3,
+            "isdeclared": false,
+            "isfollowon": false,
+            "target": 187,
+            "balls": 111,
+          },
+          {
+            "inningsid": 1,
+            "batteamid": 4,
+            "batteamshortname": "AUS",
+            "runs": 186,
+            "wickets": 6,
+            "overs": 19.6,
+            "isdeclared": false,
+            "isfollowon": false,
+            "target": 187,
+            "balls": 120,
+          },
+        ],
+      },
+      "inningsid": 2,
+      "performance": [
+        {"runs": 59, "wickets": 1, "label": "Last 5 overs"},
+        {"runs": 33, "wickets": 0, "label": "Last 3 overs"},
+      ],
+      "udrs": {
+        "team1id": 4,
+        "team1remaining": 2,
+        "team1successful": 0,
+        "team1unsuccessful": 0,
+        "team2id": 2,
+        "team2remaining": 1,
+        "team2successful": 0,
+        "team2unsuccessful": 1,
+      },
+      "partnership": "43(25)",
+      "oversrem": "",
+      "pp": {
+        "powerplay": [
+          {
+            "id": 2,
+            "ovrfrom": 0.1,
+            "ovrto": 6.0,
+            "pptype": "Mandatory",
+            "run": 64,
+            "wickets": 0,
+          },
+        ],
+      },
+      "target": 0,
+      "custstatus": "",
+      "ballsrem": 0,
+      "rpb": 0.0,
+      "rrpb": 0.0,
+      "responselastupdated": 0,
+      "event": "",
+    },
+    "matchheaders": {
+      "state": "Complete",
+      "status": "India won by 5 wkts",
+      "matchformat": "T20",
+      "matchstarttimestamp": 1762071300000,
+      "teamdetails": {
+        "batteamid": 2,
+        "batteamname": "IND",
+        "bowlteamid": 4,
+        "bowlteamname": "AUS",
+      },
+      "momplayers": {
+        "player": [
+          {
+            "id": "13217",
+            "name": "Arshdeep Singh",
+            "captain": false,
+            "role": "",
+            "keeper": false,
+            "teamname": "India",
+            "isheader": false,
+            "imageId": 0,
+            "battingStyle": "",
+            "bowlingStyle": "",
+            "faceimageid": 616527,
+            "countryimageid": 0,
+            "playingxichange": "",
+            "inmatchchange": "",
+            "isoverseas": false,
+          },
+        ],
+        "category": "",
+      },
+      "mosplayers": {"player": [], "category": ""},
+      "winningteamid": 2,
+      "revisedtarget": 0,
+      "matchendtimestamp": 1762083731420,
+      "seriesid": 9596,
+      "matchdesc": "3rd T20I",
+      "seriesname": "India tour of Australia, 2025",
+      "alerttype": "auto",
+      "tossresults": {
+        "tosswinnerid": 2,
+        "tosswinnername": "India",
+        "decision": "Bowling",
+      },
+      "livestreamenabled": false,
+      "team1": {
+        "teamid": 4,
+        "teamname": "Australia",
+        "teamsname": "AUS",
+        "isfullmember": false,
+        "isassociated": false,
+        "isleagueteam": false,
+        "iswomenteam": false,
+        "isheader": false,
+        "isactive": false,
+        "teampriority": "",
+        "isvideopresent": false,
+        "imageid": 0,
+        "countryname": "",
+        "belongsto": "",
+      },
+      "team2": {
+        "teamid": 2,
+        "teamname": "India",
+        "teamsname": "IND",
+        "isfullmember": false,
+        "isassociated": false,
+        "isleagueteam": false,
+        "iswomenteam": false,
+        "isheader": false,
+        "isactive": false,
+        "teampriority": "",
+        "isvideopresent": false,
+        "imageid": 0,
+        "countryname": "",
+        "belongsto": "",
+      },
+    },
+    "appindex": {
+      "seotitle":
+          "AUS vs IND 3rd T20I,India tour of Australia, 2025 | Cricbuzz.com",
+      "weburl":
+          "http://www.cricbuzz.com/live-cricket-scores/116954/aus-vs-ind-3rd-t20i-india-tour-of-australia-2025",
+    },
+    "matchvideos": [
+      {
+        "infratype": "Content_Promotion - Video",
+        "headline":
+            "If Sundar doesn't bowl, his selection seems puzzling: Zaheer Khan",
+        "commtimestamp": 1762080036556,
+        "eventtimestamp": 0,
+        "content": [],
+        "itemid": "1_1r1cqswv",
+        "embedcode": "",
+        "applinkurl":
+            "cricbuzz://video?id=1_1r1cqswv&name=If Sundar doesn't bowl, his selection seems puzzling: Zaheer Khan",
+        "inningsid": 0,
+        "imageid": 779037,
+        "context": "",
+        "islive": false,
+        "mappingid": "1_1r1cqswv",
+        "videourl":
+            "https://cdnapisec.kaltura.com/p/1999781/sp/199978100/playManifest/entryId/1_1r1cqswv/format/applehttp/protocol/https/a.m3u8?ks=djJ8MTk5OTc4MXyYrKLUyW-veAoI7vYCXjFXNr1KBzxED6BuW7ZDkP2wEyN0ebe9TY84rQXiF_LvqW-a5wI5DaNzDFPKqEzjPWYrlv0kc1rG62qUGPNZM1Dm04TVcpuoyzU3klhmacD6FeU=",
+        "adtag": "vast-Cricbuzz-Live",
+        "category": [
+          {
+            "id": 16,
+            "name": "Cricbuzz Live",
+            "imageid": 244345,
+            "videocount": 0,
+          },
+          {
+            "id": 27,
+            "name": "Cricbuzz LIVE - Talking Points",
+            "imageid": 244347,
+            "videocount": 0,
+          },
+        ],
+        "language": "English",
+        "planid": 0,
+        "premiumvideourl": "",
+        "videoid": 147828,
+        "videotype": "Analysis",
+        "batsmanid": 0,
+        "bowlerid": 0,
+        "tags": [
+          {
+            "itemname": "India tour of Australia, 2025",
+            "itemtype": "series",
+            "itemid": 9596,
+          },
+          {
+            "itemname": "India tour of Australia, 2025, 3rd T20I",
+            "itemtype": "match",
+            "itemid": 116954,
+          },
+          {"itemname": "India", "itemtype": "team", "itemid": 2},
+          {
+            "itemname": "Washington Sundar",
+            "itemtype": "player",
+            "itemid": 10945,
+          },
+        ],
+        "ispremiumfree": false,
+        "assetkey": "",
+        "starttime": 0,
+        "endtime": 0,
+        "isloginrequired": false,
+        "haslivestreamfreeminutes": false,
+      },
+      {
+        "infratype": "Content_Promotion - Video",
+        "headline": "Australia v India, 3rd T20I: Preview",
+        "commtimestamp": 1761996135201,
+        "eventtimestamp": 0,
+        "content": [],
+        "itemid": "1_rzha3efv",
+        "embedcode": "",
+        "applinkurl":
+            "cricbuzz://video?id=1_rzha3efv&name=Australia v India, 3rd T20I: Preview",
+        "inningsid": 0,
+        "imageid": 778013,
+        "context": "",
+        "islive": false,
+        "mappingid": "1_rzha3efv",
+        "videourl":
+            "https://cdnapisec.kaltura.com/p/1999781/sp/199978100/playManifest/entryId/1_rzha3efv/format/applehttp/protocol/https/a.m3u8?ks=djJ8MTk5OTc4MXyYrKLUyW-veAoI7vYCXjFXNr1KBzxED6BuW7ZDkP2wEyN0ebe9TY84rQXiF_LvqW-a5wI5DaNzDFPKqEzjPWYrlv0kc1rG62qUGPNZM1Dm04TVcpuoyzU3klhmacD6FeU=",
+        "adtag": "vast-Cricbuzz-Live",
+        "category": [
+          {
+            "id": 16,
+            "name": "Cricbuzz Live",
+            "imageid": 244345,
+            "videocount": 0,
+          },
+          {
+            "id": 27,
+            "name": "Cricbuzz LIVE - Talking Points",
+            "imageid": 244347,
+            "videocount": 0,
+          },
+        ],
+        "language": "English",
+        "planid": 0,
+        "premiumvideourl": "",
+        "videoid": 147653,
+        "videotype": "Analysis",
+        "batsmanid": 0,
+        "bowlerid": 0,
+        "tags": [
+          {
+            "itemname": "India tour of Australia, 2025",
+            "itemtype": "series",
+            "itemid": 9596,
+          },
+          {
+            "itemname": "India tour of Australia, 2025, 3rd T20I",
+            "itemtype": "match",
+            "itemid": 116954,
+          },
+          {"itemname": "India", "itemtype": "team", "itemid": 2},
+          {"itemname": "Australia", "itemtype": "team", "itemid": 4},
+        ],
+        "ispremiumfree": false,
+        "assetkey": "",
+        "starttime": 0,
+        "endtime": 0,
+        "isloginrequired": false,
+        "haslivestreamfreeminutes": false,
+      },
+      {
+        "infratype": "Content_Promotion - Video",
+        "headline":
+            "India has to zero in on batting order before the T20 WC: Zaheer",
+        "commtimestamp": 1761967804227,
+        "eventtimestamp": 0,
+        "content": [],
+        "itemid": "1_cpqeniw4",
+        "embedcode": "",
+        "applinkurl":
+            "cricbuzz://video?id=1_cpqeniw4&name=India has to zero in on batting order before the T20 WC: Zaheer",
+        "inningsid": 0,
+        "imageid": 778056,
+        "context": "",
+        "islive": false,
+        "mappingid": "1_cpqeniw4",
+        "videourl":
+            "https://cdnapisec.kaltura.com/p/1999781/sp/199978100/playManifest/entryId/1_cpqeniw4/format/applehttp/protocol/https/a.m3u8?ks=djJ8MTk5OTc4MXyYrKLUyW-veAoI7vYCXjFXNr1KBzxED6BuW7ZDkP2wEyN0ebe9TY84rQXiF_LvqW-a5wI5DaNzDFPKqEzjPWYrlv0kc1rG62qUGPNZM1Dm04TVcpuoyzU3klhmacD6FeU=",
+        "adtag": "vast-Cricbuzz-Live",
+        "category": [
+          {
+            "id": 16,
+            "name": "Cricbuzz Live",
+            "imageid": 244345,
+            "videocount": 0,
+          },
+          {
+            "id": 27,
+            "name": "Cricbuzz LIVE - Talking Points",
+            "imageid": 244347,
+            "videocount": 0,
+          },
+        ],
+        "language": "English",
+        "planid": 0,
+        "premiumvideourl": "",
+        "videoid": 147660,
+        "videotype": "Analysis",
+        "batsmanid": 0,
+        "bowlerid": 0,
+        "tags": [
+          {
+            "itemname": "India tour of Australia, 2025",
+            "itemtype": "series",
+            "itemid": 9596,
+          },
+          {
+            "itemname": "India tour of Australia, 2025, 3rd T20I",
+            "itemtype": "match",
+            "itemid": 116954,
+          },
+          {"itemname": "India", "itemtype": "team", "itemid": 2},
+          {
+            "itemname": "Suryakumar Yadav",
+            "itemtype": "player",
+            "itemid": 7915,
+          },
+        ],
+        "ispremiumfree": false,
+        "assetkey": "",
+        "starttime": 0,
+        "endtime": 0,
+        "isloginrequired": false,
+        "haslivestreamfreeminutes": false,
+      },
+    ],
+    "responselastupdated": 1762084495,
+    "buzz": {
+      "imageids": [778058, 778146, 777463],
+      "position": 2,
+      "applink": "cricbuzz://buzz",
+      "isbuzzenabled": true,
+    },
+  });
 }
+
+// {
+//     "inningsid": 0,
+//     "comwrapper": [
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$",
+//                 "timestamp": 1762095732713,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "STATS:"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$ \\n12 - Richa Ghosh in 2025  \\n12 - Deandra Dottin in 2013  \\n12 - Lizelle Lee in 2017  \\n11- Harmanpreet Kaur in 2017 \\n10 - Nadine de Klerk in 2025",
+//                 "timestamp": 1762095562419,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "Most sixes in a Women's WC edition "
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$ \\n185 - Richa Ghosh (SR: 165.17) \\n119 - Nadine de Klerk (SR: 160.81) \\n110 - Jemimah Rodrigues (SR: 146.66) \\n103 - Ashleigh Garnder (SR: 160.93) \\n95 - Sneh Rana (SR: 135.71)",
+//                 "timestamp": 1762095562409,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "Most runs in Overs 41-50 in the tournament"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$ \\n330 vs AUS-W, Visakhapatnam, 2025 WC \\n314/9 vs WI-W, Vadodara, 2024 \\n298/7 vs SA-W, Mumbai DYP, 2025 WC \\n298/2 vs WI-W, Dhanbad, 2004 \\n284/6 vs ENG-W, Indore, 2025 WC",
+//                 "timestamp": 1762095562399,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "Highest ODI totals for IND-W without an individual hundred"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$",
+//                 "timestamp": 1762095562389,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "India’s 298/7 is the second-highest total in a WC final after Australia’s 356/5 against England in 2022."
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$ Early on it was decent for batters. Feel like as bowlers we didn't start well but got it back nicely. The aim was to bowl stump to stump. For spinners I think I bowled really slow today, was working for me. It's a good score to chase. Obviously it's a high-scoring ground, we're going to do this.",
+//                 "timestamp": 1762095379961,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "Nonkululeko Mlaba: "
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$ Second highest total in a Women's World Cup final. Will that be enough? Remember, South Africa are yet to lose chasing in this tournament. But this is a pressure game and they will have to contend with the crowd factor among many other tricky parameters of a run chase. The pitch was under covers for more than 3 hours, but that looked to have very little impact on how the ball behaved in the first few overs. While Kapp couldn't get enough swing, Khaka failed to control her lines, making life easy for the openers and helping them build a 104-run stand for the opening wicket. Things did slow down a touch after the powerplay, and despite a few dropped chances - the Proteas did well to not leak too many runs in the last 20 overs. Smriti, Jemimah and Harmanpreet all had starts, but failed to kick on. Shafali looked the part with her 78-ball 87 that included 7 fours and 2 sixes.",
+//                 "timestamp": 1762095183538,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "20:24 local, 14:54 GMT:"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "de Klerk to Radha Yadav, B0$ Deepti Sharma Run Out!! 1 run completed. Full toss and Radha Yadav swings for the fences and ends up losing her bat. Sliced down to sweeper cover and there was never a two in there. Both batters were in the middle of the pitch when the throw came into the keeper and Deepti was miles short. B1$",
+//                 "timestamp": 1762095180538,
+//                 "overnum": 49.6,
+//                 "inningsid": 1,
+//                 "eventtype": "over-break,WICKET",
+//                 "oversep": {
+//                     "score": 298,
+//                     "wickets": 7,
+//                     "inningsid": 1,
+//                     "oversummary": "1 1 1 1 1 W1 ",
+//                     "runs": 6,
+//                     "batstrikerdetails": "58(58)",
+//                     "batnonstrikerdetails": "3(3)",
+//                     "bowldetails": "9-0-52-1",
+//                     "timestamp": 1762095180538,
+//                     "overnum": 49.6,
+//                     "ovrbatnames": [],
+//                     "ovrbowlnames": [],
+//                     "batstrikername": "Deepti Sharma",
+//                     "batnonstrikername": "Radha Yadav",
+//                     "bowlname": "Nadine de Klerk",
+//                     "battingteamname": "INDW"
+//                 },
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "out"
+//                             },
+//                             {
+//                                 "id": "B1$",
+//                                 "value": "Deepti Sharma run out (Chloe Tryon/Sinalo Jafta) 58(58) [4s-3 6s-1]"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 300,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false,
+//                 "ad": {
+//                     "name": "mpu_over_break",
+//                     "layout": "mpu",
+//                     "position": 1
+//                 }
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "de Klerk to Radha Yadav, B0$ Run Out!!",
+//                 "timestamp": 1762095179506,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "THATS OUT!!"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "de Klerk to Deepti Sharma, 1 run, Radha Yadav wanted a second, but Deepti was content with a single. She miscued the loft to long-on and it dropped just short of the incoming Wolvaardt at long-on. Deepti was ball-watching for a while, and didn't spot the opportunity to pinch a second. Radha Yadav was halfway down and a poor throw helped her get back to the crease...",
+//                 "timestamp": 1762095108071,
+//                 "overnum": 49.5,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 299,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$: Runs on the board always help in any final. Yes it may be 20-30 short of expected target still the onus is on South Africa to chase this. Exciting 50 overs coming ahead.",
+//                 "timestamp": 1762095057173,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "Keval"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "de Klerk to Radha Yadav, 1 run, smashes the full delivery to mid-off and rushes across for a quick single",
+//                 "timestamp": 1762095057172,
+//                 "overnum": 49.4,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 298,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "de Klerk to Deepti Sharma, 1 run, slower ball bowled full and wide of off stump, Deepti skates down and looks to go straight. Ends up dragging it off the toe edge to short fine for a quick single",
+//                 "timestamp": 1762095026024,
+//                 "overnum": 49.3,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 297,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "de Klerk to Radha Yadav, 1 run, steps out and flicks the full delivery to Bosch at deep mid-wicket. This is the B0$",
+//                 "timestamp": 1762094992199,
+//                 "overnum": 49.2,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "second highest total in a Women's World Cup final"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 296,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "de Klerk to Deepti Sharma, 1 run, Deepti charges out and slices the slower full delivery past the leaping right hand of extra cover",
+//                 "timestamp": 1762094958048,
+//                 "overnum": 49.1,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 295,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$",
+//                 "timestamp": 1762094934574,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "Radha Yadav, right handed bat, comes to the crease"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "B0$",
+//                 "timestamp": 1762094926504,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "Nadine de Klerk [8.0-0-46-1] is back into the attack"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "Ayabonga Khaka to Richa Ghosh, B0$ Caught by Annerie Dercksen!! Thankfully for South Africa, that drop didn't cost much. It was the slower full delivery on leg stump. Richa played the pick up flick and hit it flat to deep square. Dercksen didn't rush towards the ball, just stood still and caught it with both hands with an air of calmness. B1$",
+//                 "timestamp": 1762094869222,
+//                 "overnum": 48.6,
+//                 "inningsid": 1,
+//                 "eventtype": "over-break,WICKET",
+//                 "oversep": {
+//                     "score": 292,
+//                     "wickets": 6,
+//                     "inningsid": 1,
+//                     "oversummary": "0 0 1 4 1 W ",
+//                     "runs": 6,
+//                     "batstrikerdetails": "55(55)",
+//                     "batnonstrikerdetails": "34(24)",
+//                     "bowldetails": "9-0-58-3",
+//                     "timestamp": 1762094869222,
+//                     "overnum": 48.6,
+//                     "ovrbatnames": [],
+//                     "ovrbowlnames": [],
+//                     "batstrikername": "Deepti Sharma",
+//                     "batnonstrikername": "Richa Ghosh",
+//                     "bowlname": "Ayabonga Khaka",
+//                     "battingteamname": "INDW"
+//                 },
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "out"
+//                             },
+//                             {
+//                                 "id": "B1$",
+//                                 "value": "Richa Ghosh c Annerie Dercksen b Ayabonga Khaka 34(24) [4s-3 6s-2]"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 294,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "Ayabonga Khaka to Richa Ghosh, B0$ Caught!!",
+//                 "timestamp": 1762094868467,
+//                 "overnum": 0.0,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "THATS OUT!!"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 0,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "Ayabonga Khaka to Deepti Sharma, 1 run, another full toss and this one is at the pads, Deepti whips but picks out Kapp at deep square",
+//                 "timestamp": 1762094834826,
+//                 "overnum": 48.5,
+//                 "inningsid": 1,
+//                 "eventtype": "NONE",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 293,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         },
+//         {
+//             "commentary": {
+//                 "commtxt": "Ayabonga Khaka to Deepti Sharma, B0$, juicy full toss outside off, Deepti made room early and crouched at the last minute to power the lofted drive up and over extra cover. India inching closer to 300...",
+//                 "timestamp": 1762094788646,
+//                 "overnum": 48.4,
+//                 "inningsid": 1,
+//                 "eventtype": "FOUR",
+//                 "commentaryformats": [
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "bold",
+//                         "value": [
+//                             {
+//                                 "id": "B0$",
+//                                 "value": "FOUR"
+//                             }
+//                         ]
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     },
+//                     {
+//                         "type": "",
+//                         "value": []
+//                     }
+//                 ],
+//                 "videotype": "",
+//                 "videourl": "",
+//                 "videoid": 0,
+//                 "ballnbr": 292,
+//                 "planid": 0,
+//                 "imageid": 0,
+//                 "premiumvideourl": "",
+//                 "ispremiumfree": false,
+//                 "batteamscore": 0,
+//                 "boundarytracker": false
+//             }
+//         }
+//     ],
+//     "miniscore": {
+//         "batsmanstriker": {
+//             "id": 13533,
+//             "balls": 3,
+//             "runs": 3,
+//             "fours": 0,
+//             "sixes": 0,
+//             "strkrate": "100",
+//             "name": "Radha Yadav",
+//             "nickname": "Radha Yadav",
+//             "iscaptain": false,
+//             "iskeeper": false,
+//             "outdec": "",
+//             "videotype": "",
+//             "videourl": "",
+//             "videoid": 0,
+//             "planid": 0,
+//             "imageid": 0,
+//             "premiumvideourl": "",
+//             "iscbplusfree": false,
+//             "ispremiumfree": false,
+//             "inmatchchange": "",
+//             "isoverseas": false,
+//             "playingxichange": ""
+//         },
+//         "batsmannonstriker": {
+//             "id": 0,
+//             "balls": 0,
+//             "runs": 0,
+//             "fours": 0,
+//             "sixes": 0,
+//             "strkrate": "0",
+//             "name": "",
+//             "nickname": "",
+//             "iscaptain": false,
+//             "iskeeper": false,
+//             "outdec": "",
+//             "videotype": "",
+//             "videourl": "",
+//             "videoid": 0,
+//             "planid": 0,
+//             "imageid": 0,
+//             "premiumvideourl": "",
+//             "iscbplusfree": false,
+//             "ispremiumfree": false,
+//             "inmatchchange": "",
+//             "isoverseas": false,
+//             "playingxichange": ""
+//         },
+//         "bowlerstriker": {
+//             "id": 11346,
+//             "overs": "9",
+//             "maidens": 0,
+//             "wickets": 3,
+//             "runs": 58,
+//             "economy": "6.44",
+//             "name": "Ayabonga Khaka",
+//             "nickname": "",
+//             "iscaptain": false,
+//             "iskeeper": false,
+//             "videotype": "",
+//             "videourl": "",
+//             "videoid": 0,
+//             "dots": 0,
+//             "balls": 0,
+//             "rpb": 0.0,
+//             "planid": 0,
+//             "imageid": 0,
+//             "premiumvideourl": "",
+//             "ispremiumfree": false,
+//             "inmatchchange": "",
+//             "isoverseas": false,
+//             "playingxichange": ""
+//         },
+//         "bowlernonstriker": {
+//             "id": 12752,
+//             "overs": "9",
+//             "maidens": 0,
+//             "wickets": 1,
+//             "runs": 52,
+//             "economy": "5.78",
+//             "name": "Nadine de Klerk",
+//             "nickname": "",
+//             "iscaptain": false,
+//             "iskeeper": false,
+//             "videotype": "",
+//             "videourl": "",
+//             "videoid": 0,
+//             "dots": 0,
+//             "balls": 0,
+//             "rpb": 0.0,
+//             "planid": 0,
+//             "imageid": 0,
+//             "premiumvideourl": "",
+//             "ispremiumfree": false,
+//             "inmatchchange": "",
+//             "isoverseas": false,
+//             "playingxichange": ""
+//         },
+//         "crr": 5.96,
+//         "rrr": 0.0,
+//         "inningsnbr": "1st inn",
+//         "lastwkt": "Deepti Sharma  run out (Chloe Tryon/Sinalo Jafta)  58(58)  - 298/7 in 50.0 ov.",
+//         "curovsstats": "...  | 0 0 1 4 1 W  | 1 1 1 1 1 W1",
+//         "inningsscores": {
+//             "inningsscore": [
+//                 {
+//                     "inningsid": 1,
+//                     "batteamid": 97,
+//                     "batteamshortname": "INDW",
+//                     "runs": 298,
+//                     "wickets": 7,
+//                     "overs": 49.6,
+//                     "isdeclared": false,
+//                     "isfollowon": false,
+//                     "target": 0,
+//                     "balls": 300
+//                 }
+//             ]
+//         },
+//         "inningsid": 1,
+//         "performance": [
+//             {
+//                 "runs": 69,
+//                 "wickets": 3,
+//                 "label": "Last 10 overs"
+//             },
+//             {
+//                 "runs": 36,
+//                 "wickets": 2,
+//                 "label": "Last 5 overs"
+//             }
+//         ],
+//         "udrs": {
+//             "team1id": 97,
+//             "team1remaining": 2,
+//             "team1successful": 1,
+//             "team1unsuccessful": 0,
+//             "team2id": 260,
+//             "team2remaining": 1,
+//             "team2successful": 0,
+//             "team2unsuccessful": 1
+//         },
+//         "partnership": "6(6)",
+//         "oversrem": "",
+//         "pp": {
+//             "powerplay": [
+//                 {
+//                     "id": 6,
+//                     "ovrfrom": 0.1,
+//                     "ovrto": 10.0,
+//                     "pptype": "Mandatory",
+//                     "run": 64,
+//                     "wickets": 0
+//                 }
+//             ]
+//         },
+//         "target": 0,
+//         "custstatus": "",
+//         "ballsrem": 0,
+//         "rpb": 0.0,
+//         "rrpb": 0.0,
+//         "responselastupdated": 0,
+//         "event": "",
+//         "ad": {
+//             "name": "mpu_live",
+//             "layout": "mpu",
+//             "position": 1
+//         }
+//     },
+//     "matchheaders": {
+//         "state": "Innings Break",
+//         "status": "Innings Break",
+//         "matchformat": "ODI",
+//         "matchstarttimestamp": 1762075800000,
+//         "teamdetails": {
+//             "batteamid": 97,
+//             "batteamname": "INDW",
+//             "bowlteamid": 260,
+//             "bowlteamname": "RSAW"
+//         },
+//         "momplayers": {
+//             "player": [],
+//             "category": ""
+//         },
+//         "mosplayers": {
+//             "player": [],
+//             "category": ""
+//         },
+//         "winningteamid": 0,
+//         "revisedtarget": 0,
+//         "matchendtimestamp": 1762101000000,
+//         "seriesid": 10009,
+//         "matchdesc": "Final",
+//         "seriesname": "ICC Womens World Cup 2025",
+//         "alerttype": "auto",
+//         "tossresults": {
+//             "tosswinnerid": 260,
+//             "tosswinnername": "South Africa Women",
+//             "decision": "Bowling"
+//         },
+//         "livestreamenabled": false,
+//         "team1": {
+//             "teamid": 97,
+//             "teamname": "India Women",
+//             "teamsname": "INDW",
+//             "isfullmember": false,
+//             "isassociated": false,
+//             "isleagueteam": false,
+//             "iswomenteam": false,
+//             "isheader": false,
+//             "isactive": false,
+//             "teampriority": "",
+//             "isvideopresent": false,
+//             "imageid": 0,
+//             "countryname": "",
+//             "belongsto": ""
+//         },
+//         "team2": {
+//             "teamid": 260,
+//             "teamname": "South Africa Women",
+//             "teamsname": "RSAW",
+//             "isfullmember": false,
+//             "isassociated": false,
+//             "isleagueteam": false,
+//             "iswomenteam": false,
+//             "isheader": false,
+//             "isactive": false,
+//             "teampriority": "",
+//             "isvideopresent": false,
+//             "imageid": 0,
+//             "countryname": "",
+//             "belongsto": ""
+//         }
+//     },
+//     "appindex": {
+//         "seotitle": "INDW vs RSAW Final,ICC Womens World Cup 2025 | Cricbuzz.com",
+//         "weburl": "http://www.cricbuzz.com/live-cricket-scores/121681/indw-vs-rsaw-final-icc-womens-world-cup-2025"
+//     },
+//     "matchvideos": [
+//         {
+//             "infratype": "Content_Promotion - Video",
+//             "headline": "India v South Africa, Final: Preview",
+//             "commtimestamp": 1761925050543,
+//             "eventtimestamp": 0,
+//             "content": [],
+//             "itemid": "1_1s50y5hj",
+//             "embedcode": "",
+//             "applinkurl": "cricbuzz://video?id=1_1s50y5hj&name=India v South Africa, Final: Preview",
+//             "inningsid": 0,
+//             "imageid": 778131,
+//             "context": "",
+//             "islive": false,
+//             "mappingid": "1_1s50y5hj",
+//             "videourl": "https://cdnapisec.kaltura.com/p/1999781/sp/199978100/playManifest/entryId/1_1s50y5hj/format/applehttp/protocol/https/a.m3u8?ks=djJ8MTk5OTc4MXw949kWIIGHshJ_T2pYxWh78EKDmUYqnlNI4Bvxwm95wK8M_Vgfne0e89xzO1-ctB6qZtTt_BZ41sWa-obeUGvEeOi3khpKhogYcJumaUN9xxR5Ijwgq15z1IBO8rby4jY=",
+//             "adtag": "vast-Cricbuzz-Live",
+//             "category": [
+//                 {
+//                     "id": 16,
+//                     "name": "Cricbuzz Live",
+//                     "imageid": 244345,
+//                     "videocount": 0
+//                 },
+//                 {
+//                     "id": 27,
+//                     "name": "Cricbuzz LIVE - Talking Points",
+//                     "imageid": 244347,
+//                     "videocount": 0
+//                 }
+//             ],
+//             "language": "English",
+//             "planid": 0,
+//             "premiumvideourl": "",
+//             "videoid": 147656,
+//             "videotype": "Analysis",
+//             "batsmanid": 0,
+//             "bowlerid": 0,
+//             "tags": [
+//                 {
+//                     "itemname": "ICC Womens World Cup 2025",
+//                     "itemtype": "series",
+//                     "itemid": 10009
+//                 },
+//                 {
+//                     "itemname": "ICC Womens World Cup 2025, Final",
+//                     "itemtype": "match",
+//                     "itemid": 121681
+//                 },
+//                 {
+//                     "itemname": "India",
+//                     "itemtype": "team",
+//                     "itemid": 2
+//                 },
+//                 {
+//                     "itemname": "South Africa",
+//                     "itemtype": "team",
+//                     "itemid": 11
+//                 }
+//             ],
+//             "ispremiumfree": false,
+//             "assetkey": "",
+//             "starttime": 0,
+//             "endtime": 0,
+//             "isloginrequired": false,
+//             "haslivestreamfreeminutes": false,
+//             "freeminutebeginmessage": {
+//                 "title": "",
+//                 "message": ""
+//             },
+//             "freeminuteexpiredmessage": {
+//                 "title": "",
+//                 "message": ""
+//             }
+//         }
+//     ],
+//     "responselastupdated": 1762095801,
+//     "buzz": {
+//         "imageids": [
+//             779317,
+//             778058,
+//             778146
+//         ],
+//         "position": 2,
+//         "applink": "cricbuzz://buzz",
+//         "isbuzzenabled": true
+//     }
+// }

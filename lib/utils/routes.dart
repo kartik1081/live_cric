@@ -42,7 +42,7 @@ class Routes {
           settings: RouteSettings(name: homeRt),
           builder: (context) => ChangeNotifierProvider<ScorecardController>(
             create: (context) =>
-                ScorecardController(context, matchId: args[matchIdKey]),
+                ScorecardController(context, match: args[matchKey]),
             child: ScorecardView(),
           ),
         );

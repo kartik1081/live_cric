@@ -1,3 +1,8 @@
+const String completeSt = "Complete";
+const String inProgressSt = "In Progress";
+const String tossSt = "Toss";
+const String stumpsSt = "Stumps";
+
 const String streamLinksFc = "Stream Links";
 
 const String nativeMedium = 'nativeAdFactoryMedium';
@@ -133,3 +138,15 @@ const String playerNameKey = "player_name";
 const String matchKey = "match";
 const String streamUrlKey = "stream_url";
 const String streamUrlsKey = "stream_urls";
+const String miniscoreKey = "miniscore";
+const String batsmanstrikerKey = "batsmanstriker";
+const String batsmannonstrikerKey = "batsmannonstriker";
+const String bowlerstrikerKey = "bowlerstriker";
+const String bowlernonstrikerKey = "bowlernonstriker";
+const String crrKey = "crr";
+const String rrrKey = "rrr";
+const String lastwktKey = "lastwkt";
+const String curovsstatsKey = "curovsstats";
+const String momplayersKey = "momplayers";
+const String matchheadersKey = "matchheaders";
+const String playerKey = "player";

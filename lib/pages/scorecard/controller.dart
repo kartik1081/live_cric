@@ -2,13 +2,16 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:live_cric/models/crt/crt_match_info.dart';
+import 'package:live_cric/models/crt/crt_match_model.dart';
 import 'package:live_cric/models/crt/crt_match_scorecard_model.dart';
+import 'package:live_cric/network_services/network_endpoint.dart';
+import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/response_data.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class ScorecardController extends ChangeNotifier {
-  late final int matchId;
+  late final CrtMatchModel match;
 
   bool _mounted = false;
   bool _loading = true;
@@ -19,7 +22,7 @@ class ScorecardController extends ChangeNotifier {
   CrtMatchScorecardModel? get scorecardModel => _scorecardModel;
   CrtMatchInfoModel? get matchInfo => _matchInfo;
 
-  ScorecardController(BuildContext context, {required this.matchId}) {
+  ScorecardController(BuildContext context, {required this.match}) {
     _mounted = true;
     getScorecard(context);
   }
@@ -39,22 +42,32 @@ class ScorecardController extends ChangeNotifier {
     }
 
     try {
-      // final response = await buildHttpResponse(
-      //   getMatchScorecardEp(matchId),
-      //   method: nb.HttpMethodType.GET,
-      // );
+      final response = await buildHttpResponse(
+        getMatchScorecardEp(match.matchId),
+        method: nb.HttpMethodType.GET,
+      );
 
-      // switch (response.statusCode) {
-      //   case 200:
-      final data = jsonDecode(ResponseData.scorecard);
-      _scorecardModel = CrtMatchScorecardModel.fromJson(data);
-      if (context.mounted) {
-        await getMatchInfo(context);
+      switch (response.statusCode) {
+        case 200:
+          final data = jsonDecode(response.body);
+          _scorecardModel = CrtMatchScorecardModel.fromJson(data);
+          match.status = _scorecardModel?.status ?? "";
+          for (int i = 0; i < (_scorecardModel?.inningList ?? []).length; i++) {
+            if (i % 2 == 0) {
+              match.team1Scores[(i / 2).toInt()].runs =
+                  _scorecardModel?.inningList[i].score ?? 0;
+            } else {
+              match.team2Scores[(i / 2).toInt()].runs =
+                  _scorecardModel?.inningList[i].score ?? 0;
+            }
+          }
+          if (context.mounted) {
+            await getMatchInfo(context);
+          }
+          break;
+        default:
+          throw Exception([response.statusCode]);
       }
-      //     break;
-      //   default:
-      //     throw Exception([response.statusCode]);
-      // }
     } catch (e) {
       nb.log("getScorecard: $e");
       if (context.mounted) {

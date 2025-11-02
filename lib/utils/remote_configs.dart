@@ -9,7 +9,7 @@ class RemoteConfigs {
   static final defaulValue = {
     "app_name": 'LiveCric',
     "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com",
-    "x-rapidapi-key": "c89783400cmsh40a6a97cc3e0dd4p11104bjsnd09af3840a52",
+    "x-rapidapi-key": "1c5003a597msh0995e6efae78e63p14d451jsn61dd1d7d694f",
     "show_banner": true,
     "show_native": true,
     "show_interstitial": true,

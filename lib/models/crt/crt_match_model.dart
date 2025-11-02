@@ -9,7 +9,7 @@ class CrtMatchModel {
   final String matchFormat;
   final String date;
   final String state;
-  final String status;
+  String status;
   final CrtTeamModel team1;
   final CrtTeamModel team2;
   final CrtMatchVenueModel venue;
@@ -105,9 +105,9 @@ class CrtMatchVenueModel {
 
 class CrtTeamIngScoreModel {
   final int inningsId;
-  final int runs;
-  final int wickets;
-  final double overs;
+  int runs;
+  int wickets;
+  double overs;
   final bool? isDeclared;
 
   CrtTeamIngScoreModel({
