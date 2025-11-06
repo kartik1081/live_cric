@@ -8,6 +8,7 @@ import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -116,7 +117,11 @@ class HomeController extends ChangeNotifier {
     try {
       return await Configs.firestore
           .collection(streamLinksFc)
-          .doc(0.toString())
+          .doc(
+            RemoteConfigs.demoStreamRc
+                ? 0.toString()
+                : match.matchId.toString(),
+          )
           .get()
           .then((value) async {
             if (value.exists &&
@@ -138,7 +143,7 @@ class HomeController extends ChangeNotifier {
                 return await Navigator.pushNamed(
                   context,
                   Routes.scorecardRt,
-                  arguments: {matchIdKey: match.matchId},
+                  arguments: {matchKey: match},
                 );
               }
             }

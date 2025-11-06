@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(402, 874),
       builder: (context, child) => MaterialApp(
-        title: 'LiveCric',
+        title: RemoteConfigs.appNameRc,
         theme: AppTheme.lightTheme,
         initialRoute: Routes.splashRt,
         debugShowCheckedModeBanner: false,

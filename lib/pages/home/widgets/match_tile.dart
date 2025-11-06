@@ -87,7 +87,7 @@ class _MatchTileState extends State<MatchTile> {
                         style: Common.textStyle(
                           color: soft,
                           size: 14.sp,
-                          weight: FontWeight.w700,
+                          isSpl: true,
                         ),
                       ),
                     ],
@@ -104,6 +104,7 @@ class _MatchTileState extends State<MatchTile> {
                     )
                   else
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(
                         widget.match.team1Scores.length,
                         (index) => Row(
@@ -113,7 +114,7 @@ class _MatchTileState extends State<MatchTile> {
                               style: Common.textStyle(
                                 color: soft,
                                 size: 14.sp,
-                                weight: FontWeight.w700,
+                                isSpl: true,
                               ),
                             ),
                             Text(
@@ -126,18 +127,20 @@ class _MatchTileState extends State<MatchTile> {
                     ),
                 ],
               ).expand(),
-              Column(
-                children: [
-                  Icon(Icons.circle, color: Colors.greenAccent, size: 10.w),
-                  Text(
-                    "Live",
-                    style: Common.textStyle(
-                      color: Colors.greenAccent,
-                      size: 13.sp,
+              if (widget.match.state == inProgressSt ||
+                  widget.match.state == tossSt)
+                Column(
+                  children: [
+                    Icon(Icons.circle, color: Colors.greenAccent, size: 10.w),
+                    Text(
+                      "Live",
+                      style: Common.textStyle(
+                        color: Colors.greenAccent,
+                        size: 13.sp,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -153,7 +156,7 @@ class _MatchTileState extends State<MatchTile> {
                     )
                   else
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(
                         widget.match.team2Scores.length,
                         (index) => Row(
@@ -163,7 +166,7 @@ class _MatchTileState extends State<MatchTile> {
                               style: Common.textStyle(
                                 color: soft,
                                 size: 14.sp,
-                                weight: FontWeight.w600,
+                                isSpl: true,
                               ),
                             ),
                             Text(
@@ -188,7 +191,7 @@ class _MatchTileState extends State<MatchTile> {
                         style: Common.textStyle(
                           color: soft,
                           size: 14.sp,
-                          weight: FontWeight.w700,
+                          isSpl: true,
                         ),
                       ),
                     ],

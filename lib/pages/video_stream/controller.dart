@@ -120,6 +120,7 @@ class VideoStreamController extends ChangeNotifier {
         case 200:
           final data = jsonDecode(response.body);
           _comm = CrtMatchCommModel.fromJson(data);
+          nb.log("getCommentry: ${_comm?.curovsstats}");
           break;
         default:
           throw Exception([response.statusCode]);

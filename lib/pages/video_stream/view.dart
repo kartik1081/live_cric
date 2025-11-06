@@ -146,34 +146,34 @@ class VideoStreamView extends StatelessWidget {
                           SliverPersistentHeader(
                             pinned: true,
                             delegate: TabBarDelegate(
-                              maxHeight: 65.h,
-                              minHeight: 65.h,
+                              maxHeight: 55.h,
+                              minHeight: 55.h,
                               child: Container(
                                 color: black,
-                                child: Row(
+                                child: Column(
                                   children: [
-                                    Column(
+                                    Row(
                                       children: [
-                                        TextButton(
-                                          onPressed: () {},
-                                          child: Text(
-                                            "Commentry",
-                                            style: Common.textStyle(
-                                              color: soft,
-                                              size: 16.sp,
-                                              weight: FontWeight.w600,
+                                        Column(
+                                          children: [
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: Text(
+                                                "Commentry",
+                                                style: Common.textStyle(
+                                                  color: soft,
+                                                  size: 16.sp,
+                                                  weight: FontWeight.w600,
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                            Divider(
+                                              height: 0,
+                                              color: soft,
+                                              thickness: 2,
+                                            ).withWidth(60.w),
+                                          ],
                                         ),
-                                        Divider(
-                                          height: 0,
-                                          color: soft,
-                                          thickness: 2,
-                                        ).withWidth(60.w),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
                                         TextButton(
                                           onPressed: () => Navigator.pushNamed(
                                             context,
@@ -196,9 +196,14 @@ class VideoStreamView extends StatelessWidget {
                                           ),
                                         ),
                                       ],
+                                    ).paddingSymmetric(horizontal: 18.w),
+                                    Divider(
+                                      color: text,
+                                      thickness: 0.2,
+                                      height: 0,
                                     ),
                                   ],
-                                ).paddingSymmetric(horizontal: 18.w),
+                                ),
                               ),
                             ),
                           ),
@@ -251,7 +256,7 @@ class VideoStreamView extends StatelessWidget {
                                                     style: Common.textStyle(
                                                       color: soft,
                                                       size: 12.sp,
-                                                      weight: FontWeight.w700,
+                                                      isSpl: true,
                                                     ),
                                                   ),
                                                 ],
@@ -291,9 +296,7 @@ class VideoStreamView extends StatelessWidget {
                                                               Common.textStyle(
                                                                 color: soft,
                                                                 size: 14.sp,
-                                                                weight:
-                                                                    FontWeight
-                                                                        .w700,
+                                                                isSpl: true,
                                                               ),
                                                         ),
                                                         Text(
@@ -352,9 +355,7 @@ class VideoStreamView extends StatelessWidget {
                                                               Common.textStyle(
                                                                 color: soft,
                                                                 size: 14.sp,
-                                                                weight:
-                                                                    FontWeight
-                                                                        .w600,
+                                                                isSpl: true,
                                                               ),
                                                         ),
                                                         Text(
@@ -400,7 +401,7 @@ class VideoStreamView extends StatelessWidget {
                                                     style: Common.textStyle(
                                                       color: soft,
                                                       size: 12.sp,
-                                                      weight: FontWeight.w700,
+                                                      isSpl: true,
                                                     ),
                                                   ),
                                                 ],
@@ -428,6 +429,9 @@ class VideoStreamView extends StatelessWidget {
                                               SingleChildScrollView(
                                                 scrollDirection:
                                                     Axis.horizontal,
+                                                padding: EdgeInsets.only(
+                                                  right: 13.w,
+                                                ),
                                                 reverse: true,
                                                 child: Row(
                                                   mainAxisSize:
@@ -442,7 +446,7 @@ class VideoStreamView extends StatelessWidget {
                                                       width: 22.w,
                                                       margin:
                                                           EdgeInsets.symmetric(
-                                                            horizontal: 1.w,
+                                                            horizontal: 1.5.w,
                                                           ),
                                                       alignment:
                                                           Alignment.center,
@@ -637,10 +641,7 @@ class VideoStreamView extends StatelessWidget {
                                               ],
                                             ),
                                             if (comm?.lastwkt != "") ...[
-                                              Divider(
-                                                color: text,
-                                                thickness: 0.2,
-                                              ),
+                                              SizedBox(height: 5.h),
                                               RichText(
                                                 text: TextSpan(
                                                   children: [
@@ -712,7 +713,9 @@ class VideoStreamView extends StatelessWidget {
                                                 verticalPadding: 3,
                                               ),
                                             if (comm?.nonStrikerBatsman !=
-                                                null) ...[
+                                                    null &&
+                                                comm?.nonStrikerBatsman?.id !=
+                                                    0) ...[
                                               CustomBatterCard(
                                                 name:
                                                     comm

@@ -47,7 +47,7 @@ class CrtMatchCommModel {
             (((json[miniscoreKey]?[curovsstatsKey] ?? "") as String).replaceAll(
               " |",
               "|",
-            )).split(" "),
+            )).split(" ")..remove(""),
         partnership: json[miniscoreKey]?[partnershipKey] ?? "0(0)",
         matchHeaders: MatchHeadersModel.fromJson(json[matchheadersKey]),
       );
