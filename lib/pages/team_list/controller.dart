@@ -7,7 +7,7 @@ import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/response_data.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
-class TeamInfoController extends ChangeNotifier {
+class TeamListController extends ChangeNotifier {
   bool _mounted = false;
   bool _loading = true;
   List<CrtTeamModel> _teamList = [];
@@ -15,7 +15,7 @@ class TeamInfoController extends ChangeNotifier {
   bool get loading => _loading;
   List<CrtTeamModel> get teamList => _teamList;
 
-  TeamInfoController(BuildContext context) {
+  TeamListController(BuildContext context) {
     _mounted = true;
     getTeamInfo(context);
   }

@@ -11,8 +11,8 @@ import 'package:live_cric/pages/select_country/controller.dart';
 import 'package:live_cric/pages/select_country/view.dart';
 import 'package:live_cric/pages/splash/controller.dart';
 import 'package:live_cric/pages/splash/view.dart';
-import 'package:live_cric/pages/team_info/controller.dart';
-import 'package:live_cric/pages/team_info/view.dart';
+import 'package:live_cric/pages/team_list/controller.dart';
+import 'package:live_cric/pages/team_list/view.dart';
 import 'package:live_cric/pages/video_stream/controller.dart';
 import 'package:live_cric/pages/video_stream/view.dart';
 import 'package:live_cric/pages/web_stream/controller.dart';
@@ -88,9 +88,9 @@ class Routes {
       case teamInfoRt:
         return MaterialPageRoute(
           settings: RouteSettings(name: teamInfoRt),
-          builder: (context) => ChangeNotifierProvider<TeamInfoController>(
-            create: (context) => TeamInfoController(context),
-            child: TeamInfoView(),
+          builder: (context) => ChangeNotifierProvider<TeamListController>(
+            create: (context) => TeamListController(context),
+            child: TeamListView(),
           ),
         );
       case videoStreamRt:

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:live_cric/models/crt/crt_team_model.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:live_cric/pages/team_info/controller.dart';
-import 'package:live_cric/pages/team_info/widgets/team_tile.dart';
+import 'package:live_cric/pages/team_list/controller.dart';
+import 'package:live_cric/pages/team_list/widgets/team_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/remote_configs.dart';
@@ -11,8 +11,8 @@ import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:provider/provider.dart';
 
-class TeamInfoView extends StatelessWidget {
-  const TeamInfoView({super.key});
+class TeamListView extends StatelessWidget {
+  const TeamListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +38,11 @@ class TeamInfoView extends StatelessWidget {
             ],
           ),
           SizedBox(height: 13.h),
-          Selector<TeamInfoController, bool>(
+          Selector<TeamListController, bool>(
             selector: (p0, p1) => p1.loading,
             builder: (context, loading, child) => loading
                 ? Common.loader()
-                : Selector<TeamInfoController, List<CrtTeamModel>>(
+                : Selector<TeamListController, List<CrtTeamModel>>(
                     selector: (p0, p1) => p1.teamList,
                     builder: (context, teamList, child) => ListView.separated(
                       itemCount: teamList.length,
