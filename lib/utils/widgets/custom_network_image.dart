@@ -1,5 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:live_cric/network_services/network_endpoint.dart';
+import 'package:live_cric/utils/configs.dart';
+import 'package:live_cric/utils/remote_configs.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class CustomNetworkImage extends StatelessWidget {
@@ -20,18 +24,18 @@ class CustomNetworkImage extends StatelessWidget {
     return nb.PlaceHolderWidget(
       width: width,
       height: height,
-      // child: CachedNetworkImage(
-      //   imageUrl: "${Configs.baseURL}${getImageEp(imageId)}",
-      //   httpHeaders: {
-      //     "x-rapidapi-host": RemoteConfigs.xRapidapiHostRc,
-      //     "x-rapidapi-key": RemoteConfigs.xRapidapiKeyRc,
-      //   },
-      //   fit: BoxFit.cover,
-      //   errorWidget: (context, url, error) {
-      //     nb.log("CustomNetworkImage: $error");
-      //     return Icon(Icons.info_outline, color: Colors.grey, size: 20.w);
-      //   },
-      // ),
+      child: CachedNetworkImage(
+        imageUrl: "${Configs.baseURL}${getImageEp(imageId)}",
+        httpHeaders: {
+          "x-rapidapi-host": RemoteConfigs.xRapidapiHostRc,
+          "x-rapidapi-key": RemoteConfigs.xRapidapiKeyRc,
+        },
+        fit: BoxFit.cover,
+        errorWidget: (context, url, error) {
+          nb.log("CustomNetworkImage: $error");
+          return Icon(Icons.info_outline, color: Colors.grey, size: 20.w);
+        },
+      ),
     ).cornerRadiusWithClipRRect(radius.r);
   }
 }

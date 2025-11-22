@@ -42,7 +42,13 @@ class VideoStreamController extends ChangeNotifier {
       streamUrl,
       liveStream: true,
       videoFormat: BetterPlayerVideoFormat.hls,
+      // drmConfiguration: BetterPlayerDrmConfiguration(
+      //   drmType: BetterPlayerDrmType.widevine,
+      //   licenseUrl:
+      //       "https://raw.githubusercontent.com/cricstream4u/sports/refs/heads/main/sports.json",
+      // ),
     );
+
     controller = BetterPlayerController(
       BetterPlayerConfiguration(
         aspectRatio: 16 / 9,
@@ -87,11 +93,12 @@ class VideoStreamController extends ChangeNotifier {
   void adInit(BuildContext context) {
     timer = Timer.periodic(1.seconds, (t) async {
       _lastStreamingSeconds--;
+      nb.log("adInit: $_lastStreamingSeconds");
       if (_lastStreamingSeconds % 300 == 0) {
+        timer?.cancel();
         Ads.showInterstitialAd(
           true,
           onDismiss: () async {
-            timer?.cancel();
             _lastStreamingSeconds = 300;
             adInit(context);
           },
@@ -118,6 +125,11 @@ class VideoStreamController extends ChangeNotifier {
           final data = jsonDecode(response.body);
           _comm = CrtMatchCommModel.fromJson(data);
           nb.log("getCommentry: ${_comm?.curovsstats}");
+          break;
+        case 429:
+          if (context.mounted) {
+            Common.showSnackbar(context, nb.errorMessage);
+          }
           break;
         default:
           throw Exception([response.statusCode]);

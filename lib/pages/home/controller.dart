@@ -10,7 +10,6 @@ import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
-import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -85,6 +84,11 @@ class HomeController extends ChangeNotifier {
             Common.showSnackbar(context, "Try again later!");
           }
           break;
+        case 429:
+          if (context.mounted) {
+            Common.showSnackbar(context, nb.errorMessage);
+          }
+          break;
         default:
           throw Exception([response.statusCode]);
       }
@@ -120,11 +124,7 @@ class HomeController extends ChangeNotifier {
     try {
       await Configs.firestore
           .collection(streamLinksFc)
-          .doc(
-            RemoteConfigs.demoStreamRc
-                ? 1.toString()
-                : match.matchId.toString(),
-          )
+          .doc(match.matchId.toString())
           .get()
           .then((value) async {
             if (value.exists &&
@@ -132,15 +132,6 @@ class HomeController extends ChangeNotifier {
                 ((value.data()?[urlsKey] as List<dynamic>?) ?? []).isNotEmpty) {
               final streamLink = value.data()?[urlsKey];
               if (context.mounted) {
-                // await Navigator.pushNamed(
-                //   context,
-                //   Routes.videoStreamRt,
-                //   arguments: {
-                //     matchKey: match,
-                //     streamUrlKey: value.data()![streamUrlsKey][0],
-                //   },
-                // );
-
                 nb.showInDialog(
                   context,
                   backgroundColor: popUp,
@@ -187,7 +178,7 @@ class HomeController extends ChangeNotifier {
                                         context,
                                         streamLink[index][isStreamKey]
                                             ? Routes.videoStreamRt
-                                            : Routes.videoStreamRt,
+                                            : Routes.webStreamRt,
                                         arguments: {
                                           matchKey: match,
                                           urlKey: streamLink[index][urlKey],

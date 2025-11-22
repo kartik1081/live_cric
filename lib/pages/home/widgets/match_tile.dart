@@ -5,6 +5,7 @@ import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/flaove_config.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
@@ -33,10 +34,11 @@ class _MatchTileState extends State<MatchTile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${widget.match.matchDesc} | ${widget.match.seriesName}",
+                    "${FlavorConfig.flavor == FlavorEnum.dev ? "${widget.match.matchId} · " : ""}${widget.match.matchDesc} | ${widget.match.seriesName}",
+                    maxLines: 1,
                     style: Common.textStyle(
                       color: soft,
-                      size: 14.sp,
+                      size: 12.sp,
                       weight: FontWeight.w600,
                     ),
                     overflow: TextOverflow.ellipsis,
@@ -94,7 +96,7 @@ class _MatchTileState extends State<MatchTile> {
                       ).center().withWidth(47.w),
                     ],
                   ),
-                  SizedBox(width: 10.w),
+                  SizedBox(width: 7.w),
                   if (widget.match.team1Scores.isEmpty)
                     Text(
                       "Yet to Bat",
@@ -120,7 +122,7 @@ class _MatchTileState extends State<MatchTile> {
                               ),
                             ),
                             Text(
-                              "  (${widget.match.team1Scores[index].overs})",
+                              " (${widget.match.team1Scores[index].overs})",
                               style: Common.textStyle(color: text, size: 11.sp),
                             ),
                           ],
@@ -172,14 +174,14 @@ class _MatchTileState extends State<MatchTile> {
                               ),
                             ),
                             Text(
-                              "  (${widget.match.team2Scores[index].overs})",
+                              " (${widget.match.team2Scores[index].overs})",
                               style: Common.textStyle(color: text, size: 11.sp),
                             ),
                           ],
                         ),
                       ),
                     ),
-                  SizedBox(width: 10.w),
+                  SizedBox(width: 7.w),
                   Column(
                     children: [
                       CustomNetworkImage(

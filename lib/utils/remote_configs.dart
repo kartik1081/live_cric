@@ -15,17 +15,19 @@ class RemoteConfigs {
     "show_native": true,
     "show_interstitial": true,
     "show_reward": true,
-    "app_open_id": "ca-app-pub-7330756705387601/6114357528",
-    "banner_id": "ca-app-pub-7330756705387601/5989292496",
-    "native_id": "ca-app-pub-7330756705387601/6019537493",
-    "interstitial_id": "ca-app-pub-7330756705387601/3363129155",
-    "reward_id": "ca-app-pub-7330756705387601/5072738598",
-    // "app_open_id": "ca-app-pub-3940256099942544/9257395921",
-    // "banner_id": "ca-app-pub-3940256099942544/6300978111",
-    // "native_id": "ca-app-pub-3940256099942544/5224354917",
-    // "interstitial_id": "ca-app-pub-3940256099942544/1033173712",
+    // "app_open_id": "ca-app-pub-7330756705387601/6114357528",
+    // "banner_id": "ca-app-pub-7330756705387601/5989292496",
+    // "native_id": "ca-app-pub-7330756705387601/6019537493",
+    // "interstitial_id": "ca-app-pub-7330756705387601/3363129155",
     // "reward_id": "ca-app-pub-7330756705387601/5072738598",
+    "app_open_id": "ca-app-pub-3940256099942544/9257395921",
+    "banner_id": "ca-app-pub-3940256099942544/6300978111",
+    "native_id": "ca-app-pub-3940256099942544/2247696110",
+    "interstitial_id": "ca-app-pub-3940256099942544/1033173712",
+    "reward_id": "ca-app-pub-3940256099942544/5224354917",
     "demo_stream": false,
+    "privacy_policy":
+        "https://www.freeprivacypolicy.com/live/d77a7ba5-2f6b-47fe-bdf3-17c46d9cdffd",
   };
 
   static String get appNameRc => _config.getString("app_name");
@@ -42,6 +44,7 @@ class RemoteConfigs {
   static String get interstitialIdRc => _config.getString("interstitial_id");
   static String get rewardedIdRc => _config.getString("reward_id");
   static bool get demoStreamRc => _config.getBool("demo_stream");
+  static String get privacyPolicyRc => _config.getString("privacy_policy");
 
   static Future<void> initConfig() async {
     try {

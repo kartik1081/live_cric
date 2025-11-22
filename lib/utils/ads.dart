@@ -27,8 +27,13 @@ class Ads {
   static Future<void> showInterstitialAd(
     bool show, {
     VoidCallback? onDismiss,
+    VoidCallback? onFail,
   }) async {
-    if (!show || !adPermission) return;
+    if (!show || !adPermission) {
+      if (onDismiss != null) onDismiss();
+      return;
+    }
+
     if (Ads.interstitialAd != null) {
       Ads.interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
         onAdDismissedFullScreenContent: (ad) async {
@@ -52,10 +57,10 @@ class Ads {
           interstitialAd = null;
         },
       );
-      ;
       await Ads.interstitialAd?.show();
       await Future.delayed(300.milliseconds);
     } else {
+      if (onDismiss != null) onDismiss();
       Ads.interstitialAd?.dispose();
       Ads.interstitialAd = null;
       Ads.loadInterstitial();

@@ -20,7 +20,10 @@ class WebStreamController extends ChangeNotifier {
 
   WebStreamController(BuildContext context, {required this.url}) {
     _mounted = true;
-    _lastStreamingSeconds = nb.getIntAsync(cricketStreamingSecondKey);
+    _lastStreamingSeconds = nb.getIntAsync(
+      cricketStreamingSecondKey,
+      defaultValue: 300,
+    );
 
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -46,9 +49,64 @@ class WebStreamController extends ChangeNotifier {
         NavigationDelegate(
           onProgress: (int progress) {},
           onPageStarted: (String url) {},
-          onPageFinished: (String url) {
+          onPageFinished: (String url) async {
+            final result = await controller?.runJavaScriptReturningResult(
+              "window.document.getElementsByTagName('html')[0].outerHTML;",
+            );
+            String html = result.toString();
+            html = html.replaceAll(r'\"', '"'); // remove escaped quotes
+            html = html.replaceAll('"', '');
+            final urlRegex = RegExp(
+              r"""https?:\/\/[^\s"\'<>]+""",
+              caseSensitive: false,
+            );
+            final matches = urlRegex.allMatches(html);
+            final urls = matches.map((m) => m.group(0)!).toList();
+            print("HOHOHOIHEIh: 1$urls");
+
+            // Filter by keywords commonly used in license servers
+            final filtered = urls.where((url) {
+              return url.contains("license") ||
+                  url.contains("lic") ||
+                  url.contains("drm") ||
+                  url.contains("widevine") ||
+                  url.contains("wv") ||
+                  url.endsWith(".php") ||
+                  url.endsWith(".json") ||
+                  url.endsWith(".bin") ||
+                  url.endsWith(".key");
+            }).toList();
+            print("HOHOHOIHEIh: 2$filtered");
+
+            final patterns = [
+              RegExp(
+                r'Bearer\s+([A-Za-z0-9\-\._~+/]+=*)',
+                caseSensitive: false,
+              ),
+              RegExp(r'"token"\s*:\s*"([^"]+)"', caseSensitive: false),
+              RegExp(
+                r'Authorization"\s*:\s*"Bearer\s+([^"]+)',
+                caseSensitive: false,
+              ),
+              RegExp(r'accessToken"\s*:\s*"([^"]+)"', caseSensitive: false),
+              RegExp(r'"auth"\s*:\s*"([^"]+)"', caseSensitive: false),
+            ];
+
+            for (final p in patterns) {
+              final m = p.firstMatch(html);
+              if (m != null) print("HOHOHOIHEIh: 1$m");
+            }
+            // final videoRegex = RegExp(
+            //   r"""https?:\/\/[^\s"\'<>]+?\.(m3u8|mpd)""",
+            //   caseSensitive: false,
+            // );
+
+            // final match = videoRegex.firstMatch(html);
+            // final playerHtml = match?.group(0);
+
             controller?.runJavaScript(_robustInjectionScript);
             adInit(context);
+
             _loading = false;
             notify();
           },
@@ -127,7 +185,7 @@ class WebStreamController extends ChangeNotifier {
     timer = Timer.periodic(1.seconds, (t) async {
       _lastStreamingSeconds--;
       nb.log("adInit: $_lastStreamingSeconds");
-      if (_lastStreamingSeconds % 30 == 0) {
+      if (_lastStreamingSeconds % 300 == 0) {
         timer?.cancel();
         Ads.showInterstitialAd(
           true,

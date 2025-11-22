@@ -65,6 +65,11 @@ class ScorecardController extends ChangeNotifier {
             await getMatchInfo(context);
           }
           break;
+        case 429:
+          if (context.mounted) {
+            Common.showSnackbar(context, nb.errorMessage);
+          }
+          break;
         default:
           throw Exception([response.statusCode]);
       }

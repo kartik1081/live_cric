@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
@@ -11,7 +12,11 @@ class SplashController extends ChangeNotifier {
         loadAppOpenAd(() async {
           Navigator.pushNamedAndRemoveUntil(
             context,
-            Routes.homeRt,
+            nb.getBoolAsync(privacyConsentKey, defaultValue: false)
+                ? nb.getStringAsync(selectedCountryKey) == ""
+                      ? Routes.selectCountryRt
+                      : Routes.homeRt
+                : Routes.privacyConsentRt,
             (route) => false,
           );
         });

@@ -154,3 +154,5 @@ const String urlsKey = "urls";
 const String urlKey = "url";
 const String isStreamKey = "is_stream";
 const String cricketStreamingSecondKey = 'cricket_streaming_seconds';
+const String privacyConsentKey = 'privacy_consent';
+const String selectedCountryKey = 'selected_country';
