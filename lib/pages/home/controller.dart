@@ -6,6 +6,7 @@ import 'package:live_cric/models/crt/crt_match_model.dart';
 import 'package:live_cric/models/crt/crt_match_type_model.dart';
 import 'package:live_cric/network_services/network_endpoint.dart';
 import 'package:live_cric/network_services/network_utils.dart';
+import 'package:live_cric/pages/home/widgets/copyright_box.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/configs.dart';
@@ -98,6 +99,15 @@ class HomeController extends ChangeNotifier {
         Common.showSnackbar(context, nb.errorSomethingWentWrong);
       }
     } finally {
+      if (!nb.getBoolAsync(copyrightReadKey, defaultValue: true) &&
+          context.mounted) {
+        nb.showInDialog(
+          barrierDismissible: false,
+          backgroundColor: popUp,
+          context,
+          builder: (p0) => CopyrightBox(),
+        );
+      }
       _loading = false;
       notify();
     }

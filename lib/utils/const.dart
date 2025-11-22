@@ -157,3 +157,7 @@ const String cricketStreamingSecondKey = 'cricket_streaming_seconds';
 const String onboardKey = 'onboard';
 const String privacyConsentKey = 'privacy_consent';
 const String selectedCountryKey = 'selected_country';
+const String copyrightReadKey = 'copyright_read';
+const String listKey = 'list';
+const String teamShortNameKeY = 'teamSName';
+const String countryNameKey = 'countryName';

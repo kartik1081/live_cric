@@ -11,6 +11,8 @@ import 'package:live_cric/pages/select_country/controller.dart';
 import 'package:live_cric/pages/select_country/view.dart';
 import 'package:live_cric/pages/splash/controller.dart';
 import 'package:live_cric/pages/splash/view.dart';
+import 'package:live_cric/pages/team_info/controller.dart';
+import 'package:live_cric/pages/team_info/view.dart';
 import 'package:live_cric/pages/video_stream/controller.dart';
 import 'package:live_cric/pages/video_stream/view.dart';
 import 'package:live_cric/pages/web_stream/controller.dart';
@@ -25,6 +27,7 @@ class Routes {
   static const String selectCountryRt = "/select_country";
   static const String homeRt = "/home";
   static const String scorecardRt = "/scorecard";
+  static const String teamInfoRt = "/team_info";
   static const String playerProfileRt = "/player_profile";
   static const String videoStreamRt = "/video_stream";
   static const String webStreamRt = "/web_stream";
@@ -75,17 +78,25 @@ class Routes {
       case scorecardRt:
         final args = setting.arguments as dynamic;
         return MaterialPageRoute(
-          settings: RouteSettings(name: homeRt),
+          settings: RouteSettings(name: scorecardRt),
           builder: (context) => ChangeNotifierProvider<ScorecardController>(
             create: (context) =>
                 ScorecardController(context, match: args[matchKey]),
             child: ScorecardView(),
           ),
         );
+      case teamInfoRt:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: teamInfoRt),
+          builder: (context) => ChangeNotifierProvider<TeamInfoController>(
+            create: (context) => TeamInfoController(context),
+            child: TeamInfoView(),
+          ),
+        );
       case videoStreamRt:
         final args = setting.arguments as dynamic;
         return MaterialPageRoute(
-          settings: RouteSettings(name: homeRt),
+          settings: RouteSettings(name: videoStreamRt),
           builder: (context) => ChangeNotifierProvider<VideoStreamController>(
             create: (context) => VideoStreamController(
               context,

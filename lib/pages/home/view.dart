@@ -3,11 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/models/crt/crt_match_type_model.dart';
 import 'package:live_cric/pages/home/controller.dart';
+import 'package:live_cric/pages/home/widgets/copyright_box.dart';
 import 'package:live_cric/pages/home/widgets/match_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/remote_configs.dart';
+import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nb_utils/nb_utils.dart' hide black;
@@ -31,11 +33,40 @@ class HomeView extends StatelessWidget {
                 SizedBox(height: 30.h),
                 Row(
                   children: [
-                    Lottie.asset('assets/lotties/live.json', width: 35.w),
-                    Text(
-                      "LiveCric",
-                      style: Common.textStyle(isSpl: true, size: 22.sp),
-                    ).expand(),
+                    Row(
+                      children: [
+                        Lottie.asset('assets/lotties/live.json', width: 35.w),
+                        Text(
+                          "LiveCric",
+                          style: Common.textStyle(isSpl: true, size: 22.sp),
+                        ),
+                        SizedBox(width: 5.w),
+                        Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.symmetric(horizontal: 3.w),
+                          decoration: BoxDecoration(
+                            borderRadius: nb.radius(100.r),
+                            border: BoxBorder.all(color: primary50),
+                          ),
+                          child: Text(
+                            "C",
+                            style: Common.textStyle(
+                              color: primary50,
+                              weight: FontWeight.w700,
+                              size: 10.sp,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ).onTap(
+                      () => nb.showInDialog(
+                        barrierDismissible: false,
+                        backgroundColor: popUp,
+                        context,
+                        builder: (p0) => CopyrightBox(),
+                      ),
+                    ),
+                    const Spacer(),
                     Container(
                       width: 80.w,
                       height: 30.h,
@@ -45,7 +76,7 @@ class HomeView extends StatelessWidget {
                         borderRadius: nb.radius(12.r),
                       ),
                       child: Text(
-                        "Copyright",
+                        "Team Info",
                         style: Common.textStyle(
                           color: black,
                           weight: FontWeight.w700,
@@ -53,43 +84,7 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                     ).onTap(
-                      () => nb.showInDialog(
-                        barrierDismissible: false,
-                        backgroundColor: popUp,
-                        context,
-                        builder: (p0) => Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              "Copyright",
-                              style: Common.textStyle(isSpl: true, size: 18.sp),
-                            ),
-                            Divider(),
-                            Text(
-                              "${RemoteConfigs.appNameRc} does not stream any of the channels included in this application, all the streaming links are from third part website available freely on the internet.\n\nWe're just giving way to stream and all content is the copyright of their owner.",
-                              style: Common.textStyle(size: 14.sp),
-                            ),
-                            SizedBox(height: 40.h),
-                            Container(
-                              width: 275.w,
-                              height: 45.h,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: primary50,
-                                borderRadius: nb.radius(12.r),
-                              ),
-                              child: Text(
-                                "OK",
-                                style: Common.textStyle(
-                                  color: black,
-                                  weight: FontWeight.bold,
-                                  size: 16.sp,
-                                ),
-                              ),
-                            ).onTap(() => Navigator.pop(context)),
-                          ],
-                        ),
-                      ),
+                      () => Navigator.pushNamed(context, Routes.teamInfoRt),
                     ),
                   ],
                 ).paddingSymmetric(horizontal: 22.w),
