@@ -35,6 +35,61 @@ class HomeView extends StatelessWidget {
                     Text(
                       "LiveCric",
                       style: Common.textStyle(isSpl: true, size: 22.sp),
+                    ).expand(),
+                    Container(
+                      width: 80.w,
+                      height: 30.h,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: primary50,
+                        borderRadius: nb.radius(12.r),
+                      ),
+                      child: Text(
+                        "Copyright",
+                        style: Common.textStyle(
+                          color: black,
+                          weight: FontWeight.w700,
+                          size: 13.sp,
+                        ),
+                      ),
+                    ).onTap(
+                      () => nb.showInDialog(
+                        barrierDismissible: false,
+                        backgroundColor: popUp,
+                        context,
+                        builder: (p0) => Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "Copyright",
+                              style: Common.textStyle(isSpl: true, size: 18.sp),
+                            ),
+                            Divider(),
+                            Text(
+                              "${RemoteConfigs.appNameRc} does not stream any of the channels included in this application, all the streaming links are from third part website available freely on the internet.\n\nWe're just giving way to stream and all content is the copyright of their owner.",
+                              style: Common.textStyle(size: 14.sp),
+                            ),
+                            SizedBox(height: 40.h),
+                            Container(
+                              width: 275.w,
+                              height: 45.h,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: primary50,
+                                borderRadius: nb.radius(12.r),
+                              ),
+                              child: Text(
+                                "OK",
+                                style: Common.textStyle(
+                                  color: black,
+                                  weight: FontWeight.bold,
+                                  size: 16.sp,
+                                ),
+                              ),
+                            ).onTap(() => Navigator.pop(context)),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ).paddingSymmetric(horizontal: 22.w),
