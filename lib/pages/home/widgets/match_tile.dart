@@ -84,12 +84,14 @@ class _MatchTileState extends State<MatchTile> {
                       SizedBox(height: 7.h),
                       Text(
                         widget.match.team1.teamSName,
+                        maxLines: 1,
+                        overflow: TextOverflow.clip,
                         style: Common.textStyle(
                           color: soft,
                           size: 14.sp,
                           isSpl: true,
                         ),
-                      ),
+                      ).center().withWidth(47.w),
                     ],
                   ),
                   SizedBox(width: 10.w),
@@ -110,16 +112,16 @@ class _MatchTileState extends State<MatchTile> {
                         (index) => Row(
                           children: [
                             Text(
-                              "${widget.match.team1Scores[index].runs} / ${widget.match.team1Scores[index].wickets}",
+                              "${widget.match.team1Scores[index].runs}/${widget.match.team1Scores[index].wickets}",
                               style: Common.textStyle(
                                 color: soft,
-                                size: 14.sp,
+                                size: 15.sp,
                                 isSpl: true,
                               ),
                             ),
                             Text(
                               "  (${widget.match.team1Scores[index].overs})",
-                              style: Common.textStyle(color: text, size: 12.sp),
+                              style: Common.textStyle(color: text, size: 11.sp),
                             ),
                           ],
                         ),
@@ -131,12 +133,12 @@ class _MatchTileState extends State<MatchTile> {
                   widget.match.state == tossSt)
                 Column(
                   children: [
-                    Icon(Icons.circle, color: Colors.greenAccent, size: 10.w),
+                    Icon(Icons.circle, color: Colors.greenAccent, size: 8.w),
                     Text(
                       "Live",
                       style: Common.textStyle(
                         color: Colors.greenAccent,
-                        size: 13.sp,
+                        size: 11.sp,
                       ),
                     ),
                   ],
@@ -156,22 +158,22 @@ class _MatchTileState extends State<MatchTile> {
                     )
                   else
                     Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: List.generate(
                         widget.match.team2Scores.length,
                         (index) => Row(
                           children: [
                             Text(
-                              "${widget.match.team2Scores[index].runs} / ${widget.match.team2Scores[index].wickets}",
+                              "${widget.match.team2Scores[index].runs}/${widget.match.team2Scores[index].wickets}",
                               style: Common.textStyle(
                                 color: soft,
-                                size: 14.sp,
+                                size: 15.sp,
                                 isSpl: true,
                               ),
                             ),
                             Text(
                               "  (${widget.match.team2Scores[index].overs})",
-                              style: Common.textStyle(color: text, size: 12.sp),
+                              style: Common.textStyle(color: text, size: 11.sp),
                             ),
                           ],
                         ),
@@ -188,12 +190,14 @@ class _MatchTileState extends State<MatchTile> {
                       SizedBox(height: 7.h),
                       Text(
                         widget.match.team2.teamSName,
+                        maxLines: 1,
+                        overflow: TextOverflow.clip,
                         style: Common.textStyle(
                           color: soft,
                           size: 14.sp,
                           isSpl: true,
                         ),
-                      ),
+                      ).center().withWidth(47.w),
                     ],
                   ),
                 ],
@@ -234,15 +238,10 @@ class _MatchTileState extends State<MatchTile> {
         Common.showSnackbar(context, "Match is not started yet!");
         return;
       }
-      final result = await Provider.of<HomeController>(
+      Provider.of<HomeController>(
         context,
         listen: false,
       ).getStreamingLink(context, match: widget.match);
-      if (result != null && result is Map) {
-        setState(() {
-          widget.match = (result[matchKey] as CrtMatchModel);
-        });
-      }
     });
   }
 }

@@ -48,6 +48,7 @@ dependencies:
   nb_utils: ^7.1.8
   provider: ^6.1.5+1
   tuple: ^2.0.2
+  webview_flutter: ^4.13.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0

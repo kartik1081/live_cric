@@ -10,6 +10,7 @@ import 'package:live_cric/network_services/network_endpoint.dart';
 import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/ads.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/const.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class VideoStreamController extends ChangeNotifier {
@@ -63,7 +64,7 @@ class VideoStreamController extends ChangeNotifier {
       betterPlayerDataSource: dataSource,
     );
     _lastStreamingSeconds = nb.getIntAsync(
-      match.matchId.toString(),
+      cricketStreamingSecondKey,
       defaultValue: 300,
     );
     adInit(context);
@@ -80,26 +81,22 @@ class VideoStreamController extends ChangeNotifier {
     controller.pause();
     controller.dispose();
     timer?.cancel();
-    nb.setValue(match.matchId.toString(), _lastStreamingSeconds);
+    nb.setValue(cricketStreamingSecondKey, _lastStreamingSeconds);
   }
 
   void adInit(BuildContext context) {
     timer = Timer.periodic(1.seconds, (t) async {
       _lastStreamingSeconds--;
       if (_lastStreamingSeconds % 300 == 0) {
-        timer?.cancel();
-        controller.pause();
         Ads.showInterstitialAd(
           true,
           onDismiss: () async {
+            timer?.cancel();
             _lastStreamingSeconds = 300;
             adInit(context);
-            await Future.delayed(100.milliseconds);
-            controller.play();
           },
         );
       }
-      notify();
     });
   }
 

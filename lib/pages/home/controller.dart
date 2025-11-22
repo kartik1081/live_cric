@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:live_cric/models/crt/crt_match_model.dart';
 import 'package:live_cric/models/crt/crt_match_type_model.dart';
 import 'package:live_cric/network_services/network_endpoint.dart';
 import 'package:live_cric/network_services/network_utils.dart';
+import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
@@ -73,6 +75,7 @@ class HomeController extends ChangeNotifier {
             x.add(CrtMatchTypeModel(matchType: mType, matchList: matchList));
           }
           _matchTypes = x;
+          if (_selectedIndex >= _matchTypes.length) --_selectedIndex;
           break;
         case 404:
           _matchTypes = [];
@@ -106,41 +109,105 @@ class HomeController extends ChangeNotifier {
     );
   }
 
-  Future<dynamic> getStreamingLink(
+  Future<void> getStreamingLink(
     BuildContext context, {
     required CrtMatchModel match,
   }) async {
-    if (!await Common.checkNetwork(context)) return null;
+    if (!await Common.checkNetwork(context)) return;
 
     _streamLinkLoading = true;
     notify();
     try {
-      return await Configs.firestore
+      await Configs.firestore
           .collection(streamLinksFc)
           .doc(
             RemoteConfigs.demoStreamRc
-                ? 0.toString()
+                ? 1.toString()
                 : match.matchId.toString(),
           )
           .get()
           .then((value) async {
             if (value.exists &&
                 value.data() != null &&
-                ((value.data()?[streamUrlsKey] as List<dynamic>?) ?? [])
-                    .isNotEmpty) {
+                ((value.data()?[urlsKey] as List<dynamic>?) ?? []).isNotEmpty) {
+              final streamLink = value.data()?[urlsKey];
               if (context.mounted) {
-                return await Navigator.pushNamed(
+                // await Navigator.pushNamed(
+                //   context,
+                //   Routes.videoStreamRt,
+                //   arguments: {
+                //     matchKey: match,
+                //     streamUrlKey: value.data()![streamUrlsKey][0],
+                //   },
+                // );
+
+                nb.showInDialog(
                   context,
-                  Routes.videoStreamRt,
-                  arguments: {
-                    matchKey: match,
-                    streamUrlKey: value.data()![streamUrlsKey][0],
-                  },
+                  backgroundColor: popUp,
+                  builder: (context) => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Choose Server",
+                        style: Common.textStyle(isSpl: true, size: 18.sp),
+                      ),
+                      Divider(),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(minHeight: 70.h),
+                        child: streamLink.isEmpty
+                            ? Text(
+                                "No Server Found.",
+                                style: Common.textStyle(color: Colors.grey),
+                              ).center()
+                            : ListView.separated(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.only(top: 13.h),
+                                itemCount: streamLink.length,
+                                itemBuilder: (context, index) =>
+                                    Container(
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: 13.h,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: primary50,
+                                        borderRadius: nb.radius(8.r),
+                                      ),
+                                      child: Text(
+                                        "Server ${index + 1}",
+                                        style: Common.textStyle(
+                                          color: black,
+                                          weight: FontWeight.w700,
+                                          size: 18.h,
+                                        ),
+                                      ),
+                                    ).onTap(
+                                      () => Navigator.pushNamedAndRemoveUntil(
+                                        context,
+                                        streamLink[index][isStreamKey]
+                                            ? Routes.videoStreamRt
+                                            : Routes.videoStreamRt,
+                                        arguments: {
+                                          matchKey: match,
+                                          urlKey: streamLink[index][urlKey],
+                                        },
+                                        (route) =>
+                                            route.settings.name ==
+                                            Routes.homeRt,
+                                      ),
+                                    ),
+                                separatorBuilder: (context, index) =>
+                                    SizedBox(height: 10.h),
+                              ),
+                      ),
+                    ],
+                  ),
                 );
               }
             } else {
               if (context.mounted) {
-                return await Navigator.pushNamed(
+                await Navigator.pushNamed(
                   context,
                   Routes.scorecardRt,
                   arguments: {matchKey: match},
