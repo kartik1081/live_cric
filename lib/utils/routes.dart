@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/pages/home/view.dart';
+import 'package:live_cric/pages/onboard/controller.dart';
+import 'package:live_cric/pages/onboard/view.dart';
 import 'package:live_cric/pages/privacy/controller.dart';
 import 'package:live_cric/pages/privacy/view.dart';
 import 'package:live_cric/pages/scorecard/controller.dart';
@@ -18,6 +20,7 @@ import 'package:provider/provider.dart';
 
 class Routes {
   static const String splashRt = "/";
+  static const String onboardRt = "/onboard";
   static const String privacyConsentRt = "/pricacy_consent";
   static const String selectCountryRt = "/select_country";
   static const String homeRt = "/home";
@@ -35,6 +38,14 @@ class Routes {
             create: (context) => SplashController(context),
             lazy: false,
             child: SplashView(),
+          ),
+        );
+      case onboardRt:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: onboardRt),
+          builder: (context) => ChangeNotifierProvider<OnboardController>(
+            create: (context) => OnboardController(),
+            child: OnboardView(),
           ),
         );
       case privacyConsentRt:

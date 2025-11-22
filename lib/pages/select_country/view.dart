@@ -72,12 +72,6 @@ class SelectCountryView extends StatelessWidget {
                       ),
                 ),
           ).expand(),
-          CustomNative(
-            nativeType: nativeSmall,
-            bannerType: AdSize.fullBanner,
-            nativeId: RemoteConfigs.nativeIdRc,
-            bannerId: RemoteConfigs.bannerIdRc,
-          ),
           SizedBox(height: 13.h),
           Container(
             width: 402.w,
@@ -96,6 +90,13 @@ class SelectCountryView extends StatelessWidget {
               ),
             ),
           ).onTap(() => controller.saveCountry(context)),
+          CustomNative(
+            nativeType: nativeSmall,
+            bannerType: AdSize.fullBanner,
+            nativeId: RemoteConfigs.nativeIdRc,
+            bannerId: RemoteConfigs.bannerIdRc,
+            topPadding: 7,
+          ),
           SizedBox(height: 13.h),
           SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],

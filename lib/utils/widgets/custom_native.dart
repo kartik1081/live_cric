@@ -56,7 +56,6 @@ class _CustomNativeState extends State<CustomNative> {
     return _isNativeAdLoaded && _nativeAd != null
         ? Container(
             alignment: Alignment.center,
-
             height: widget.nativeType == nativeVideo
                 ? 350
                 : widget.nativeType == nativeMedium

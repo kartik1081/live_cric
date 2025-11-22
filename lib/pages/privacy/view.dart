@@ -44,12 +44,6 @@ class PrivacyView extends StatelessWidget {
           ).expand(),
           Column(
             children: [
-              CustomNative(
-                nativeType: nativeSmall,
-                bannerType: AdSize.fullBanner,
-                nativeId: RemoteConfigs.nativeIdRc,
-                bannerId: RemoteConfigs.bannerIdRc,
-              ),
               Row(
                 children: [
                   Selector<PrivacyController, bool>(
@@ -96,6 +90,12 @@ class PrivacyView extends StatelessWidget {
                   ),
                 ),
               ).onTap(() => controller.onSubmit(context)),
+              CustomNative(
+                nativeType: nativeSmall,
+                bannerType: AdSize.fullBanner,
+                nativeId: RemoteConfigs.nativeIdRc,
+                bannerId: RemoteConfigs.bannerIdRc,
+              ),
               SizedBox(height: 13.h),
             ],
           ).paddingSymmetric(horizontal: 22.w),

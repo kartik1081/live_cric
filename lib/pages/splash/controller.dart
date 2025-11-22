@@ -12,11 +12,13 @@ class SplashController extends ChangeNotifier {
         loadAppOpenAd(() async {
           Navigator.pushNamedAndRemoveUntil(
             context,
-            nb.getBoolAsync(privacyConsentKey, defaultValue: false)
-                ? nb.getStringAsync(selectedCountryKey) == ""
-                      ? Routes.selectCountryRt
-                      : Routes.homeRt
-                : Routes.privacyConsentRt,
+            nb.getBoolAsync(onboardKey, defaultValue: false)
+                ? nb.getBoolAsync(privacyConsentKey, defaultValue: false)
+                      ? nb.getStringAsync(selectedCountryKey) == ""
+                            ? Routes.selectCountryRt
+                            : Routes.homeRt
+                      : Routes.privacyConsentRt
+                : Routes.onboardRt,
             (route) => false,
           );
         });
