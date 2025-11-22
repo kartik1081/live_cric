@@ -54,10 +54,9 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyC040zUqyKACR_kEgKSZUIiCU_1rQCX27c',
-    appId: '1:722476945071:android:3dc0700a8f3a20b8dcce5a',
+    appId: '1:722476945071:android:1614ff95cd8a117adcce5a',
     messagingSenderId: '722476945071',
     projectId: 'livecric-b5226',
     storageBucket: 'livecric-b5226.firebasestorage.app',
   );
-
 }
