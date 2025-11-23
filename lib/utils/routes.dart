@@ -3,6 +3,8 @@ import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/pages/home/view.dart';
 import 'package:live_cric/pages/onboard/controller.dart';
 import 'package:live_cric/pages/onboard/view.dart';
+import 'package:live_cric/pages/player_info.dart/controller.dart';
+import 'package:live_cric/pages/player_info.dart/view.dart';
 import 'package:live_cric/pages/player_list/controller.dart';
 import 'package:live_cric/pages/player_list/view.dart';
 import 'package:live_cric/pages/privacy/controller.dart';
@@ -37,7 +39,7 @@ class Routes {
   static const String teamInfoRt = "/team_info";
   static const String teamNewsRt = "/team_news";
   static const String playerListRt = "/player_list";
-  static const String playerProfileRt = "/player_profile";
+  static const String playerInfoRt = "/player_info";
   static const String videoStreamRt = "/video_stream";
   static const String webStreamRt = "/web_stream";
 
@@ -128,6 +130,16 @@ class Routes {
             create: (context) =>
                 PlayerListController(context, team: args[teamKey]),
             child: PlayerListView(),
+          ),
+        );
+      case playerInfoRt:
+        final args = setting.arguments as dynamic;
+        return MaterialPageRoute(
+          settings: RouteSettings(name: playerInfoRt),
+          builder: (context) => ChangeNotifierProvider<PlayerInfoController>(
+            create: (context) =>
+                PlayerInfoController(context, player: args[playerKey]),
+            child: PlayerInfoView(),
           ),
         );
       case videoStreamRt:

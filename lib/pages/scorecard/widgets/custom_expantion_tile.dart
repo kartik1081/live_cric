@@ -136,7 +136,7 @@ class CustomExpantionTile extends StatelessWidget {
                           ).onTap(
                             () => Navigator.pushNamed(
                               context,
-                              Routes.playerProfileRt,
+                              Routes.playerInfoRt,
                               arguments: {
                                 playerIdKey: inning.batsman[index].id,
                                 playerNameKey: inning.batsman[index].name,
@@ -259,7 +259,7 @@ class CustomExpantionTile extends StatelessWidget {
                           ).onTap(
                             () => Navigator.pushNamed(
                               context,
-                              Routes.playerProfileRt,
+                              Routes.playerInfoRt,
                               arguments: {
                                 playerIdKey: inning.batsman
                                     .where(
@@ -361,7 +361,7 @@ class CustomExpantionTile extends StatelessWidget {
                           .onTap(
                             () => Navigator.pushNamed(
                               context,
-                              Routes.playerProfileRt,
+                              Routes.playerInfoRt,
                               arguments: {
                                 playerIdKey: inning.bowlers[index].id,
                                 playerNameKey: inning.bowlers[index].name,
@@ -456,7 +456,7 @@ class CustomExpantionTile extends StatelessWidget {
                           .onTap(
                             () => Navigator.pushNamed(
                               context,
-                              Routes.playerProfileRt,
+                              Routes.playerInfoRt,
                               arguments: {
                                 playerIdKey: inning.fow[index].batsmanId,
                                 playerNameKey: inning.fow[index].batsmanName,
@@ -590,7 +590,7 @@ class CustomExpantionTile extends StatelessWidget {
                           ).onTap(
                             () => Navigator.pushNamed(
                               context,
-                              Routes.playerProfileRt,
+                              Routes.playerInfoRt,
                               arguments: {
                                 playerIdKey: inning.ps[index].bat1Id,
                                 playerNameKey: inning.ps[index].bat1Name,
@@ -619,7 +619,7 @@ class CustomExpantionTile extends StatelessWidget {
                           ).onTap(
                             () => Navigator.pushNamed(
                               context,
-                              Routes.playerProfileRt,
+                              Routes.playerInfoRt,
                               arguments: {
                                 playerIdKey: inning.ps[index].bat2Id,
                                 playerNameKey: inning.ps[index].bat2Name,
