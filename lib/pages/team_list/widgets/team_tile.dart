@@ -4,6 +4,7 @@ import 'package:live_cric/models/crt/crt_team_model.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/routes.dart';
+import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class TeamTile extends StatelessWidget {
@@ -14,10 +15,12 @@ class TeamTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        nb.PlaceHolderWidget(
+        CustomNetworkImage(
+          imageId: team.imageId,
           height: 45.h,
           width: 70.w,
-        ).cornerRadiusWithClipRRect(8.r),
+          radius: 8.r,
+        ),
         SizedBox(width: 13.w),
         RichText(
           text: TextSpan(

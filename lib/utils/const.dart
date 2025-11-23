@@ -161,3 +161,5 @@ const String copyrightReadKey = 'copyright_read';
 const String listKey = 'list';
 const String teamShortNameKeY = 'teamSName';
 const String countryNameKey = 'countryName';
+const String battingStyleKey = 'battingStyle';
+const String bowlingStyleKey = 'bowlingStyle';

@@ -24,18 +24,18 @@ class CustomNetworkImage extends StatelessWidget {
     return nb.PlaceHolderWidget(
       width: width,
       height: height,
-      child: CachedNetworkImage(
-        imageUrl: "${Configs.baseURL}${getImageEp(imageId)}",
-        httpHeaders: {
-          "x-rapidapi-host": RemoteConfigs.xRapidapiHostRc,
-          "x-rapidapi-key": RemoteConfigs.xRapidapiKeyRc,
-        },
-        fit: BoxFit.cover,
-        errorWidget: (context, url, error) {
-          nb.log("CustomNetworkImage: $error");
-          return Icon(Icons.info_outline, color: Colors.grey, size: 20.w);
-        },
-      ),
+      // child: CachedNetworkImage(
+      //   imageUrl: "${Configs.baseURL}${getImageEp(imageId)}",
+      //   httpHeaders: {
+      //     "x-rapidapi-host": RemoteConfigs.xRapidapiHostRc,
+      //     "x-rapidapi-key": RemoteConfigs.xRapidapiKeyRc,
+      //   },
+      //   fit: BoxFit.cover,
+      //   errorWidget: (context, url, error) {
+      //     nb.log("CustomNetworkImage: $error");
+      //     return Icon(Icons.info_outline, color: Colors.grey, size: 20.w);
+      //   },
+      // ),
     ).cornerRadiusWithClipRRect(radius.r);
   }
 }
