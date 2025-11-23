@@ -9,6 +9,7 @@ import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:provider/provider.dart';
 
 class PlayerListView extends StatelessWidget {
@@ -35,10 +36,12 @@ class PlayerListView extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 7.w),
-              Text(
-                "${controller.team.countryName}'s Player",
-                style: Common.textStyle(isSpl: true, size: 22.sp),
-              ),
+              nb.Marquee(
+                child: Text(
+                  "Team ${controller.team.countryName}'s Player",
+                  style: Common.textStyle(isSpl: true, size: 22.sp),
+                ),
+              ).expand(),
             ],
           ),
           SizedBox(height: 7.h),

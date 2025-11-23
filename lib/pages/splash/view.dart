@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:lottie/lottie.dart';
+import 'package:nb_utils/nb_utils.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -23,6 +24,11 @@ class SplashView extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              Image.asset(
+                "assets/logos/logo1024.png",
+                width: 130.w,
+                fit: BoxFit.cover,
+              ).cornerRadiusWithClipRRect(12.r),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

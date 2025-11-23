@@ -10,6 +10,7 @@ import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:provider/provider.dart';
 
 class TeamInfoView extends StatelessWidget {
@@ -33,10 +34,12 @@ class TeamInfoView extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 7.w),
-              Text(
-                "${controller.team.countryName} Info",
-                style: Common.textStyle(isSpl: true, size: 22.sp),
-              ),
+              nb.Marquee(
+                child: Text(
+                  "Team ${controller.team.countryName}'s Info",
+                  style: Common.textStyle(isSpl: true, size: 22.sp),
+                ),
+              ).expand(),
             ],
           ),
           SizedBox(height: 7.h),
@@ -74,7 +77,11 @@ class TeamInfoView extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () => null,
+                onPressed: () => Navigator.pushNamed(
+                  context,
+                  Routes.teamNewsRt,
+                  arguments: {teamKey: controller.team},
+                ),
                 child: Text(
                   "News",
                   style: Common.textStyle(
