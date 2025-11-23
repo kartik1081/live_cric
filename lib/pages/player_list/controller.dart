@@ -10,10 +10,10 @@ import 'package:nb_utils/nb_utils.dart' as nb;
 class PlayerListController extends ChangeNotifier {
   bool _mounted = false;
   bool _loading = true;
-  List<CrtTeamPlayerModel> _playerList = [];
+  List<dynamic> _playerList = [];
 
   bool get loading => _loading;
-  List<CrtTeamPlayerModel> get playerList => _playerList;
+  List<dynamic> get playerList => _playerList;
 
   PlayerListController(BuildContext context) {
     _mounted = true;
@@ -37,7 +37,12 @@ class PlayerListController extends ChangeNotifier {
       final data = jsonDecode(ResponseData.teamPlayers);
       final players = (data[playerKey] as List<dynamic>);
       players.retainWhere((element) => element[idKey] != null);
-      _playerList = players.map((e) => CrtTeamPlayerModel.fromJson(e)).toList();
+      for (var i = 0; i < players.length; i++) {
+        if (i % 7 == 6) {
+          _playerList.add(null);
+        }
+        _playerList.add(CrtTeamPlayerModel.fromJson(players[i]));
+      }
     } catch (e) {
       nb.log("getPlayerList: $e");
       if (context.mounted) {

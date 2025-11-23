@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:live_cric/pages/team_info/controller.dart';
+import 'package:live_cric/pages/team_info/widgets/schedule_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
+import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:provider/provider.dart';
 
 class TeamInfoView extends StatelessWidget {
   const TeamInfoView({super.key});
@@ -76,6 +83,35 @@ class TeamInfoView extends StatelessWidget {
             ],
           ).paddingSymmetric(horizontal: 18.w),
           Divider(color: text, thickness: 0.2, height: 0),
+          Selector<TeamInfoController, bool>(
+            selector: (p0, p1) => p1.loading,
+            builder: (context, loading, child) => loading
+                ? Common.loader()
+                : Selector<TeamInfoController, List<dynamic>>(
+                    builder: (context, schedules, child) => ListView.separated(
+                      itemCount: schedules.length,
+                      padding: EdgeInsets.only(top: 7.h, bottom: 150.h),
+                      itemBuilder: (context, index) => schedules[index] == null
+                          ? CustomNative(
+                              nativeType: nativeSmall,
+                              bannerType: AdSize.fullBanner,
+                              nativeId: RemoteConfigs.nativeIdRc,
+                              bannerId: RemoteConfigs.bannerIdRc,
+                            ).paddingSymmetric(horizontal: 22.w)
+                          : ScheduleTile(schedule: schedules[index]),
+                      separatorBuilder: (context, index) =>
+                          SizedBox(height: 13.h),
+                    ),
+                    selector: (p0, p1) => p1.schedules,
+                  ),
+          ).expand(),
+          CustomNative(
+            nativeType: "",
+            bannerType: AdSize.fullBanner,
+            nativeId: "",
+            bannerId: RemoteConfigs.bannerIdRc,
+          ),
+          SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],
       ),
     );

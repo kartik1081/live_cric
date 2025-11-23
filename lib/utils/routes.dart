@@ -103,10 +103,12 @@ class Routes {
           ),
         );
       case teamInfoRt:
+        final args = setting.arguments as dynamic;
         return MaterialPageRoute(
           settings: RouteSettings(name: teamInfoRt),
           builder: (context) => ChangeNotifierProvider<TeamInfoController>(
-            create: (context) => TeamInfoController(context),
+            create: (context) =>
+                TeamInfoController(context, team: args[teamKey]),
             child: TeamInfoView(),
           ),
         );

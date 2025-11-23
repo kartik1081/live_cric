@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:live_cric/models/crt/crt_team_player_model.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/pages/player_list/controller.dart';
 import 'package:live_cric/pages/player_list/widgets/player_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/remote_configs.dart';
+import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:provider/provider.dart';
 
@@ -39,7 +42,7 @@ class PlayerListView extends StatelessWidget {
             selector: (p0, p1) => p1.loading,
             builder: (context, loading, child) => loading
                 ? Common.loader()
-                : Selector<PlayerListController, List<CrtTeamPlayerModel>>(
+                : Selector<PlayerListController, List<dynamic>>(
                     selector: (p0, p1) => p1.playerList,
                     builder: (context, playerList, child) => ListView.separated(
                       itemCount: playerList.length,
@@ -47,15 +50,28 @@ class PlayerListView extends StatelessWidget {
                         left: 22.w,
                         right: 22.w,
                         top: 7.h,
-                        bottom: 120.h,
+                        bottom: 10.h,
                       ),
-                      itemBuilder: (context, index) =>
-                          PlayerTile(player: playerList[index]),
+                      itemBuilder: (context, index) => playerList[index] == null
+                          ? CustomNative(
+                              nativeType: nativeSmall,
+                              bannerType: AdSize.fullBanner,
+                              nativeId: RemoteConfigs.nativeIdRc,
+                              bannerId: RemoteConfigs.bannerIdRc,
+                            )
+                          : PlayerTile(player: playerList[index]),
                       separatorBuilder: (context, index) =>
                           SizedBox(height: 13.h),
                     ),
                   ),
           ).expand(),
+          CustomNative(
+            nativeType: "",
+            bannerType: AdSize.fullBanner,
+            nativeId: "",
+            bannerId: RemoteConfigs.bannerIdRc,
+          ),
+          SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],
       ),
     );

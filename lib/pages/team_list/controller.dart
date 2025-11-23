@@ -2,18 +2,19 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:live_cric/models/crt/crt_team_model.dart';
+import 'package:live_cric/network_services/network_endpoint.dart';
+import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
-import 'package:live_cric/utils/response_data.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class TeamListController extends ChangeNotifier {
   bool _mounted = false;
   bool _loading = true;
-  List<CrtTeamModel> _teamList = [];
+  List<dynamic> _teamList = [];
 
   bool get loading => _loading;
-  List<CrtTeamModel> get teamList => _teamList;
+  List<dynamic> get teamList => _teamList;
 
   TeamListController(BuildContext context) {
     _mounted = true;
@@ -34,10 +35,30 @@ class TeamListController extends ChangeNotifier {
       notify();
     }
     try {
-      final data = jsonDecode(ResponseData.teamInfo);
-      final teams = (data[listKey] as List<dynamic>);
-      teams.retainWhere((element) => element[teamIdKey] != null);
-      _teamList = teams.map((e) => CrtTeamModel.fromJson(e)).toList();
+      final response = await buildHttpResponse(
+        teamListEp,
+        method: nb.HttpMethodType.GET,
+      );
+
+      switch (response.statusCode) {
+        case 200:
+          _teamList = [];
+          final data = jsonDecode(response.body);
+          final teams = (data[listKey] as List<dynamic>);
+          teams.retainWhere((element) => element[teamIdKey] != null);
+          for (var i = 0; i < teams.length; i++) {
+            if (i % 7 == 6) {
+              _teamList.add(null);
+            }
+            _teamList.add(CrtTeamModel.fromJson(teams[i]));
+          }
+          break;
+        case 404:
+          _teamList = [];
+          break;
+        default:
+          break;
+      }
     } catch (e) {
       nb.log("getTeamInfo: $e");
       if (context.mounted) {
