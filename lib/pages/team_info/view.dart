@@ -17,6 +17,7 @@ class TeamInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<TeamInfoController>(context, listen: false);
     return Scaffold(
       body: Column(
         children: [
@@ -33,7 +34,7 @@ class TeamInfoView extends StatelessWidget {
               ),
               SizedBox(width: 7.w),
               Text(
-                "Team Info",
+                "${controller.team.countryName} Info",
                 style: Common.textStyle(isSpl: true, size: 22.sp),
               ),
             ],
@@ -58,8 +59,11 @@ class TeamInfoView extends StatelessWidget {
                 ],
               ),
               TextButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, Routes.playerListRt),
+                onPressed: () => Navigator.pushNamed(
+                  context,
+                  Routes.playerListRt,
+                  arguments: {teamKey: controller.team},
+                ),
                 child: Text(
                   "Players",
                   style: Common.textStyle(

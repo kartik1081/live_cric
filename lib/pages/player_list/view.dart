@@ -16,6 +16,10 @@ class PlayerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<PlayerListController>(
+      context,
+      listen: false,
+    );
     return Scaffold(
       body: Column(
         children: [
@@ -32,7 +36,7 @@ class PlayerListView extends StatelessWidget {
               ),
               SizedBox(width: 7.w),
               Text(
-                "Player List",
+                "${controller.team.countryName}'s Player",
                 style: Common.textStyle(isSpl: true, size: 22.sp),
               ),
             ],

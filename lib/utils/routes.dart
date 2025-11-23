@@ -121,10 +121,12 @@ class Routes {
           ),
         );
       case playerListRt:
+        final args = setting.arguments as dynamic;
         return MaterialPageRoute(
           settings: RouteSettings(name: playerListRt),
           builder: (context) => ChangeNotifierProvider<PlayerListController>(
-            create: (context) => PlayerListController(context),
+            create: (context) =>
+                PlayerListController(context, team: args[teamKey]),
             child: PlayerListView(),
           ),
         );

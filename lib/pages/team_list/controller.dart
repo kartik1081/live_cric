@@ -57,7 +57,7 @@ class TeamListController extends ChangeNotifier {
           _teamList = [];
           break;
         default:
-          break;
+          throw Exception("${response.statusCode}");
       }
     } catch (e) {
       nb.log("getTeamInfo: $e");
