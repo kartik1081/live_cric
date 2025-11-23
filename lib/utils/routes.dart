@@ -3,6 +3,8 @@ import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/pages/home/view.dart';
 import 'package:live_cric/pages/onboard/controller.dart';
 import 'package:live_cric/pages/onboard/view.dart';
+import 'package:live_cric/pages/player_list/controller.dart';
+import 'package:live_cric/pages/player_list/view.dart';
 import 'package:live_cric/pages/privacy/controller.dart';
 import 'package:live_cric/pages/privacy/view.dart';
 import 'package:live_cric/pages/scorecard/controller.dart';
@@ -11,8 +13,12 @@ import 'package:live_cric/pages/select_country/controller.dart';
 import 'package:live_cric/pages/select_country/view.dart';
 import 'package:live_cric/pages/splash/controller.dart';
 import 'package:live_cric/pages/splash/view.dart';
+import 'package:live_cric/pages/team_info/controller.dart';
+import 'package:live_cric/pages/team_info/view.dart';
 import 'package:live_cric/pages/team_list/controller.dart';
 import 'package:live_cric/pages/team_list/view.dart';
+import 'package:live_cric/pages/team_news/controller.dart';
+import 'package:live_cric/pages/team_news/view.dart';
 import 'package:live_cric/pages/video_stream/controller.dart';
 import 'package:live_cric/pages/video_stream/view.dart';
 import 'package:live_cric/pages/web_stream/controller.dart';
@@ -27,7 +33,10 @@ class Routes {
   static const String selectCountryRt = "/select_country";
   static const String homeRt = "/home";
   static const String scorecardRt = "/scorecard";
+  static const String teamListRt = "/team_list";
   static const String teamInfoRt = "/team_info";
+  static const String teamNewsRt = "/team_news";
+  static const String playerListRt = "/player_list";
   static const String playerProfileRt = "/player_profile";
   static const String videoStreamRt = "/video_stream";
   static const String webStreamRt = "/web_stream";
@@ -85,12 +94,36 @@ class Routes {
             child: ScorecardView(),
           ),
         );
-      case teamInfoRt:
+      case teamListRt:
         return MaterialPageRoute(
-          settings: RouteSettings(name: teamInfoRt),
+          settings: RouteSettings(name: teamListRt),
           builder: (context) => ChangeNotifierProvider<TeamListController>(
             create: (context) => TeamListController(context),
             child: TeamListView(),
+          ),
+        );
+      case teamInfoRt:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: teamInfoRt),
+          builder: (context) => ChangeNotifierProvider<TeamInfoController>(
+            create: (context) => TeamInfoController(context),
+            child: TeamInfoView(),
+          ),
+        );
+      case teamNewsRt:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: teamNewsRt),
+          builder: (context) => ChangeNotifierProvider<TeamNewsController>(
+            create: (context) => TeamNewsController(context),
+            child: TeamNewsView(),
+          ),
+        );
+      case playerListRt:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: playerListRt),
+          builder: (context) => ChangeNotifierProvider<PlayerListController>(
+            create: (context) => PlayerListController(context),
+            child: PlayerListView(),
           ),
         );
       case videoStreamRt:

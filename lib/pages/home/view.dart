@@ -84,7 +84,7 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                     ).onTap(
-                      () => Navigator.pushNamed(context, Routes.teamInfoRt),
+                      () => Navigator.pushNamed(context, Routes.teamListRt),
                     ),
                   ],
                 ).paddingSymmetric(horizontal: 22.w),

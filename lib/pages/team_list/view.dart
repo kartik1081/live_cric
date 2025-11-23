@@ -32,12 +32,12 @@ class TeamListView extends StatelessWidget {
               ),
               SizedBox(width: 7.w),
               Text(
-                "Team Info",
+                "Team List",
                 style: Common.textStyle(isSpl: true, size: 22.sp),
               ),
             ],
           ),
-          SizedBox(height: 13.h),
+          SizedBox(height: 7.h),
           Selector<TeamListController, bool>(
             selector: (p0, p1) => p1.loading,
             builder: (context, loading, child) => loading

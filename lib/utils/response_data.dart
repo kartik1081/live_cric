@@ -4632,6 +4632,1093 @@ class ResponseData {
       ],
     },
   });
+
+  static final String teamSchedule = jsonEncode({
+    "teamMatchesData": [
+      {
+        "matchDetailsMap": {
+          "key": "Sat, 22 Nov 2025 - Wed, 26 Nov 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117380,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "2nd Test",
+                "matchFormat": "TEST",
+                "startDate": "1763782200000",
+                "endDate": "1764153000000",
+                "state": "In Progress",
+                "status": "Day 2: 1st Session",
+                "team1": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 380,
+                  "ground": "Barsapara Cricket Stadium",
+                  "city": "Guwahati",
+                  "timezone": "+05:30",
+                },
+                "currBatTeamId": 11,
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+              "matchScore": {
+                "team1Score": {
+                  "inngs1": {
+                    "inningsId": 1,
+                    "runs": 302,
+                    "wickets": 6,
+                    "overs": 103.5,
+                  },
+                },
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "adDetail": {
+          "name": "native_news_index_random_1",
+          "layout": "native_large",
+          "position": 1,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sun, 30 Nov 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117389,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "1st ODI",
+                "matchFormat": "ODI",
+                "startDate": "1764489600000",
+                "endDate": "1764518400000",
+                "state": "Upcoming",
+                "status": "Match starts at Nov 30, 08:00 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "venueInfo": {
+                  "id": 291,
+                  "ground": "JSCA International Stadium Complex",
+                  "city": "Ranchi",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Wed, 03 Dec 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117398,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "2nd ODI",
+                "matchFormat": "ODI",
+                "startDate": "1764748800000",
+                "endDate": "1764777600000",
+                "state": "Upcoming",
+                "status": "Match starts at Dec 03, 08:00 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "venueInfo": {
+                  "id": 335,
+                  "ground": "Shaheed Veer Narayan Singh International Stadium",
+                  "city": "Raipur",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sat, 06 Dec 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117404,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "3rd ODI",
+                "matchFormat": "ODI",
+                "startDate": "1765008000000",
+                "endDate": "1765036800000",
+                "state": "Upcoming",
+                "status": "Match starts at Dec 06, 08:00 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "venueInfo": {
+                  "id": 154,
+                  "ground": "ACA-VDCA Cricket Stadium",
+                  "city": "Visakhapatnam",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "adDetail": {
+          "name": "native_news_index_random_2",
+          "layout": "native_large",
+          "position": 4,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Tue, 09 Dec 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117413,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "1st T20I",
+                "matchFormat": "T20",
+                "startDate": "1765287000000",
+                "endDate": "1765299600000",
+                "state": "Upcoming",
+                "status": "Match starts at Dec 09, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "venueInfo": {
+                  "id": 103,
+                  "ground": "Barabati Stadium",
+                  "city": "Cuttack",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Thu, 11 Dec 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117416,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "2nd T20I",
+                "matchFormat": "T20",
+                "startDate": "1765459800000",
+                "endDate": "1765472400000",
+                "state": "Upcoming",
+                "status": "Match starts at Dec 11, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "venueInfo": {
+                  "id": 851,
+                  "ground":
+                      "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur",
+                  "city": "New Chandigarh",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sun, 14 Dec 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117425,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "3rd T20I",
+                "matchFormat": "T20",
+                "startDate": "1765719000000",
+                "endDate": "1765731600000",
+                "state": "Upcoming",
+                "status": "Match starts at Dec 14, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "venueInfo": {
+                  "id": 155,
+                  "ground": "Himachal Pradesh Cricket Association Stadium",
+                  "city": "Dharamsala",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Wed, 17 Dec 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117434,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "4th T20I",
+                "matchFormat": "T20",
+                "startDate": "1765978200000",
+                "endDate": "1765990800000",
+                "state": "Upcoming",
+                "status": "Match starts at Dec 17, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "venueInfo": {
+                  "id": 485,
+                  "ground":
+                      "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium",
+                  "city": "Lucknow",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Fri, 19 Dec 2025",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 117440,
+                "seriesId": 9638,
+                "seriesName": "South Africa tour of India, 2025",
+                "matchDesc": "5th T20I",
+                "matchFormat": "T20",
+                "startDate": "1766151000000",
+                "endDate": "1766163600000",
+                "state": "Upcoming",
+                "status": "Match starts at Dec 19, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 11,
+                  "teamName": "South Africa",
+                  "teamSName": "RSA",
+                  "imageId": 776287,
+                },
+                "venueInfo": {
+                  "id": 50,
+                  "ground": "Narendra Modi Stadium",
+                  "city": "Ahmedabad",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1763078400000",
+                "seriesEndDt": "1766275200000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 9638,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sun, 11 Jan 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 121367,
+                "seriesId": 10102,
+                "seriesName": "New Zealand tour of India, 2026",
+                "matchDesc": "1st ODI",
+                "matchFormat": "ODI",
+                "startDate": "1768118400000",
+                "endDate": "1768147200000",
+                "state": "Upcoming",
+                "status": "Match starts at Jan 11, 08:00 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 13,
+                  "teamName": "New Zealand",
+                  "teamSName": "NZ",
+                  "imageId": 776333,
+                },
+                "venueInfo": {
+                  "id": 1843,
+                  "ground": "BCA Stadium, Kotambi",
+                  "city": "Vadodara",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1768089600000",
+                "seriesEndDt": "1769990400000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10102,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Wed, 14 Jan 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 121373,
+                "seriesId": 10102,
+                "seriesName": "New Zealand tour of India, 2026",
+                "matchDesc": "2nd ODI",
+                "matchFormat": "ODI",
+                "startDate": "1768377600000",
+                "endDate": "1768406400000",
+                "state": "Upcoming",
+                "status": "Match starts at Jan 14, 08:00 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 13,
+                  "teamName": "New Zealand",
+                  "teamSName": "NZ",
+                  "imageId": 776333,
+                },
+                "venueInfo": {
+                  "id": 290,
+                  "ground": "Niranjan Shah Stadium, Khandheri",
+                  "city": "Rajkot",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1768089600000",
+                "seriesEndDt": "1769990400000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10102,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sun, 18 Jan 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 121378,
+                "seriesId": 10102,
+                "seriesName": "New Zealand tour of India, 2026",
+                "matchDesc": "3rd ODI",
+                "matchFormat": "ODI",
+                "startDate": "1768723200000",
+                "endDate": "1768752000000",
+                "state": "Upcoming",
+                "status": "Match starts at Jan 18, 08:00 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 13,
+                  "teamName": "New Zealand",
+                  "teamSName": "NZ",
+                  "imageId": 776333,
+                },
+                "venueInfo": {
+                  "id": 152,
+                  "ground": "Holkar Cricket Stadium",
+                  "city": "Indore",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1768089600000",
+                "seriesEndDt": "1769990400000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10102,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Wed, 21 Jan 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 121389,
+                "seriesId": 10102,
+                "seriesName": "New Zealand tour of India, 2026",
+                "matchDesc": "1st T20I",
+                "matchFormat": "T20",
+                "startDate": "1769002200000",
+                "endDate": "1769014800000",
+                "state": "Upcoming",
+                "status": "Match starts at Jan 21, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 13,
+                  "teamName": "New Zealand",
+                  "teamSName": "NZ",
+                  "imageId": 776333,
+                },
+                "venueInfo": {
+                  "id": 228,
+                  "ground": "Vidarbha Cricket Association Stadium",
+                  "city": "Nagpur",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1768089600000",
+                "seriesEndDt": "1769990400000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10102,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Fri, 23 Jan 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 121400,
+                "seriesId": 10102,
+                "seriesName": "New Zealand tour of India, 2026",
+                "matchDesc": "2nd T20I",
+                "matchFormat": "T20",
+                "startDate": "1769175000000",
+                "endDate": "1769187600000",
+                "state": "Upcoming",
+                "status": "Match starts at Jan 23, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 13,
+                  "teamName": "New Zealand",
+                  "teamSName": "NZ",
+                  "imageId": 776333,
+                },
+                "venueInfo": {
+                  "id": 335,
+                  "ground": "Shaheed Veer Narayan Singh International Stadium",
+                  "city": "Raipur",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1768089600000",
+                "seriesEndDt": "1769990400000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10102,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sun, 25 Jan 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 121406,
+                "seriesId": 10102,
+                "seriesName": "New Zealand tour of India, 2026",
+                "matchDesc": "3rd T20I",
+                "matchFormat": "T20",
+                "startDate": "1769347800000",
+                "endDate": "1769360400000",
+                "state": "Upcoming",
+                "status": "Match starts at Jan 25, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 13,
+                  "teamName": "New Zealand",
+                  "teamSName": "NZ",
+                  "imageId": 776333,
+                },
+                "venueInfo": {
+                  "id": 380,
+                  "ground": "Barsapara Cricket Stadium",
+                  "city": "Guwahati",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1768089600000",
+                "seriesEndDt": "1769990400000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10102,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Wed, 28 Jan 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 121417,
+                "seriesId": 10102,
+                "seriesName": "New Zealand tour of India, 2026",
+                "matchDesc": "4th T20I",
+                "matchFormat": "T20",
+                "startDate": "1769607000000",
+                "endDate": "1769619600000",
+                "state": "Upcoming",
+                "status": "Match starts at Jan 28, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 13,
+                  "teamName": "New Zealand",
+                  "teamSName": "NZ",
+                  "imageId": 776333,
+                },
+                "venueInfo": {
+                  "id": 154,
+                  "ground": "ACA-VDCA Cricket Stadium",
+                  "city": "Visakhapatnam",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1768089600000",
+                "seriesEndDt": "1769990400000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10102,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sat, 31 Jan 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 121422,
+                "seriesId": 10102,
+                "seriesName": "New Zealand tour of India, 2026",
+                "matchDesc": "5th T20I",
+                "matchFormat": "T20",
+                "startDate": "1769866200000",
+                "endDate": "1769878800000",
+                "state": "Upcoming",
+                "status": "Match starts at Jan 31, 13:30 GMT",
+                "team1": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "team2": {
+                  "teamId": 13,
+                  "teamName": "New Zealand",
+                  "teamSName": "NZ",
+                  "imageId": 776333,
+                },
+                "venueInfo": {
+                  "id": 506,
+                  "ground": "Greenfield International Stadium",
+                  "city": "Thiruvananthapuram",
+                  "timezone": "+05:30",
+                },
+                "seriesStartDt": "1768089600000",
+                "seriesEndDt": "1769990400000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10102,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Wed, 01 Jul 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 129392,
+                "seriesId": 10532,
+                "seriesName": "India tour of England, 2026",
+                "matchDesc": "1st T20I",
+                "matchFormat": "T20",
+                "startDate": "1782927000000",
+                "endDate": "1782939600000",
+                "state": "Upcoming",
+                "status": "Match starts at Jul 01, 17:30 GMT",
+                "team1": {
+                  "teamId": 9,
+                  "teamName": "England",
+                  "teamSName": "ENG",
+                  "imageId": 776237,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 60,
+                  "ground": "Riverside Ground",
+                  "city": "Chester-le-Street",
+                  "timezone": "+01:00",
+                },
+                "seriesStartDt": "1782864000000",
+                "seriesEndDt": "1784592000000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10532,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sat, 04 Jul 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 129420,
+                "seriesId": 10532,
+                "seriesName": "India tour of England, 2026",
+                "matchDesc": "2nd T20I",
+                "matchFormat": "T20",
+                "startDate": "1783171800000",
+                "endDate": "1783184400000",
+                "state": "Upcoming",
+                "status": "Match starts at Jul 04, 13:30 GMT",
+                "team1": {
+                  "teamId": 9,
+                  "teamName": "England",
+                  "teamSName": "ENG",
+                  "imageId": 776237,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 65,
+                  "ground": "Emirates Old Trafford",
+                  "city": "Manchester",
+                  "timezone": "+01:00",
+                },
+                "seriesStartDt": "1782864000000",
+                "seriesEndDt": "1784592000000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10532,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Tue, 07 Jul 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 129442,
+                "seriesId": 10532,
+                "seriesName": "India tour of England, 2026",
+                "matchDesc": "3rd T20I",
+                "matchFormat": "T20",
+                "startDate": "1783445400000",
+                "endDate": "1783458000000",
+                "state": "Upcoming",
+                "status": "Match starts at Jul 07, 17:30 GMT",
+                "team1": {
+                  "teamId": 9,
+                  "teamName": "England",
+                  "teamSName": "ENG",
+                  "imageId": 776237,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 18,
+                  "ground": "Trent Bridge",
+                  "city": "Nottingham",
+                  "timezone": "+01:00",
+                },
+                "seriesStartDt": "1782864000000",
+                "seriesEndDt": "1784592000000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10532,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Thu, 09 Jul 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 129447,
+                "seriesId": 10532,
+                "seriesName": "India tour of England, 2026",
+                "matchDesc": "4th T20I",
+                "matchFormat": "T20",
+                "startDate": "1783618200000",
+                "endDate": "1783630800000",
+                "state": "Upcoming",
+                "status": "Match starts at Jul 09, 17:30 GMT",
+                "team1": {
+                  "teamId": 9,
+                  "teamName": "England",
+                  "teamSName": "ENG",
+                  "imageId": 776237,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 63,
+                  "ground": "County Ground",
+                  "city": "Bristol",
+                  "timezone": "+01:00",
+                },
+                "seriesStartDt": "1782864000000",
+                "seriesEndDt": "1784592000000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10532,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sat, 11 Jul 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 129453,
+                "seriesId": 10532,
+                "seriesName": "India tour of England, 2026",
+                "matchDesc": "5th T20I",
+                "matchFormat": "T20",
+                "startDate": "1783791000000",
+                "endDate": "1783803600000",
+                "state": "Upcoming",
+                "status": "Match starts at Jul 11, 17:30 GMT",
+                "team1": {
+                  "teamId": 9,
+                  "teamName": "England",
+                  "teamSName": "ENG",
+                  "imageId": 776237,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 21,
+                  "ground": "The Rose Bowl",
+                  "city": "Southampton",
+                  "timezone": "+01:00",
+                },
+                "seriesStartDt": "1782864000000",
+                "seriesEndDt": "1784592000000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10532,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Tue, 14 Jul 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 129458,
+                "seriesId": 10532,
+                "seriesName": "India tour of England, 2026",
+                "matchDesc": "1st ODI",
+                "matchFormat": "ODI",
+                "startDate": "1784030400000",
+                "endDate": "1784059200000",
+                "state": "Upcoming",
+                "status": "Match starts at Jul 14, 12:00 GMT",
+                "team1": {
+                  "teamId": 9,
+                  "teamName": "England",
+                  "teamSName": "ENG",
+                  "imageId": 776237,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 20,
+                  "ground": "Edgbaston",
+                  "city": "Birmingham",
+                  "timezone": "+01:00",
+                },
+                "seriesStartDt": "1782864000000",
+                "seriesEndDt": "1784592000000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10532,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Thu, 16 Jul 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 129469,
+                "seriesId": 10532,
+                "seriesName": "India tour of England, 2026",
+                "matchDesc": "2nd ODI",
+                "matchFormat": "ODI",
+                "startDate": "1784203200000",
+                "endDate": "1784232000000",
+                "state": "Upcoming",
+                "status": "Match starts at Jul 16, 12:00 GMT",
+                "team1": {
+                  "teamId": 9,
+                  "teamName": "England",
+                  "teamSName": "ENG",
+                  "imageId": 776237,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 62,
+                  "ground": "Sophia Gardens",
+                  "city": "Cardiff",
+                  "timezone": "+01:00",
+                },
+                "seriesStartDt": "1782864000000",
+                "seriesEndDt": "1784592000000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10532,
+        },
+      },
+      {
+        "matchDetailsMap": {
+          "key": "Sun, 19 Jul 2026",
+          "match": [
+            {
+              "matchInfo": {
+                "matchId": 129480,
+                "seriesId": 10532,
+                "seriesName": "India tour of England, 2026",
+                "matchDesc": "3rd ODI",
+                "matchFormat": "ODI",
+                "startDate": "1784455200000",
+                "endDate": "1784484000000",
+                "state": "Upcoming",
+                "status": "Match starts at Jul 19, 10:00 GMT",
+                "team1": {
+                  "teamId": 9,
+                  "teamName": "England",
+                  "teamSName": "ENG",
+                  "imageId": 776237,
+                },
+                "team2": {
+                  "teamId": 2,
+                  "teamName": "India",
+                  "teamSName": "IND",
+                  "imageId": 776162,
+                },
+                "venueInfo": {
+                  "id": 19,
+                  "ground": "Lord's",
+                  "city": "London",
+                  "timezone": "+01:00",
+                },
+                "seriesStartDt": "1782864000000",
+                "seriesEndDt": "1784592000000",
+                "isTimeAnnounced": true,
+              },
+            },
+          ],
+          "seriesId": 10532,
+        },
+      },
+    ],
+    "appIndex": {
+      "seoTitle":
+          "India Cricket Team live scores, fixtures - Cricbuzz | Cricbuzz.com",
+      "webURL": "www.cricbuzz.com/cricket-team/",
+    },
+  });
 }
 
 // {

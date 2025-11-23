@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:live_cric/models/crt/crt_team_model.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class TeamTile extends StatelessWidget {
@@ -32,8 +33,9 @@ class TeamTile extends StatelessWidget {
                 ),
             ],
           ),
-        ),
+        ).expand(),
+        Icon(Icons.arrow_forward_ios_rounded, color: soft, size: 15.w),
       ],
-    );
+    ).onTap(() => Navigator.pushNamed(context, Routes.teamInfoRt));
   }
 }
