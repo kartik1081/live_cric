@@ -3,6 +3,7 @@ const String teamListEp = "/teams/v1/international";
 const String teamScheduleEp = "/teams/v1/2/schedule";
 const String teamPlayersEp = "/teams/v1/2/players";
 const String teamNewsEp = "/news/v1/team/1";
+const String playerInfoEp = "/stats/v1/player";
 
 String getMatchScorecardEp(int matchId) => "/mcenter/v1/$matchId/scard";
 String getMatchInfoEp(int matchId) => "/mcenter/v1/$matchId";

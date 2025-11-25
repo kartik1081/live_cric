@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:live_cric/models/crt/crt_team_player_model.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -41,15 +43,14 @@ class PlayerTile extends StatelessWidget {
             ),
           ],
         ).expand(),
-        // Icon(Icons.arrow_forward_ios_rounded, color: soft, size: 15.w),
+        Icon(Icons.arrow_forward_ios_rounded, color: soft, size: 15.w),
       ],
     ).onTap(
-      () => null,
-      // Navigator.pushNamed(
-      //   context,
-      //   Routes.playerInfoRt,
-      //   arguments: {playerKey: player},
-      // ),
+      () => Navigator.pushNamed(
+        context,
+        Routes.playerInfoRt,
+        arguments: {playerKey: player},
+      ),
     );
   }
 }

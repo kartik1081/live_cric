@@ -3,8 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:live_cric/models/crt/crt_player_info_model.dart';
 import 'package:live_cric/models/crt/crt_team_player_model.dart';
+import 'package:live_cric/network_services/network_endpoint.dart';
+import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
-import 'package:live_cric/utils/response_data.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class PlayerInfoController extends ChangeNotifier {
@@ -36,8 +37,16 @@ class PlayerInfoController extends ChangeNotifier {
       notify();
     }
     try {
-      final data = jsonDecode(ResponseData.playerInfo);
-      _playerInfo = CrtPlayerInfoModel.fromJson(data);
+      final response = await buildHttpResponse("$playerInfoEp/${player.id}");
+
+      switch (response.statusCode) {
+        case 200:
+          final data = jsonDecode(response.body);
+          _playerInfo = CrtPlayerInfoModel.fromJson(data);
+          break;
+        default:
+          throw Exception("${response.statusCode}");
+      }
     } catch (e) {
       nb.log("getPlayerInfo: $e");
       if (context.mounted) {

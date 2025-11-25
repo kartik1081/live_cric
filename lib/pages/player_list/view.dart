@@ -51,25 +51,31 @@ class PlayerListView extends StatelessWidget {
                 ? Common.loader()
                 : Selector<PlayerListController, List<dynamic>>(
                     selector: (p0, p1) => p1.playerList,
-                    builder: (context, playerList, child) => ListView.separated(
-                      itemCount: playerList.length,
-                      padding: EdgeInsets.only(
-                        left: 22.w,
-                        right: 22.w,
-                        top: 7.h,
-                        bottom: 10.h,
-                      ),
-                      itemBuilder: (context, index) => playerList[index] == null
-                          ? CustomNative(
-                              nativeType: nativeSmall,
-                              bannerType: AdSize.fullBanner,
-                              nativeId: RemoteConfigs.nativeIdRc,
-                              bannerId: RemoteConfigs.bannerIdRc,
-                            )
-                          : PlayerTile(player: playerList[index]),
-                      separatorBuilder: (context, index) =>
-                          SizedBox(height: 13.h),
-                    ),
+                    builder: (context, playerList, child) => playerList.isEmpty
+                        ? Text(
+                            "No Players Found.",
+                            style: Common.textStyle(color: text),
+                          ).center()
+                        : ListView.separated(
+                            itemCount: playerList.length,
+                            padding: EdgeInsets.only(
+                              left: 22.w,
+                              right: 22.w,
+                              top: 7.h,
+                              bottom: 10.h,
+                            ),
+                            itemBuilder: (context, index) =>
+                                playerList[index] == null
+                                ? CustomNative(
+                                    nativeType: nativeSmall,
+                                    bannerType: AdSize.fullBanner,
+                                    nativeId: RemoteConfigs.nativeIdRc,
+                                    bannerId: RemoteConfigs.bannerIdRc,
+                                  )
+                                : PlayerTile(player: playerList[index]),
+                            separatorBuilder: (context, index) =>
+                                SizedBox(height: 13.h),
+                          ),
                   ),
           ).expand(),
           CustomNative(
