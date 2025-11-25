@@ -13,7 +13,7 @@ import 'package:nb_utils/nb_utils.dart' as nb;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  FlavorConfig.setFlavor(FlavorEnum.dev);
+  FlavorConfig.setFlavor(FlavorEnum.prod);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   nb.initialize();
   RemoteConfigs.initConfig();

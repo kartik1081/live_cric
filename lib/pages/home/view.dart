@@ -40,31 +40,35 @@ class HomeView extends StatelessWidget {
                           "LiveCric",
                           style: Common.textStyle(isSpl: true, size: 22.sp),
                         ),
-                        SizedBox(width: 5.w),
-                        Container(
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.symmetric(horizontal: 3.w),
-                          decoration: BoxDecoration(
-                            borderRadius: nb.radius(100.r),
-                            border: BoxBorder.all(color: primary50),
-                          ),
-                          child: Text(
-                            "C",
-                            style: Common.textStyle(
-                              color: primary50,
-                              weight: FontWeight.w700,
-                              size: 10.sp,
+                        if (RemoteConfigs.showCopyrightRc) ...[
+                          SizedBox(width: 5.w),
+                          Container(
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            decoration: BoxDecoration(
+                              borderRadius: nb.radius(100.r),
+                              border: BoxBorder.all(color: primary50),
+                            ),
+                            child: Text(
+                              "C",
+                              style: Common.textStyle(
+                                color: primary50,
+                                weight: FontWeight.w700,
+                                size: 10.sp,
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ],
                     ).onTap(
-                      () => nb.showInDialog(
-                        barrierDismissible: false,
-                        backgroundColor: popUp,
-                        context,
-                        builder: (p0) => CopyrightBox(),
-                      ),
+                      RemoteConfigs.showCopyrightRc
+                          ? () => nb.showInDialog(
+                              barrierDismissible: false,
+                              backgroundColor: popUp,
+                              context,
+                              builder: (p0) => CopyrightBox(),
+                            )
+                          : null,
                     ),
                     const Spacer(),
                     Container(

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:live_cric/models/crt/crt_schedule_match_model.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
-import 'package:live_cric/utils/flaove_config.dart';
 import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -26,7 +25,7 @@ class ScheduledMatchTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${FlavorConfig.flavor == FlavorEnum.dev ? "${scheduledMatch.matchInfo.matchId} · " : ""}${scheduledMatch.matchInfo.seriesName}",
+                    "${scheduledMatch.matchInfo.matchId} · ${scheduledMatch.matchInfo.seriesName}",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Common.textStyle(
@@ -72,9 +71,9 @@ class ScheduledMatchTile extends StatelessWidget {
             children: [
               CustomNetworkImage(
                 imageId: scheduledMatch.matchInfo.team1.imageId,
-                height: 45.h,
-                width: 59.w,
-                radius: 8.r,
+                height: 39.13.h,
+                width: 50.w,
+                radius: 4.r,
               ),
               SizedBox(width: 7.w),
               Text(
@@ -89,9 +88,9 @@ class ScheduledMatchTile extends StatelessWidget {
               SizedBox(width: 7.w),
               CustomNetworkImage(
                 imageId: scheduledMatch.matchInfo.team2.imageId,
-                height: 45.h,
-                width: 59.w,
-                radius: 8.r,
+                height: 39.13.h,
+                width: 50.w,
+                radius: 4.r,
               ),
             ],
           ),

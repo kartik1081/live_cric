@@ -18,9 +18,9 @@ class TeamTile extends StatelessWidget {
       children: [
         CustomNetworkImage(
           imageId: team.imageId,
-          height: 45.h,
-          width: 70.w,
-          radius: 8.r,
+          height: 38.57.h,
+          width: 60.w,
+          radius: 4.r,
         ),
         SizedBox(width: 13.w),
         RichText(

@@ -1,19 +1,52 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:live_cric/models/crt/crt_player_info_model.dart';
 import 'package:live_cric/models/crt/crt_team_player_model.dart';
+import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/response_data.dart';
+import 'package:nb_utils/nb_utils.dart' as nb;
 
 class PlayerInfoController extends ChangeNotifier {
   late final CrtTeamPlayerModel player;
 
   bool _mounted = false;
+  bool _loading = true;
+  CrtPlayerInfoModel? _playerInfo;
+
+  bool get loading => _loading;
+  CrtPlayerInfoModel? get playerInfo => _playerInfo;
 
   PlayerInfoController(BuildContext context, {required this.player}) {
     _mounted = true;
+    getPlayerInfo(context);
   }
 
   @override
   void dispose() {
     super.dispose();
     _mounted = false;
+  }
+
+  void getPlayerInfo(BuildContext context, [bool load = false]) async {
+    if (!await Common.checkNetwork(context)) return;
+
+    if (load) {
+      _loading = true;
+      notify();
+    }
+    try {
+      final data = jsonDecode(ResponseData.playerInfo);
+      _playerInfo = CrtPlayerInfoModel.fromJson(data);
+    } catch (e) {
+      nb.log("getPlayerInfo: $e");
+      if (context.mounted) {
+        Common.showSnackbar(context, nb.errorMessage);
+      }
+    } finally {
+      _loading = false;
+      notify();
+    }
   }
 
   void notify() {

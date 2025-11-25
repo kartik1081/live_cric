@@ -5,7 +5,6 @@ import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
-import 'package:live_cric/utils/flaove_config.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
@@ -34,7 +33,7 @@ class _MatchTileState extends State<MatchTile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${FlavorConfig.flavor == FlavorEnum.dev ? "${widget.match.matchId} · " : ""}${widget.match.matchDesc} | ${widget.match.seriesName}",
+                    "${widget.match.matchId} · ${widget.match.matchDesc} | ${widget.match.seriesName}",
                     maxLines: 1,
                     style: Common.textStyle(
                       color: soft,

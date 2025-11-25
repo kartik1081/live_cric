@@ -20,14 +20,18 @@ class RemoteConfigs {
     // "native_id": "ca-app-pub-7330756705387601/6019537493",
     // "interstitial_id": "ca-app-pub-7330756705387601/3363129155",
     // "reward_id": "ca-app-pub-7330756705387601/5072738598",
-    "app_open_id": "ca-app-pub-3940256099942544/9257395921",
-    "banner_id": "ca-app-pub-3940256099942544/6300978111",
-    "native_id": "ca-app-pub-3940256099942544/2247696110",
-    "interstitial_id": "ca-app-pub-3940256099942544/1033173712",
-    "reward_id": "ca-app-pub-3940256099942544/5224354917",
+    "app_open_id": "ca-app-pub-4263828040563949/8545070975",
+    "banner_id": "ca-app-pub-4263828040563949/2282204517",
+    "native_id": "ca-app-pub-4263828040563949/8009173916",
+    "interstitial_id": "ca-app-pub-4263828040563949/9969122844",
+    "reward_id": "ca-app-pub-4263828040563949/7426704079",
     "demo_stream": false,
     "privacy_policy":
         "https://www.freeprivacypolicy.com/live/d77a7ba5-2f6b-47fe-bdf3-17c46d9cdffd",
+    "new_update": false,
+    "version_code": 1,
+    "version_name": "1.0.0",
+    "show_copyright": true,
   };
 
   static String get appNameRc => _config.getString("app_name");
@@ -45,6 +49,10 @@ class RemoteConfigs {
   static String get rewardedIdRc => _config.getString("reward_id");
   static bool get demoStreamRc => _config.getBool("demo_stream");
   static String get privacyPolicyRc => _config.getString("privacy_policy");
+  static bool get newUpdateRc => _config.getBool("new_update");
+  static int get versionCodeRc => _config.getInt("version_code");
+  static String get versionNameRc => _config.getString("version_name");
+  static bool get showCopyrightRc => _config.getBool("show_copyright");
 
   static Future<void> initConfig() async {
     try {

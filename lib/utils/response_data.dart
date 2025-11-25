@@ -5982,6 +5982,253 @@ class ResponseData {
       },
     ],
   });
+
+  static final String teamNews = jsonEncode({
+    "storyList": [
+      {
+        "story": {
+          "id": 136588,
+          "hline": "Shubman Gill, Shreyas Iyer fitness clouds ODI plans",
+          "intro":
+              "Selectors left with tricky choices over captaincy and other selection calls for the three-match ODI series vs South Africa",
+          "pubTime": "1763881979882",
+          "source": "Cricbuzz",
+          "storyType": "News",
+          "imageId": 786424,
+          "seoHeadline":
+              "KL Rahul in captaincy frame with Gill, Iyer doubtful for SA ODIs",
+          "context": "ODI selection headache",
+          "coverImage": {
+            "id": "786424",
+            "caption": "Will KL Rahul take over as captain for the ODI series?",
+            "source": "Getty",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "ad": {
+          "name": "native_news_index",
+          "layout": "native_large",
+          "position": 1,
+        },
+      },
+      {
+        "story": {
+          "id": 136582,
+          "hline": "A refresher of a 'good wicket'",
+          "intro":
+              "Guwahati rolled out a pitch where batters weren't shocked and bowlers were rewarded only when they were steadfastly relentless",
+          "pubTime": "1763822748897",
+          "source": "Cricbuzz",
+          "storyType": "Match Features",
+          "imageId": 786114,
+          "seoHeadline":
+              "South Africa tour of India, 2025, 2nd Test, Day 1 feature: A refresher of a 'good wicket', Kuldeep Yadav, Jasprit Bumrah, Tristan Stubbs",
+          "context": "South Africa tour of India, 2025",
+          "coverImage": {
+            "id": "786114",
+            "caption":
+                "India put six in the wickets column by the end of the day, but South Africa took 247 runs for it",
+            "source": "AFP",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "story": {
+          "id": 136415,
+          "hline":
+              "T20 World Cup 2026: Easy grouping for India, not so easy for co-hosts Sri Lanka",
+          "intro":
+              "Suryakumar Yadav & Co will open their campaign against the USA, with their marquee clash against Pakistan set for Colombo under a pre-tournament agreement",
+          "pubTime": "1763750108596",
+          "source": "Cricbuzz",
+          "storyType": "News",
+          "imageId": 509665,
+          "seoHeadline":
+              "India grouped with Pakistan, USA, Namibia and Netherlands for 2026 T20 World Cup",
+          "context": "T20 World Cup 2026",
+          "coverImage": {
+            "id": "509665",
+            "caption":
+                "Co-hosts India will open their campaign against the USA",
+            "source": "Getty",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "story": {
+          "id": 136405,
+          "hline": "India's home truths",
+          "intro":
+              "A year of chaos on turning tracks has exposed India more than their opponents. Guwahati will show if the lessons have sunk in",
+          "pubTime": "1763725716330",
+          "source": "Cricbuzz",
+          "storyType": "Features",
+          "imageId": 785276,
+          "seoHeadline": "India and the home truths",
+          "context": "South Africa tour of India ",
+          "coverImage": {
+            "id": "785276",
+            "caption": "India lost the first Test by 30 runs ",
+            "source": "Getty",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "ad": {
+          "name": "native_news_index_2",
+          "layout": "native_large",
+          "position": 5,
+        },
+      },
+      {
+        "story": {
+          "id": 136402,
+          "hline": "Expectation of normalcy in Guwahati's unknown",
+          "intro":
+              "Guwahati's Barsapara cricket stadium becomes India's 30th Test venue, where no current player - barring Mohammed Siraj, has played red-ball cricket before",
+          "pubTime": "1763718123037",
+          "source": "Cricbuzz",
+          "storyType": "Previews",
+          "imageId": 785148,
+          "seoHeadline": "Expectation of normalcy in Guwahati's unknown",
+          "context": "South Africa tour of India ",
+          "coverImage": {
+            "id": "785148",
+            "caption": "Play will start 30 minutes early",
+            "source": "Getty",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "story": {
+          "id": 136400,
+          "hline": "Gill ruled out of Guwahati Test, Pant to lead",
+          "intro":
+              "Having not regained full fitness, Gill is set to head to Mumbai for further assessment of his neck injury",
+          "pubTime": "1763709288323",
+          "source": "Cricbuzz",
+          "storyType": "News",
+          "imageId": 785114,
+          "seoHeadline":
+              "Shubman Gill ruled out of second Test, Rishabh Pant to lead, India vs South Africa Tour, Guwahati",
+          "context": "Injury News",
+          "coverImage": {
+            "id": "785114",
+            "caption": "Pant will lead India for the second Test in Guwahati",
+            "source": "Getty",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "story": {
+          "id": 136391,
+          "hline": "Shubman Gill remains in doubt for Guwahati Test",
+          "intro":
+              "The Indian captain's participation remains in doubt after he skipped both of India's practice sessions leading up to the second Test",
+          "pubTime": "1763641323453",
+          "source": "Cricbuzz",
+          "storyType": "News",
+          "imageId": 784800,
+          "seoHeadline": "Shubman Gill remains in doubt for Guwahati Test",
+          "context": "South Africa tour of India ",
+          "coverImage": {
+            "id": "784800",
+            "caption":
+                "Gill suffered a neck spasm while batting on Day 2 of the first Test",
+            "source": "Getty",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "story": {
+          "id": 136385,
+          "hline": "'No one wanted this' - Kotak slams Eden pitch",
+          "intro":
+              "India batting coach contradicts head coach Gautam Gambhir's assessment, saying it crumbled too soon and wasn't what the team wanted",
+          "pubTime": "1763633623303",
+          "source": "Cricbuzz",
+          "storyType": "News",
+          "imageId": 784786,
+          "seoHeadline": "'No one wanted this' - Kotak slams Eden pitch",
+          "context": "South Africa tour of India",
+          "coverImage": {
+            "id": "784786",
+            "caption":
+                "Kotak's views differed to those offered by Gambhir earlier",
+            "source": "Getty",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "story": {
+          "id": 136363,
+          "hline": "Gill to travel to Guwahati as India recall Reddy",
+          "intro":
+              "Gill's participation in the second Test will inevitably be subject to his recovery. Meanwhile, Nitish Reddy has been recalled to the squad ",
+          "pubTime": "1763471058795",
+          "source": "Cricbuzz",
+          "storyType": "News",
+          "imageId": 784215,
+          "seoHeadline":
+              "South Africa tour of India, 2025: Gill to travel to Guwahati as India recall Reddy",
+          "context": "South Africa tour of India ",
+          "coverImage": {
+            "id": "784215",
+            "caption":
+                "Gill left the field in the first Test after suffering a neck spasms",
+            "source": "BCCI",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+      {
+        "story": {
+          "id": 136361,
+          "hline": "India dial up spin focus before they go Guwahati-bound",
+          "intro":
+              "In an optional nets session at the Eden Gardens, a few of India's middle-order batters trained, with a particular focus on playing spin",
+          "pubTime": "1763456251052",
+          "source": "Cricbuzz",
+          "storyType": "Features",
+          "imageId": 784147,
+          "seoHeadline":
+              "India dial up spin focus before they go Guwahati-bound South Africa",
+          "context": "Challenges Ahead",
+          "coverImage": {
+            "id": "784147",
+            "caption": "Will India go back to Sai Sudharsan in Guwahati?",
+            "source": "AFP",
+          },
+          "entitlements": {},
+          "adsType": {},
+        },
+      },
+    ],
+    "lastUpdatedTime": "1763899081658",
+    "appIndex": {
+      "seoTitle":
+          "India latest and breaking cricket news - Cricbuzz | Cricbuzz.com",
+      "webURL": "http://www.cricbuzz.com/cricket-team/india/2/news",
+    },
+  });
 }
 
 // {
