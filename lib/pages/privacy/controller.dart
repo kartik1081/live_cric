@@ -18,6 +18,7 @@ class PrivacyController extends ChangeNotifier {
   PrivacyController(BuildContext context) {
     _mounted = true;
     controller = WebViewController()
+      ..enableZoom(false)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(
         NavigationDelegate(

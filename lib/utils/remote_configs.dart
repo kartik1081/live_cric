@@ -25,11 +25,10 @@ class RemoteConfigs {
     "native_id": "ca-app-pub-4263828040563949/8009173916",
     "interstitial_id": "ca-app-pub-4263828040563949/9969122844",
     "reward_id": "ca-app-pub-4263828040563949/7426704079",
-    "demo_stream": false,
     "privacy_policy":
-        "https://www.freeprivacypolicy.com/live/d77a7ba5-2f6b-47fe-bdf3-17c46d9cdffd",
+        "https://sites.google.com/view/shubhmanagal-textile/livecrichd-privacy-policy",
     "new_update": false,
-    "version_code": 1,
+    "version_code": 3,
     "version_name": "1.0.0",
     "show_copyright": true,
   };
@@ -47,7 +46,6 @@ class RemoteConfigs {
   static String get nativeIdRc => _config.getString("native_id");
   static String get interstitialIdRc => _config.getString("interstitial_id");
   static String get rewardedIdRc => _config.getString("reward_id");
-  static bool get demoStreamRc => _config.getBool("demo_stream");
   static String get privacyPolicyRc => _config.getString("privacy_policy");
   static bool get newUpdateRc => _config.getBool("new_update");
   static int get versionCodeRc => _config.getInt("version_code");

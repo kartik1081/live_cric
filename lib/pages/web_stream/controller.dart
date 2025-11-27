@@ -26,6 +26,7 @@ class WebStreamController extends ChangeNotifier {
     );
 
     controller = WebViewController()
+      ..enableZoom(false)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..addJavaScriptChannel(
         "FlutterChannel",

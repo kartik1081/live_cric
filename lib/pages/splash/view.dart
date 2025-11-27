@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
-import 'package:live_cric/utils/remote_configs.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -28,6 +27,7 @@ class SplashView extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(height: 80.h),
                   Image.asset(
                     "assets/logos/logo1024.png",
                     width: 130.w,
@@ -38,7 +38,7 @@ class SplashView extends StatelessWidget {
                     children: [
                       Lottie.asset('assets/lotties/live.json', width: 50.w),
                       Text(
-                        RemoteConfigs.appNameRc,
+                        "LiveCric HD",
                         style: Common.textStyle(isSpl: true, size: 32.sp),
                       ),
                     ],
