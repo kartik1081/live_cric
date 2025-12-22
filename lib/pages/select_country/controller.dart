@@ -1,6 +1,5 @@
 import 'package:countries_utils/countries.dart';
 import 'package:flutter/material.dart';
-import 'package:live_cric/utils/ads.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/routes.dart';
@@ -37,7 +36,6 @@ class SelectCountryController extends ChangeNotifier {
       return;
     }
     nb.setValue(selectedCountryKey, _selectedCountry);
-    Ads.showInterstitialAd(true);
     Navigator.pushNamedAndRemoveUntil(context, Routes.homeRt, (route) => false);
   }
 

@@ -1,8 +1,13 @@
+import 'dart:async';
+import 'dart:isolate';
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:live_cric/utils/color.dart';
+import 'package:live_cric/utils/remote_configs.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -10,6 +15,12 @@ class Common {
   static const _charts =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
   static final Random _rnd = Random.secure();
+  static final ReceivePort _receivePort = ReceivePort();
+  static final StreamController<bool> _showInsterstitialAds =
+      StreamController<bool>.broadcast();
+
+  static StreamController<bool> get showInsterstitialAds =>
+      _showInsterstitialAds;
 
   static TextStyle textStyle({
     Color? color,
@@ -69,5 +80,27 @@ class Common {
         (index) => _charts.codeUnitAt(_rnd.nextInt(_charts.length)),
       ),
     );
+  }
+
+  static void initAds() {
+    Isolate.spawn(sendAdSignal, [
+      _receivePort.sendPort,
+      RootIsolateToken.instance!,
+      RemoteConfigs.interstitialAdIntervalRc.seconds,
+    ]);
+    _receivePort.listen((message) {
+      if (message is bool) {
+        _showInsterstitialAds.add(message);
+      }
+    });
+  }
+
+  static void sendAdSignal(dynamic args) async {
+    final SendPort sendPort = args[0];
+    BackgroundIsolateBinaryMessenger.ensureInitialized(args[1]);
+    final Duration duration = args[2];
+    Timer.periodic(duration, (timer) async {
+      sendPort.send(true);
+    });
   }
 }

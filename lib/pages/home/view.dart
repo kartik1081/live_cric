@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -93,6 +94,51 @@ class HomeView extends StatelessWidget {
                   ],
                 ).paddingSymmetric(horizontal: 22.w),
                 SizedBox(height: 13.h),
+                if (RemoteConfigs.eventRc.isNotEmpty &&
+                    RemoteConfigs.eventRc["image_url"] != null)
+                  AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        CachedNetworkImage(
+                              imageUrl: RemoteConfigs.eventRc["image_url"],
+                              fit: BoxFit.cover,
+                            )
+                            .cornerRadiusWithClipRRect(12.r)
+                            .onTap(
+                              () => Navigator.pushNamed(
+                                context,
+                                Routes.webStreamRt,
+                                arguments: {
+                                  urlKey: RemoteConfigs.eventRc["url"],
+                                },
+                              ),
+                            ),
+                        Positioned(
+                          bottom: 13.h,
+                          right: 13.w,
+                          child: Container(
+                            width: 100.w,
+                            height: 40.h,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: primary50,
+                              borderRadius: nb.radius(12.r),
+                            ),
+                            child: Text(
+                              "Visit Event",
+                              style: Common.textStyle(
+                                color: black,
+                                weight: FontWeight.w700,
+                                size: 13.sp,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ).paddingOnly(left: 22.w, right: 22.w, bottom: 22.h),
                 Selector<HomeController, Tuple2<bool, List<CrtMatchTypeModel>>>(
                   selector: (p0, p1) => Tuple2(p1.loading, p1.matchTypes),
                   builder: (context, data, child) => data.item1

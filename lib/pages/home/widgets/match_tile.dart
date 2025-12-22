@@ -10,15 +10,10 @@ import 'package:live_cric/utils/widgets/custom_network_image.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:provider/provider.dart';
 
-class MatchTile extends StatefulWidget {
+class MatchTile extends StatelessWidget {
   CrtMatchModel match;
   MatchTile({super.key, required this.match});
 
-  @override
-  State<MatchTile> createState() => _MatchTileState();
-}
-
-class _MatchTileState extends State<MatchTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +28,7 @@ class _MatchTileState extends State<MatchTile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${widget.match.matchId} · ${widget.match.matchDesc} | ${widget.match.seriesName}",
+                    "${match.matchId} · ${match.matchDesc} | ${match.seriesName}",
                     maxLines: 1,
                     style: Common.textStyle(
                       color: soft,
@@ -43,7 +38,7 @@ class _MatchTileState extends State<MatchTile> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    widget.match.date,
+                    match.date,
                     style: Common.textStyle(color: text, size: 13.sp),
                   ),
                 ],
@@ -56,7 +51,7 @@ class _MatchTileState extends State<MatchTile> {
                   borderRadius: nb.radius(4.r),
                 ),
                 child: Text(
-                  widget.match.matchFormat,
+                  match.matchFormat,
                   style: Common.textStyle(
                     color: black,
                     size: 13.sp,
@@ -78,13 +73,13 @@ class _MatchTileState extends State<MatchTile> {
                   Column(
                     children: [
                       CustomNetworkImage(
-                        imageId: widget.match.team1.imageId,
+                        imageId: match.team1.imageId,
                         width: 47.w,
                         height: 35.h,
                       ),
                       SizedBox(height: 7.h),
                       Text(
-                        widget.match.team1.teamSName,
+                        match.team1.teamSName,
                         maxLines: 1,
                         overflow: TextOverflow.clip,
                         style: Common.textStyle(
@@ -96,7 +91,7 @@ class _MatchTileState extends State<MatchTile> {
                     ],
                   ),
                   SizedBox(width: 7.w),
-                  if (widget.match.team1Scores.isEmpty)
+                  if (match.team1Scores.isEmpty)
                     Text(
                       "Yet to Bat",
                       style: Common.textStyle(
@@ -109,11 +104,11 @@ class _MatchTileState extends State<MatchTile> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(
-                        widget.match.team1Scores.length,
+                        match.team1Scores.length,
                         (index) => Row(
                           children: [
                             Text(
-                              "${widget.match.team1Scores[index].runs}/${widget.match.team1Scores[index].wickets}",
+                              "${match.team1Scores[index].runs}/${match.team1Scores[index].wickets}",
                               style: Common.textStyle(
                                 color: soft,
                                 size: 15.sp,
@@ -121,7 +116,7 @@ class _MatchTileState extends State<MatchTile> {
                               ),
                             ),
                             Text(
-                              " (${widget.match.team1Scores[index].overs})",
+                              " (${match.team1Scores[index].overs})",
                               style: Common.textStyle(color: text, size: 11.sp),
                             ),
                           ],
@@ -130,8 +125,7 @@ class _MatchTileState extends State<MatchTile> {
                     ),
                 ],
               ).expand(),
-              if (widget.match.state == inProgressSt ||
-                  widget.match.state == tossSt)
+              if (match.state == inProgressSt || match.state == tossSt)
                 Column(
                   children: [
                     Icon(Icons.circle, color: Colors.greenAccent, size: 8.w),
@@ -148,7 +142,7 @@ class _MatchTileState extends State<MatchTile> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  if (widget.match.team2Scores.isEmpty)
+                  if (match.team2Scores.isEmpty)
                     Text(
                       "Yet to Bat",
                       style: Common.textStyle(
@@ -161,11 +155,11 @@ class _MatchTileState extends State<MatchTile> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: List.generate(
-                        widget.match.team2Scores.length,
+                        match.team2Scores.length,
                         (index) => Row(
                           children: [
                             Text(
-                              "${widget.match.team2Scores[index].runs}/${widget.match.team2Scores[index].wickets}",
+                              "${match.team2Scores[index].runs}/${match.team2Scores[index].wickets}",
                               style: Common.textStyle(
                                 color: soft,
                                 size: 15.sp,
@@ -173,7 +167,7 @@ class _MatchTileState extends State<MatchTile> {
                               ),
                             ),
                             Text(
-                              " (${widget.match.team2Scores[index].overs})",
+                              " (${match.team2Scores[index].overs})",
                               style: Common.textStyle(color: text, size: 11.sp),
                             ),
                           ],
@@ -184,13 +178,13 @@ class _MatchTileState extends State<MatchTile> {
                   Column(
                     children: [
                       CustomNetworkImage(
-                        imageId: widget.match.team2.imageId,
+                        imageId: match.team2.imageId,
                         width: 47.w,
                         height: 35.h,
                       ),
                       SizedBox(height: 7.h),
                       Text(
-                        widget.match.team2.teamSName,
+                        match.team2.teamSName,
                         maxLines: 1,
                         overflow: TextOverflow.clip,
                         style: Common.textStyle(
@@ -211,23 +205,16 @@ class _MatchTileState extends State<MatchTile> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                widget.match.status,
+                match.status,
                 style: Common.textStyle(color: primary50, size: 14.sp),
                 // overflow: TextOverflow.ellipsis,
               ).expand(),
               IconButton(
-                onPressed: () async {
-                  final result = await Navigator.pushNamed(
-                    context,
-                    Routes.scorecardRt,
-                    arguments: {matchKey: widget.match},
-                  );
-                  if (result != null && result is Map) {
-                    setState(() {
-                      widget.match = (result[matchKey] as CrtMatchModel);
-                    });
-                  }
-                },
+                onPressed: () async => Navigator.pushNamed(
+                  context,
+                  Routes.scorecardRt,
+                  arguments: {matchKey: match},
+                ),
                 icon: const Icon(Icons.auto_graph_rounded, color: text),
               ),
             ],
@@ -235,14 +222,10 @@ class _MatchTileState extends State<MatchTile> {
         ],
       ),
     ).onTap(() async {
-      if (widget.match.state == tossSt) {
-        Common.showSnackbar(context, "Match is not started yet!");
-        return;
-      }
       Provider.of<HomeController>(
         context,
         listen: false,
-      ).getStreamingLink(context, match: widget.match);
+      ).getStreamingLink(context, match: match);
     });
   }
 }

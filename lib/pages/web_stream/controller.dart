@@ -3,18 +3,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:live_cric/utils/ads.dart';
+import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebStreamController extends ChangeNotifier {
   late final String url;
-
+  late StreamSubscription<bool> showAds;
   bool _mounted = false;
   bool _loading = true;
   int _lastStreamingSeconds = 300;
   WebViewController? controller;
-  Timer? timer;
 
   bool get loading => _loading;
 
@@ -106,7 +106,7 @@ class WebStreamController extends ChangeNotifier {
             // final playerHtml = match?.group(0);
 
             controller?.runJavaScript(_robustInjectionScript);
-            adInit(context);
+            // adInit(context);
 
             _loading = false;
             notify();
@@ -124,6 +124,13 @@ class WebStreamController extends ChangeNotifier {
         ),
       )
       ..loadRequest(Uri.parse(url));
+
+    showAds = Common.showInsterstitialAds.stream.listen((event) {
+      if (event) {
+        nb.log("initAds: $event");
+        Ads.loadInterstitial();
+      }
+    });
   }
 
   String get _robustInjectionScript => """
@@ -178,26 +185,8 @@ class WebStreamController extends ChangeNotifier {
       DeviceOrientation.portraitDown,
     ]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-    timer?.cancel();
     nb.setValue(cricketStreamingSecondKey, _lastStreamingSeconds);
-  }
-
-  void adInit(BuildContext context) {
-    timer = Timer.periodic(1.seconds, (t) async {
-      _lastStreamingSeconds--;
-      nb.log("adInit: $_lastStreamingSeconds");
-      if (_lastStreamingSeconds % 300 == 0) {
-        timer?.cancel();
-        Ads.showInterstitialAd(
-          true,
-          onDismiss: () async {
-            _lastStreamingSeconds = 300;
-            adInit(context);
-            await Future.delayed(100.milliseconds);
-          },
-        );
-      }
-    });
+    showAds.cancel();
   }
 
   void notify() {

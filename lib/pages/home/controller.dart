@@ -13,6 +13,7 @@ import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/notification_service.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
@@ -95,6 +96,7 @@ class HomeController extends ChangeNotifier {
         );
       }
     });
+    NotificationService.requestNotificationPermission();
   }
 
   @override
@@ -120,7 +122,7 @@ class HomeController extends ChangeNotifier {
         case 200:
           final data = jsonDecode(response.body);
           final List<CrtMatchTypeModel> x = [];
-          for (Map<String, dynamic> matchType in data[typeMatchesKey]) {
+          for (Map<String, dynamic> matchType in (data[typeMatchesKey] ?? [])) {
             String mType = matchType[matchTypeKey];
             List<CrtMatchModel?> matchList = [];
             if (matchType[seriesMatchesKey] != null) {
@@ -140,7 +142,9 @@ class HomeController extends ChangeNotifier {
             x.add(CrtMatchTypeModel(matchType: mType, matchList: matchList));
           }
           _matchTypes = x;
-          if (_selectedIndex >= _matchTypes.length) --_selectedIndex;
+          if (_matchTypes.isNotEmpty) {
+            if (_selectedIndex >= _matchTypes.length) --_selectedIndex;
+          }
           break;
         case 404:
           _matchTypes = [];
@@ -158,8 +162,9 @@ class HomeController extends ChangeNotifier {
         default:
           throw Exception([response.statusCode]);
       }
-    } catch (e) {
+    } catch (e, s) {
       nb.log("getMatchesList: $e");
+      Configs.crashlytics.recordError(e, s, reason: "getMatchesList");
       if (context.mounted) {
         Common.showSnackbar(context, nb.errorSomethingWentWrong);
       }
@@ -251,12 +256,10 @@ class HomeController extends ChangeNotifier {
                                     ).onTap(
                                       () => Navigator.pushNamedAndRemoveUntil(
                                         context,
-                                        streamLink[index][isStreamKey]
-                                            ? Routes.videoStreamRt
-                                            : Routes.webStreamRt,
+                                        Routes.webStreamRt,
                                         arguments: {
                                           matchKey: match,
-                                          urlKey: streamLink[index][urlKey],
+                                          urlKey: streamLink[index],
                                         },
                                         (route) =>
                                             route.settings.name ==
@@ -273,16 +276,22 @@ class HomeController extends ChangeNotifier {
               }
             } else {
               if (context.mounted) {
-                await Navigator.pushNamed(
-                  context,
-                  Routes.scorecardRt,
-                  arguments: {matchKey: match},
-                );
+                if (match.state == tossSt) {
+                  Common.showSnackbar(context, "Match is not started yet!");
+                  return;
+                } else {
+                  await Navigator.pushNamed(
+                    context,
+                    Routes.scorecardRt,
+                    arguments: {matchKey: match},
+                  );
+                }
               }
             }
           });
-    } catch (e) {
+    } catch (e, s) {
       nb.log("getStreamingLink: $e");
+      Configs.crashlytics.recordError(e, s, reason: "getStreamingLink");
       if (context.mounted) {
         Common.showSnackbar(context, nb.errorMessage);
       }

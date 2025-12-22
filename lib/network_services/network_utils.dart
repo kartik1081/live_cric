@@ -43,6 +43,18 @@ Future<http.Response> buildHttpResponse(
       response = await http.get(url, headers: headers);
     }
 
+    Configs.analytics.logEvent(
+      name: "${DateTime.now().month}-month",
+      parameters: {"endpoint": endPoint, "status_code": response.statusCode},
+    );
+    Configs.analytics.logEvent(
+      name: "${DateTime.now().weekday}-week",
+      parameters: {"endpoint": endPoint, "status_code": response.statusCode},
+    );
+    Configs.analytics.logEvent(
+      name: "${DateTime.now().day}-day",
+      parameters: {"endpoint": endPoint, "status_code": response.statusCode},
+    );
     apiPrint(
       url: url.toString(),
       endPoint: endPoint,
@@ -54,8 +66,9 @@ Future<http.Response> buildHttpResponse(
       methodtype: method.name,
     );
     return response;
-  } catch (e) {
+  } catch (e, s) {
     log(e);
+    Configs.crashlytics.recordError(e, s, reason: "network_utils");
     throw errorSomethingWentWrong;
   }
 }

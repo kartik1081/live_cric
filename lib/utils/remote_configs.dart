@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/services.dart';
-import 'package:live_cric/utils/ads.dart';
+import 'package:live_cric/utils/configs.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class RemoteConfigs {
@@ -18,7 +20,7 @@ class RemoteConfigs {
     // "app_open_id": "ca-app-pub-7330756705387601/6114357528",
     // "banner_id": "ca-app-pub-7330756705387601/5989292496",
     // "native_id": "ca-app-pub-7330756705387601/6019537493",
-    // "interstitial_id": "ca-app-pub-7330756705387601/3363129155",
+    // "interstitial_id": "ca-app-pub-3940256099942544/1033173712",
     // "reward_id": "ca-app-pub-7330756705387601/5072738598",
     "app_open_id": "ca-app-pub-4263828040563949/8545070975",
     "banner_id": "ca-app-pub-4263828040563949/2282204517",
@@ -26,11 +28,13 @@ class RemoteConfigs {
     "interstitial_id": "ca-app-pub-4263828040563949/9969122844",
     "reward_id": "ca-app-pub-4263828040563949/7426704079",
     "privacy_policy":
-        "https://sites.google.com/view/shubhmanagal-textile/livecrichd-privacy-policy",
+        "https://sites.google.com/view/shubhmangal-textile/livecrichd-privacy-policy",
     "new_update": false,
     "version_code": 3,
     "version_name": "1.0.0",
     "show_copyright": true,
+    "interstitial_ad_interval": 300,
+    "event": jsonEncode({"hey": "hey"}),
   };
 
   static String get appNameRc => _config.getString("app_name");
@@ -51,6 +55,10 @@ class RemoteConfigs {
   static int get versionCodeRc => _config.getInt("version_code");
   static String get versionNameRc => _config.getString("version_name");
   static bool get showCopyrightRc => _config.getBool("show_copyright");
+  static int get interstitialAdIntervalRc =>
+      _config.getInt("interstitial_ad_interval");
+  static Map<dynamic, dynamic> get eventRc =>
+      jsonDecode(_config.getString("event"));
 
   static Future<void> initConfig() async {
     try {
@@ -66,13 +74,12 @@ class RemoteConfigs {
       _config.onConfigUpdated.listen((event) async {
         await _config.activate();
       });
-    } on PlatformException catch (e) {
+    } on PlatformException catch (e, s) {
       nb.log("initConfig: $e");
-    } catch (e) {
+      Configs.crashlytics.recordError(e, s, reason: "initConfig");
+    } catch (e, s) {
       nb.log("initConfig: $e");
-    } finally {
-      Ads.loadInterstitial();
-      Ads.loadReward();
-    }
+      Configs.crashlytics.recordError(e, s, reason: "initConfig");
+    } finally {}
   }
 }

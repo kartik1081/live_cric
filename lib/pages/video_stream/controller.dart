@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 
 import 'package:better_player_plus/better_player_plus.dart';
@@ -8,8 +7,8 @@ import 'package:live_cric/models/crt/crt_match_comm_model.dart';
 import 'package:live_cric/models/crt/crt_match_model.dart';
 import 'package:live_cric/network_services/network_endpoint.dart';
 import 'package:live_cric/network_services/network_utils.dart';
-import 'package:live_cric/utils/ads.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -23,7 +22,6 @@ class VideoStreamController extends ChangeNotifier {
   bool _initialLoading = true;
   bool _commentryLoading = true;
   int _lastStreamingSeconds = 300;
-  Timer? timer;
   CrtMatchCommModel? _comm;
 
   bool get initialLoading => _initialLoading;
@@ -73,7 +71,6 @@ class VideoStreamController extends ChangeNotifier {
       cricketStreamingSecondKey,
       defaultValue: 300,
     );
-    adInit(context);
     _initialLoading = false;
     notify();
     getCommentry(context, load: true);
@@ -86,25 +83,7 @@ class VideoStreamController extends ChangeNotifier {
     _initialLoading = false;
     controller.pause();
     controller.dispose();
-    timer?.cancel();
     nb.setValue(cricketStreamingSecondKey, _lastStreamingSeconds);
-  }
-
-  void adInit(BuildContext context) {
-    timer = Timer.periodic(1.seconds, (t) async {
-      _lastStreamingSeconds--;
-      nb.log("adInit: $_lastStreamingSeconds");
-      if (_lastStreamingSeconds % 300 == 0) {
-        timer?.cancel();
-        Ads.showInterstitialAd(
-          true,
-          onDismiss: () async {
-            _lastStreamingSeconds = 300;
-            adInit(context);
-          },
-        );
-      }
-    });
   }
 
   void getCommentry(BuildContext context, {bool load = false}) async {
@@ -134,8 +113,9 @@ class VideoStreamController extends ChangeNotifier {
         default:
           throw Exception([response.statusCode]);
       }
-    } catch (e) {
+    } catch (e, s) {
       nb.log("getCommentry: $e");
+      Configs.crashlytics.recordError(e, s, reason: "getCommentry");
       if (context.mounted) {
         Common.showSnackbar(
           context,

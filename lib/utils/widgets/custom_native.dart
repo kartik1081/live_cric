@@ -95,11 +95,6 @@ class _CustomNativeState extends State<CustomNative> {
         },
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
-          if (RemoteConfigs.showBannerRc &&
-              widget.showBanner &&
-              widget.bannerId != "") {
-            _loadBanner();
-          }
         },
       ),
       request: AdRequest(),

@@ -7,6 +7,7 @@ import 'package:live_cric/models/crt/crt_match_scorecard_model.dart';
 import 'package:live_cric/network_services/network_endpoint.dart';
 import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/response_data.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -73,8 +74,9 @@ class ScorecardController extends ChangeNotifier {
         default:
           throw Exception([response.statusCode]);
       }
-    } catch (e) {
+    } catch (e, s) {
       nb.log("getScorecard: $e");
+      Configs.crashlytics.recordError(e, s, reason: "getScorecard");
       if (context.mounted) {
         Common.showSnackbar(context, nb.errorSomethingWentWrong);
       }
@@ -101,8 +103,9 @@ class ScorecardController extends ChangeNotifier {
       //   default:
       //     throw Exception([response.statusCode]);
       // }
-    } catch (e) {
+    } catch (e, s) {
       nb.log("getMatchInfo: $e");
+      Configs.crashlytics.recordError(e, s, reason: "getMatchInfo");
       if (context.mounted) {
         Common.showSnackbar(context, nb.errorSomethingWentWrong);
       }

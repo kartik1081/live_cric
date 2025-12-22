@@ -6,6 +6,7 @@ import 'package:live_cric/models/crt/crt_team_model.dart';
 import 'package:live_cric/network_services/network_endpoint.dart';
 import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
@@ -62,8 +63,9 @@ class TeamNewsController extends ChangeNotifier {
         default:
           throw Exception("${response.statusCode}");
       }
-    } catch (e) {
+    } catch (e, s) {
       nb.log('getTeamNews: $e');
+      Configs.crashlytics.recordError(e, s, reason: "getTeamNews");
       if (context.mounted) {
         Common.showSnackbar(context, nb.errorMessage);
       }

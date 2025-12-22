@@ -1,22 +1,31 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/firebase_options.dart';
 import 'package:live_cric/utils/flaove_config.dart';
+import 'package:live_cric/utils/notification_service.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/theme/app_theme.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
+@pragma('vm:entry-point')
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  NotificationService.showNotification(message);
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FlavorConfig.setFlavor(FlavorEnum.dev);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  nb.initialize();
-  RemoteConfigs.initConfig();
-  MobileAds.instance.initialize();
+  await nb.initialize();
+  await RemoteConfigs.initConfig();
+  await MobileAds.instance.initialize();
+  await NotificationService.flutterLocalNotificationInit();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

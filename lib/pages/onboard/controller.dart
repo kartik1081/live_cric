@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:live_cric/utils/ads.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -33,7 +32,6 @@ class OnboardController extends ChangeNotifier {
     );
     if (_currentIndex >= 2) {
       nb.setValue(onboardKey, true);
-      Ads.showInterstitialAd(true);
       Navigator.pushNamedAndRemoveUntil(
         context,
         Routes.privacyConsentRt,
