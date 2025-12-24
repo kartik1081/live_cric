@@ -34,7 +34,7 @@ class RemoteConfigs {
     "version_name": "1.0.0",
     "show_copyright": true,
     "interstitial_ad_interval": 300,
-    "event": jsonEncode({"hey": "hey"}),
+    "event": jsonEncode({}),
   };
 
   static String get appNameRc => _config.getString("app_name");

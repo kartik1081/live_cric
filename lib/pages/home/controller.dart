@@ -131,7 +131,7 @@ class HomeController extends ChangeNotifier {
                   for (var match in series[seriesAdWrapperKey][matchesKey]) {
                     matchList.add(CrtMatchModel.fromJson(match));
                     if (matchList.where((element) => element != null).length %
-                            2 ==
+                            5 ==
                         1) {
                       matchList.add(null);
                     }

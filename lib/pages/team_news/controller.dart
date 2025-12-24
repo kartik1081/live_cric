@@ -51,7 +51,7 @@ class TeamNewsController extends ChangeNotifier {
           final news = (data[storyListKey] as List<dynamic>);
           news.retainWhere((element) => element[storyKey] != null);
           for (var i = 0; i < news.length; i++) {
-            if (i % 4 == 3) {
+            if (i % 7 == 3) {
               _teamNews.add(null);
             }
             _teamNews.add(CrtNewsModel.fromJson(news[i][storyKey]));

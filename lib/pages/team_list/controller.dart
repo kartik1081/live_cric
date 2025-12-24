@@ -48,7 +48,7 @@ class TeamListController extends ChangeNotifier {
           final teams = (data[listKey] as List<dynamic>);
           teams.retainWhere((element) => element[teamIdKey] != null);
           for (var i = 0; i < teams.length; i++) {
-            if (i % 7 == 6) {
+            if (i % 10 == 3) {
               _teamList.add(null);
             }
             _teamList.add(CrtTeamModel.fromJson(teams[i]));
