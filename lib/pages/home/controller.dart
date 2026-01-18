@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:advanced_in_app_review/advanced_in_app_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:live_cric/models/crt/crt_match_model.dart';
@@ -17,7 +15,6 @@ import 'package:live_cric/utils/notification_service.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeController extends ChangeNotifier {
   PageController pageController = PageController(initialPage: 0);
@@ -25,78 +22,20 @@ class HomeController extends ChangeNotifier {
   bool _mounted = false;
   bool _loading = true;
   bool _streamLinkLoading = false;
-  int _versionCode = 0;
   List<CrtMatchTypeModel> _matchTypes = [];
 
   bool get loading => _loading;
   bool get streamLinkLoading => _streamLinkLoading;
   int get selectedIndex => _selectedIndex;
-  int get versionCode => _versionCode;
   List<CrtMatchTypeModel> get matchTypes => _matchTypes;
 
   HomeController(BuildContext context) {
     _mounted = true;
     getMatchesList(context);
-    AdvancedInAppReview()
-        .setMinDaysBeforeRemind(7)
-        .setMinDaysAfterInstall(3)
-        .setMinLaunchTimes(2)
-        .setMinSecondsBeforeShowDialog(4)
-        .monitor();
-    nb.getPackageInfo().then((value) {
-      _versionCode = int.parse(value.versionCode ?? "0");
-      if (RemoteConfigs.newUpdateRc &&
-          RemoteConfigs.versionCodeRc > _versionCode &&
-          context.mounted) {
-        nb.showInDialog(
-          barrierDismissible: false,
-          backgroundColor: popUp,
-          context,
-          builder: (p0) => Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                "Update ${RemoteConfigs.versionNameRc}(${RemoteConfigs.versionCodeRc})",
-                style: Common.textStyle(isSpl: true, size: 18.sp),
-              ),
-              Divider(),
-              Text(
-                "New update is available with new features and better design.",
-                textAlign: TextAlign.center,
-                style: Common.textStyle(size: 14.sp),
-              ),
-              SizedBox(height: 40.h),
-              Container(
-                width: 275.w,
-                height: 45.h,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: primary50,
-                  borderRadius: nb.radius(12.r),
-                ),
-                child: Text(
-                  "Update",
-                  style: Common.textStyle(
-                    color: black,
-                    weight: FontWeight.bold,
-                    size: 16.sp,
-                  ),
-                ),
-              ).onTap(() async {
-                final url = Uri.parse(
-                  "${nb.playStoreBaseURL}com.apps.live_cric",
-                );
-                if (await canLaunchUrl(url)) {
-                  await launchUrl(url);
-                  exit(0);
-                }
-              }),
-            ],
-          ),
-        );
-      }
-    });
     NotificationService.requestNotificationPermission();
+    Configs.inAppReview.isAvailable().then(
+      (value) async => await Configs.inAppReview.requestReview(),
+    );
   }
 
   @override
@@ -207,10 +146,11 @@ class HomeController extends ChangeNotifier {
           .doc(match.matchId.toString())
           .get()
           .then((value) async {
-            if (value.exists &&
-                value.data() != null &&
-                ((value.data()?[urlsKey] as List<dynamic>?) ?? []).isNotEmpty) {
-              final streamLink = value.data()?[urlsKey];
+            List<String> streamLinks = [
+              ...(value.data()?[urlsKey] ?? []),
+              ...RemoteConfigs.defaultStreamLinkRc,
+            ];
+            if (streamLinks.isNotEmpty) {
               if (context.mounted) {
                 nb.showInDialog(
                   context,
@@ -225,7 +165,7 @@ class HomeController extends ChangeNotifier {
                       Divider(),
                       ConstrainedBox(
                         constraints: BoxConstraints(minHeight: 70.h),
-                        child: streamLink.isEmpty
+                        child: streamLinks.isEmpty
                             ? Text(
                                 "No Server Found.",
                                 style: Common.textStyle(color: Colors.grey),
@@ -234,7 +174,7 @@ class HomeController extends ChangeNotifier {
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
                                 padding: EdgeInsets.only(top: 13.h),
-                                itemCount: streamLink.length,
+                                itemCount: streamLinks.length,
                                 itemBuilder: (context, index) =>
                                     Container(
                                       alignment: Alignment.center,
@@ -259,7 +199,7 @@ class HomeController extends ChangeNotifier {
                                         Routes.webStreamRt,
                                         arguments: {
                                           matchKey: match,
-                                          urlKey: streamLink[index],
+                                          urlKey: streamLinks[index],
                                         },
                                         (route) =>
                                             route.settings.name ==

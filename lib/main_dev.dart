@@ -12,16 +12,11 @@ import 'package:live_cric/utils/routes.dart';
 import 'package:live_cric/utils/theme/app_theme.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
-@pragma('vm:entry-point')
-Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  NotificationService.showNotification(message);
-}
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FlavorConfig.setFlavor(FlavorEnum.dev);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   await nb.initialize();
   await RemoteConfigs.initConfig();
   await MobileAds.instance.initialize();

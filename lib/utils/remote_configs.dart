@@ -35,6 +35,7 @@ class RemoteConfigs {
     "show_copyright": true,
     "interstitial_ad_interval": 300,
     "event": jsonEncode({}),
+    "default_stream_link": [],
   };
 
   static String get appNameRc => _config.getString("app_name");
@@ -59,6 +60,10 @@ class RemoteConfigs {
       _config.getInt("interstitial_ad_interval");
   static Map<dynamic, dynamic> get eventRc =>
       jsonDecode(_config.getString("event"));
+  static List<String> get defaultStreamLinkRc =>
+      (jsonDecode(_config.getString("default_stream_link")) as List<dynamic>)
+          .map((e) => e as String)
+          .toList();
 
   static Future<void> initConfig() async {
     try {

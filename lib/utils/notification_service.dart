@@ -1,20 +1,42 @@
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:live_cric/firebase_options.dart';
 import 'package:live_cric/utils/configs.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+@pragma('vm:entry-point')
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  if (message.data.isNotEmpty) {
+    NotificationService.showBackgroundNotification(message);
+  }
+}
 
 class NotificationService {
   static final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
-
+  static final AndroidNotificationChannel channel = AndroidNotificationChannel(
+    'live_cric',
+    'LiveCric HD',
+    importance: Importance.max,
+  );
   static Future<void> flutterLocalNotificationInit() async {
     await flutterLocalNotificationsPlugin.initialize(
       InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/ic_launcher'),
       ),
     );
+    await flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >()
+        ?.createNotificationChannel(channel);
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      NotificationService.showNotification(message);
+      if (message.data.isNotEmpty) {
+        showNotification(message);
+      }
     });
   }
 
@@ -35,26 +57,48 @@ class NotificationService {
   }
 
   static void showNotification(RemoteMessage message) async {
-    if (message.data['title'] == null || message.data['body'] == null) return;
-    final AndroidNotificationDetails androidPlatformChannelSpecifics =
-        AndroidNotificationDetails(
-          'talksy',
-          'Talksy',
-          channelDescription: 'Daily winning notifications',
-          importance: Importance.max,
-          priority: Priority.high,
-          ticker: 'ticker',
-        );
+    if (message.notification == null) {
+      await flutterLocalNotificationsPlugin.show(
+        DateTime.now().millisecondsSinceEpoch ~/ 1000,
+        message.data['title'],
+        message.data['body'],
+        NotificationDetails(
+          android: AndroidNotificationDetails(
+            channel.id,
+            channel.name,
+            channelDescription: channel.description,
+            importance: Importance.max,
+            priority: Priority.high,
+            playSound: true,
+          ),
+        ),
+      );
+    }
+  }
 
-    final NotificationDetails platformChannelSpecifics = NotificationDetails(
-      android: androidPlatformChannelSpecifics,
-    );
+  static Future<void> showBackgroundNotification(RemoteMessage message) async {
+    final FlutterLocalNotificationsPlugin plugin =
+        FlutterLocalNotificationsPlugin();
 
-    await flutterLocalNotificationsPlugin.show(
-      message.hashCode,
+    const AndroidInitializationSettings androidInit =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+
+    await plugin.initialize(const InitializationSettings(android: androidInit));
+
+    await plugin.show(
+      DateTime.now().millisecondsSinceEpoch ~/ 1000,
       message.data['title'],
       message.data['body'],
-      platformChannelSpecifics,
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          channel.id,
+          channel.name,
+          channelDescription: channel.description,
+          importance: Importance.max,
+          priority: Priority.high,
+          playSound: true,
+        ),
+      ),
     );
   }
 }
