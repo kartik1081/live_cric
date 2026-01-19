@@ -1,4 +1,6 @@
 const { onDocumentCreated } = require("firebase-functions/v2/firestore");
+const { onRequest } = require("firebase-functions/v2/https");
+
 const admin = require("firebase-admin");
 
 admin.initializeApp();
@@ -47,3 +49,35 @@ exports.sendTopicNotificationOnDocCreate = onDocumentCreated(
     }
   },
 );
+
+exports.sendNotificationToTopic = onRequest(async (req, res) => {
+  try {
+    const { title, body } = req.body;
+
+    if (!title || !body) {
+      return res.status(400).send("Missing required fields");
+    }
+
+    const topic = "live_cric";
+
+    const message = {
+      topic,
+      data: {
+        title,
+        body,
+      },
+      android: {
+        priority: "high",
+      },
+    };
+    const response = await admin.messaging().send(message);
+
+    return res.status(200).json({
+      success: true,
+      messageId: response,
+    });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: e.message });
+  }
+});
