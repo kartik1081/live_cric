@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/models/crt/crt_match_type_model.dart';
@@ -34,35 +35,8 @@ class HomeView extends StatelessWidget {
                 SizedBox(height: 30.h),
                 Row(
                   children: [
-                    Row(
-                      children: [
-                        Lottie.asset('assets/lotties/live.json', width: 35.w),
-                        Text(
-                          "LiveCric",
-                          style: Common.textStyle(isSpl: true, size: 22.sp),
-                        ),
-                        if (RemoteConfigs.showCopyrightRc) ...[
-                          SizedBox(width: 5.w),
-                          Container(
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.symmetric(horizontal: 3.w),
-                            decoration: BoxDecoration(
-                              borderRadius: nb.radius(100.r),
-                              border: BoxBorder.all(color: primary50),
-                            ),
-                            child: Text(
-                              "C",
-                              style: Common.textStyle(
-                                color: primary50,
-                                weight: FontWeight.w700,
-                                size: 10.sp,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ],
-                    ).onTap(
-                      RemoteConfigs.showCopyrightRc
+                    InkWell(
+                      onTap: () => RemoteConfigs.showCopyrightRc
                           ? () => nb.showInDialog(
                               barrierDismissible: false,
                               backgroundColor: popUp,
@@ -70,6 +44,37 @@ class HomeView extends StatelessWidget {
                               builder: (p0) => CopyrightBox(),
                             )
                           : null,
+                      onLongPress: () async => await Clipboard.setData(
+                        ClipboardData(text: Common.androidId),
+                      ),
+                      child: Row(
+                        children: [
+                          Lottie.asset('assets/lotties/live.json', width: 35.w),
+                          Text(
+                            "LiveCric",
+                            style: Common.textStyle(isSpl: true, size: 22.sp),
+                          ),
+                          if (RemoteConfigs.showCopyrightRc) ...[
+                            SizedBox(width: 5.w),
+                            Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(horizontal: 3.w),
+                              decoration: BoxDecoration(
+                                borderRadius: nb.radius(100.r),
+                                border: BoxBorder.all(color: primary50),
+                              ),
+                              child: Text(
+                                "C",
+                                style: Common.textStyle(
+                                  color: primary50,
+                                  weight: FontWeight.w700,
+                                  size: 10.sp,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
                     ),
                     const Spacer(),
                     Container(

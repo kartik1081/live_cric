@@ -1,11 +1,14 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:isolate';
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:android_id/android_id.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:http/http.dart' as http;
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -18,9 +21,11 @@ class Common {
   static final ReceivePort _receivePort = ReceivePort();
   static final StreamController<bool> _showInsterstitialAds =
       StreamController<bool>.broadcast();
+  static String _androidId = "";
 
   static StreamController<bool> get showInsterstitialAds =>
       _showInsterstitialAds;
+  static String get androidId => _androidId;
 
   static TextStyle textStyle({
     Color? color,
@@ -102,5 +107,25 @@ class Common {
     Timer.periodic(duration, (timer) async {
       sendPort.send(true);
     });
+  }
+
+  static void getAndroidDeviceId() async {
+    const androidId = AndroidId();
+    final id = await androidId.getId();
+    _androidId = id ?? "unknown";
+  }
+
+  static void sendNotification(String title, String body) async {
+    if (!await nb.isNetworkAvailable()) return;
+
+    try {
+      await http.post(
+        Uri.parse("https://sendnotificationtotopic-k45khh27kq-uc.a.run.app"),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"title": title, "body": body}),
+      );
+    } catch (e) {
+      nb.log("sendNotification: $e");
+    }
   }
 }

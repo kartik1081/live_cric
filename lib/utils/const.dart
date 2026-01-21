@@ -192,3 +192,4 @@ const String recentBattingKey = 'recentBatting';
 const String recentBowlingKey = 'recentBowling';
 const String rowsKey = 'rows';
 const String valuesKey = 'values';
+const String androidIdKey = 'android_id';

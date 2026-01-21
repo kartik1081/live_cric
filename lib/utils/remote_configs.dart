@@ -35,7 +35,8 @@ class RemoteConfigs {
     "show_copyright": true,
     "interstitial_ad_interval": 300,
     "event": jsonEncode({}),
-    "default_stream_link": [],
+    "default_stream_link": jsonEncode(["https://cinearena.live/live/"]),
+    "admin_devices": jsonEncode(["012603902df109f2", "dd1d044e7362bd64"]),
   };
 
   static String get appNameRc => _config.getString("app_name");
@@ -62,6 +63,10 @@ class RemoteConfigs {
       jsonDecode(_config.getString("event"));
   static List<String> get defaultStreamLinkRc =>
       (jsonDecode(_config.getString("default_stream_link")) as List<dynamic>)
+          .map((e) => e as String)
+          .toList();
+  static List<String> get adminDevicesRc =>
+      (jsonDecode(_config.getString("admin_devices")) as List<dynamic>)
           .map((e) => e as String)
           .toList();
 
