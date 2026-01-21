@@ -28,13 +28,9 @@ exports.sendTopicNotificationOnDocCreate = onDocumentCreated(
       }
 
       const result = await response.json();
-      const title =
-        result.matchdesc ||
-        "" +
-          " " +
-          `${result.team1?.teamsname || "Team1"} vs ${
-            result.team2?.teamsname || "Team2"
-          }`;
+      const title = `${result.team1?.teamsname || "Team1"} vs ${
+        result.team2?.teamsname || "Team2"
+      }`;
       const body = result.shortstatus || "Watch Live match now.";
       const topic = "live_cric";
       const message = {
