@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
+import 'package:live_cric/utils/ads.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -95,7 +96,7 @@ class Common {
     ]);
     _receivePort.listen((message) {
       if (message is bool) {
-        _showInsterstitialAds.add(message);
+        Ads.loadInterstitial();
       }
     });
   }
@@ -120,7 +121,7 @@ class Common {
 
     try {
       await http.post(
-        Uri.parse("https://sendnotificationtotopic-k45khh27kq-uc.a.run.app"),
+        Uri.parse("https://sendNotificationToTopic-k45khh27kq-uc.a.run.app"),
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({"title": title, "body": body}),
       );

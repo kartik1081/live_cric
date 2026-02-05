@@ -264,8 +264,8 @@ class PlayerInfoView extends StatelessWidget {
                                 CustomNative(
                                   nativeType: nativeSmall,
                                   bannerType: AdSize.fullBanner,
-                                  nativeId: RemoteConfigs.nativeIdRc,
-                                  bannerId: RemoteConfigs.bannerIdRc,
+                                  nativeId: RemoteConfigs.nativeAdRc.adId,
+                                  bannerId: RemoteConfigs.bannerAdRc.adId,
                                   bottomPadding: 16,
                                 ),
                                 Text(
@@ -300,8 +300,8 @@ class PlayerInfoView extends StatelessWidget {
                                 CustomNative(
                                   nativeType: nativeSmall,
                                   bannerType: AdSize.fullBanner,
-                                  nativeId: RemoteConfigs.nativeIdRc,
-                                  bannerId: RemoteConfigs.bannerIdRc,
+                                  nativeId: RemoteConfigs.nativeAdRc.adId,
+                                  bannerId: RemoteConfigs.bannerAdRc.adId,
                                   bottomPadding: 16,
                                 ),
                                 Text(
@@ -539,8 +539,8 @@ class PlayerInfoView extends StatelessWidget {
                                 CustomNative(
                                   nativeType: nativeSmall,
                                   bannerType: AdSize.fullBanner,
-                                  nativeId: RemoteConfigs.nativeIdRc,
-                                  bannerId: RemoteConfigs.bannerIdRc,
+                                  nativeId: RemoteConfigs.nativeAdRc.adId,
+                                  bannerId: RemoteConfigs.bannerAdRc.adId,
                                   bottomPadding: 16,
                                 ),
                                 Text(
@@ -579,8 +579,8 @@ class PlayerInfoView extends StatelessWidget {
                                 CustomNative(
                                   nativeType: nativeMedium,
                                   bannerType: AdSize.mediumRectangle,
-                                  nativeId: RemoteConfigs.nativeIdRc,
-                                  bannerId: RemoteConfigs.bannerIdRc,
+                                  nativeId: RemoteConfigs.nativeAdRc.adId,
+                                  bannerId: RemoteConfigs.bannerAdRc.adId,
                                 ),
                                 SizedBox(height: 150.h),
                               ],
@@ -592,7 +592,7 @@ class PlayerInfoView extends StatelessWidget {
             nativeType: "",
             bannerType: AdSize.fullBanner,
             nativeId: "",
-            bannerId: RemoteConfigs.bannerIdRc,
+            bannerId: RemoteConfigs.bannerAdRc.adId,
           ),
           SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],

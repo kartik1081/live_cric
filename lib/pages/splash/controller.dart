@@ -10,7 +10,6 @@ import 'package:nb_utils/nb_utils.dart' as nb;
 class SplashController extends ChangeNotifier {
   SplashController(BuildContext context) {
     Common.getAndroidDeviceId();
-    Common.initAds();
     Configs.messaging.subscribeToTopic("live_cric");
     Future.delayed(3.seconds).whenComplete(() {
       if (context.mounted) {
@@ -32,9 +31,9 @@ class SplashController extends ChangeNotifier {
   }
 
   void loadAppOpenAd(VoidCallback onDone) {
-    if (RemoteConfigs.showAppOpenRc) {
+    if (RemoteConfigs.appOpenAdRc.show) {
       AppOpenAd.load(
-        adUnitId: RemoteConfigs.appOpenIdRc,
+        adUnitId: RemoteConfigs.appOpenAdRc.adId,
         request: const AdRequest(),
         adLoadCallback: AppOpenAdLoadCallback(
           onAdLoaded: (ad) async {

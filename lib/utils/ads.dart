@@ -9,14 +9,14 @@ class Ads {
   static bool _isLoadingInterstitial = false;
 
   static void loadInterstitial() async {
-    if (!RemoteConfigs.showInterstitialRc || !adPermission) return;
+    if (!RemoteConfigs.interstitialAdRc.show || !adPermission) return;
     if (_isLoadingInterstitial) return;
 
     _isLoadingInterstitial = true;
 
     try {
       InterstitialAd.load(
-        adUnitId: RemoteConfigs.interstitialIdRc,
+        adUnitId: RemoteConfigs.interstitialAdRc.adId,
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (ad) {

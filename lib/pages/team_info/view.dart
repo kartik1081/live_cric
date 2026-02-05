@@ -106,8 +106,8 @@ class TeamInfoView extends StatelessWidget {
                           ? CustomNative(
                               nativeType: nativeSmall,
                               bannerType: AdSize.fullBanner,
-                              nativeId: RemoteConfigs.nativeIdRc,
-                              bannerId: RemoteConfigs.bannerIdRc,
+                              nativeId: RemoteConfigs.nativeAdRc.adId,
+                              bannerId: RemoteConfigs.bannerAdRc.adId,
                             ).paddingSymmetric(horizontal: 22.w)
                           : ScheduleTile(schedule: schedules[index]),
                       separatorBuilder: (context, index) =>
@@ -120,7 +120,7 @@ class TeamInfoView extends StatelessWidget {
             nativeType: "",
             bannerType: AdSize.fullBanner,
             nativeId: "",
-            bannerId: RemoteConfigs.bannerIdRc,
+            bannerId: RemoteConfigs.bannerAdRc.adId,
           ),
           SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],

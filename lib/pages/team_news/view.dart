@@ -65,8 +65,8 @@ class TeamNewsView extends StatelessWidget {
                                 ? CustomNative(
                                     nativeType: nativeSmall,
                                     bannerType: AdSize.fullBanner,
-                                    nativeId: RemoteConfigs.nativeIdRc,
-                                    bannerId: RemoteConfigs.bannerIdRc,
+                                    nativeId: RemoteConfigs.nativeAdRc.adId,
+                                    bannerId: RemoteConfigs.bannerAdRc.adId,
                                   )
                                 : NewsTile(news: teamNews[index]),
                             separatorBuilder: (context, index) =>

@@ -133,10 +133,10 @@ class VideoStreamView extends StatelessWidget {
                                 ),
                                 CustomNative(
                                   nativeType: nativeSmall,
-                                  nativeId: RemoteConfigs.nativeIdRc,
+                                  nativeId: RemoteConfigs.nativeAdRc.adId,
                                   showNative: true,
                                   bannerType: AdSize.largeBanner,
-                                  bannerId: RemoteConfigs.bannerIdRc,
+                                  bannerId: RemoteConfigs.bannerAdRc.adId,
                                   showBanner: true,
                                   topPadding: 11,
                                 ),

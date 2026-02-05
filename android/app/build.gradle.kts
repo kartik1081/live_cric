@@ -67,9 +67,11 @@ android {
         create("dev") {
             dimension = "default"
             versionNameSuffix = ".dev"
+            manifestPlaceholders["admob_app_id"] = "ca-app-pub-3940256099942544~3347511713"
         }
         create("prod") {
             dimension = "default"
+            manifestPlaceholders["admob_app_id"] = "ca-app-pub-3822593515209932~5300548547"
         }
     }
 }

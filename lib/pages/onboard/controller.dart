@@ -24,20 +24,21 @@ class OnboardController extends ChangeNotifier {
 
   void updateIndex(BuildContext context) {
     ++_currentIndex;
-    notify();
-    pageController.animateToPage(
-      _currentIndex,
-      duration: 300.milliseconds,
-      curve: Curves.ease,
-    );
-    if (_currentIndex >= 2) {
+    if (_currentIndex >= 3) {
       nb.setValue(onboardKey, true);
       Navigator.pushNamedAndRemoveUntil(
         context,
         Routes.privacyConsentRt,
         (route) => false,
       );
+      return;
     }
+    notify();
+    pageController.animateToPage(
+      _currentIndex,
+      duration: 300.milliseconds,
+      curve: Curves.ease,
+    );
   }
 
   void notify() {

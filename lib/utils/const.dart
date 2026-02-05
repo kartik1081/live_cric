@@ -193,3 +193,6 @@ const String recentBowlingKey = 'recentBowling';
 const String rowsKey = 'rows';
 const String valuesKey = 'values';
 const String androidIdKey = 'android_id';
+const String showKey = "show";
+const String adIdKey = "ad_id";
+const String adIdDevKey = "ad_id_dev";

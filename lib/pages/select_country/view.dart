@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:live_cric/pages/select_country/controller.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
-import 'package:live_cric/utils/const.dart';
-import 'package:live_cric/utils/remote_configs.dart';
-import 'package:live_cric/utils/widgets/custom_native.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:provider/provider.dart';
 
@@ -90,15 +86,7 @@ class SelectCountryView extends StatelessWidget {
               ),
             ),
           ).onTap(() => controller.saveCountry(context)),
-          CustomNative(
-            nativeType: nativeSmall,
-            bannerType: AdSize.fullBanner,
-            nativeId: RemoteConfigs.nativeIdRc,
-            bannerId: RemoteConfigs.bannerIdRc,
-            topPadding: 7,
-          ),
-          SizedBox(height: 13.h),
-          SizedBox(height: MediaQuery.of(context).padding.bottom),
+          SizedBox(height: MediaQuery.of(context).padding.bottom + 16.h),
         ],
       ).paddingSymmetric(horizontal: 22.w),
     );

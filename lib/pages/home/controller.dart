@@ -31,6 +31,7 @@ class HomeController extends ChangeNotifier {
 
   HomeController(BuildContext context) {
     _mounted = true;
+    Common.initAds();
     getMatchesList(context);
     NotificationService.requestNotificationPermission();
     Configs.inAppReview.isAvailable().then(

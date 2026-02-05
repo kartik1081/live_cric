@@ -246,11 +246,11 @@ class HomeView extends StatelessWidget {
                                           ? CustomNative(
                                               nativeType: nativeSmall,
                                               nativeId:
-                                                  RemoteConfigs.nativeIdRc,
+                                                  RemoteConfigs.nativeAdRc.adId,
                                               showNative: true,
                                               bannerType: AdSize.largeBanner,
                                               bannerId:
-                                                  RemoteConfigs.bannerIdRc,
+                                                  RemoteConfigs.bannerAdRc.adId,
                                               showBanner: true,
                                               bottomPadding: 13,
                                             )
@@ -269,7 +269,7 @@ class HomeView extends StatelessWidget {
                   nativeType: "",
                   bannerType: AdSize.fullBanner,
                   nativeId: "",
-                  bannerId: RemoteConfigs.bannerIdRc,
+                  bannerId: RemoteConfigs.bannerAdRc.adId,
                 ),
                 SizedBox(height: MediaQuery.of(context).padding.bottom),
               ],

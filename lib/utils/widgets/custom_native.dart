@@ -40,11 +40,11 @@ class _CustomNativeState extends State<CustomNative> {
   void initState() {
     super.initState();
 
-    if (RemoteConfigs.showNativeRc &&
+    if (RemoteConfigs.nativeAdRc.show &&
         widget.showNative &&
         widget.nativeId != "") {
       _loadNative();
-    } else if (RemoteConfigs.showBannerRc &&
+    } else if (RemoteConfigs.bannerAdRc.show &&
         widget.showBanner &&
         widget.bannerId != "") {
       _loadBanner();

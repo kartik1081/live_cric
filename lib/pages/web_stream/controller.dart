@@ -1,20 +1,17 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:live_cric/utils/ads.dart';
-import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebStreamController extends ChangeNotifier {
   late final String url;
-  late StreamSubscription<bool> showAds;
   bool _mounted = false;
   bool _loading = true;
   int _lastStreamingSeconds = 300;
   WebViewController? controller;
+  int _reloadAttempts = 0;
+  static const int _maxReloadAttempts = 1;
 
   bool get loading => _loading;
 
@@ -51,86 +48,48 @@ class WebStreamController extends ChangeNotifier {
           onProgress: (int progress) {},
           onPageStarted: (String url) {},
           onPageFinished: (String url) async {
-            final result = await controller?.runJavaScriptReturningResult(
-              "window.document.getElementsByTagName('html')[0].outerHTML;",
-            );
-            String html = result.toString();
-            html = html.replaceAll(r'\"', '"'); // remove escaped quotes
-            html = html.replaceAll('"', '');
-            final urlRegex = RegExp(
-              r"""https?:\/\/[^\s"\'<>]+""",
-              caseSensitive: false,
-            );
-            final matches = urlRegex.allMatches(html);
-            final urls = matches.map((m) => m.group(0)!).toList();
-            print("HOHOHOIHEIh: 1$urls");
-
-            // Filter by keywords commonly used in license servers
-            final filtered = urls.where((url) {
-              return url.contains("license") ||
-                  url.contains("lic") ||
-                  url.contains("drm") ||
-                  url.contains("widevine") ||
-                  url.contains("wv") ||
-                  url.endsWith(".php") ||
-                  url.endsWith(".json") ||
-                  url.endsWith(".bin") ||
-                  url.endsWith(".key");
-            }).toList();
-            print("HOHOHOIHEIh: 2$filtered");
-
-            final patterns = [
-              RegExp(
-                r'Bearer\s+([A-Za-z0-9\-\._~+/]+=*)',
-                caseSensitive: false,
-              ),
-              RegExp(r'"token"\s*:\s*"([^"]+)"', caseSensitive: false),
-              RegExp(
-                r'Authorization"\s*:\s*"Bearer\s+([^"]+)',
-                caseSensitive: false,
-              ),
-              RegExp(r'accessToken"\s*:\s*"([^"]+)"', caseSensitive: false),
-              RegExp(r'"auth"\s*:\s*"([^"]+)"', caseSensitive: false),
-            ];
-
-            for (final p in patterns) {
-              final m = p.firstMatch(html);
-              if (m != null) print("HOHOHOIHEIh: 1$m");
-            }
-            // final videoRegex = RegExp(
-            //   r"""https?:\/\/[^\s"\'<>]+?\.(m3u8|mpd)""",
-            //   caseSensitive: false,
-            // );
-
-            // final match = videoRegex.firstMatch(html);
-            // final playerHtml = match?.group(0);
-
-            controller?.runJavaScript(_robustInjectionScript);
-            // adInit(context);
-
+            await controller?.runJavaScript(_blockAdsScript);
+            await controller?.runJavaScript(_hideTelegramPopupScript);
+            await controller?.runJavaScript(_robustInjectionScript);
             _loading = false;
             notify();
           },
           onWebResourceError: (WebResourceError error) {
+            nb.log("Web error: ${error.errorCode}");
+
+            // If page got hijacked or failed
+            if ((error.errorCode == -202 || error.errorCode == -1) &&
+                _reloadAttempts < _maxReloadAttempts) {
+              _reloadAttempts++;
+              controller?.loadRequest(Uri.parse(url));
+            }
+
             _loading = false;
             notify();
           },
           onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://www.youtube.com/')) {
+            final reqUrl = request.url;
+
+            // Block YouTube embeds if you want
+            if (reqUrl.startsWith('https://www.youtube.com/')) {
               return NavigationDecision.prevent;
             }
+
+            // Block ad / popup URLs
+            if (_isAdUrl(reqUrl) || _isNewWindowBlocked(reqUrl)) {
+              nb.log("Blocked Ad URL: $reqUrl");
+
+              // Optional: open ads externally instead
+              // launchUrl(Uri.parse(reqUrl), mode: LaunchMode.externalApplication);
+
+              return NavigationDecision.prevent;
+            }
+
             return NavigationDecision.navigate;
           },
         ),
       )
       ..loadRequest(Uri.parse(url));
-
-    showAds = Common.showInsterstitialAds.stream.listen((event) {
-      if (event) {
-        nb.log("initAds: $event");
-        Ads.loadInterstitial();
-      }
-    });
   }
 
   String get _robustInjectionScript => """
@@ -175,6 +134,71 @@ class WebStreamController extends ChangeNotifier {
       });
   })();
 """;
+  String get _blockAdsScript => """
+(function () {
+  console.log('Ad & Popup blocker injected');
+
+  window.open = function() { return null; };
+
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a');
+    if (a && a.target === '_blank') {
+      e.preventDefault();
+    }
+  }, true);
+
+  const originalAssign = location.assign;
+  location.assign = function(url) {
+    try {
+      const u = new URL(url, location.href);
+      if (u.origin !== location.origin) {
+        console.log('Blocked cross-origin redirect:', url);
+        return;
+      }
+      originalAssign.call(location, url);
+    } catch (e) {}
+  };
+})();
+""";
+  String get _hideTelegramPopupScript => """
+(function () {
+  console.log('Telegram popup remover active');
+
+  function removeTelegramPopup() {
+    const keywords = ['telegram', 'join', 'already joined', 'continue'];
+
+    const elements = document.querySelectorAll('div, button, a');
+
+    elements.forEach(el => {
+      const text = (el.innerText || '').toLowerCase();
+
+      if (keywords.some(k => text.includes(k))) {
+        // Try clicking buttons
+        if (el.tagName === 'BUTTON' || el.tagName === 'A') {
+          el.click();
+        }
+
+        // Hide containers
+        if (el.style) {
+          el.style.display = 'none';
+          el.style.visibility = 'hidden';
+        }
+      }
+    });
+
+    // Remove fixed overlays
+    document.querySelectorAll('*').forEach(el => {
+      const style = window.getComputedStyle(el);
+      if (style.position === 'fixed' && style.zIndex > 1000) {
+        el.style.display = 'none';
+      }
+    });
+  }
+
+  // Run multiple times (these popups load late)
+  setInterval(removeTelegramPopup, 1000);
+})();
+""";
 
   @override
   void dispose() {
@@ -186,7 +210,29 @@ class WebStreamController extends ChangeNotifier {
     ]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     nb.setValue(cricketStreamingSecondKey, _lastStreamingSeconds);
-    showAds.cancel();
+  }
+
+  bool _isAdUrl(String url) {
+    final u = url.toLowerCase();
+
+    const adKeywords = [
+      "doubleclick",
+      "adsystem",
+      "googlesyndication",
+      "adservice",
+      "popup",
+      "promo",
+      "tracking",
+      "redirect",
+      "aff",
+      "offer",
+    ];
+
+    return adKeywords.any((k) => u.contains(k));
+  }
+
+  bool _isNewWindowBlocked(String url) {
+    return url.startsWith("about:blank") || url.contains("newtab");
   }
 
   void notify() {

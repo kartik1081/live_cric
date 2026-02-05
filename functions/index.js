@@ -55,7 +55,6 @@ exports.sendNotificationToTopic = onRequest(async (req, res) => {
     }
 
     const topic = "live_cric";
-
     const message = {
       topic,
       data: {

@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/services.dart';
+import 'package:live_cric/models/ad_model.dart';
 import 'package:live_cric/utils/configs.dart';
+import 'package:live_cric/utils/flaove_config.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class RemoteConfigs {
@@ -12,23 +14,38 @@ class RemoteConfigs {
     "app_name": 'LiveCric HD',
     "x_rapidapi_host": "cricbuzz-cricket.p.rapidapi.com",
     "x_rapidapi_key": "c89783400cmsh40a6a97cc3e0dd4p11104bjsnd09af3840a52",
-    "show_app_open": true,
-    "show_banner": true,
-    "show_native": true,
-    "show_interstitial": true,
-    "show_reward": true,
-    // "app_open_id": "ca-app-pub-7330756705387601/6114357528",
-    // "banner_id": "ca-app-pub-7330756705387601/5989292496",
-    // "native_id": "ca-app-pub-7330756705387601/6019537493",
-    // "interstitial_id": "ca-app-pub-3940256099942544/1033173712",
-    // "reward_id": "ca-app-pub-7330756705387601/5072738598",
-    "app_open_id": "ca-app-pub-4263828040563949/8545070975",
-    "banner_id": "ca-app-pub-4263828040563949/2282204517",
-    "native_id": "ca-app-pub-4263828040563949/8009173916",
-    "interstitial_id": "ca-app-pub-4263828040563949/9969122844",
-    "reward_id": "ca-app-pub-4263828040563949/7426704079",
+    "app_open_ad": jsonEncode({
+      "show": false,
+      "ad_id":
+          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_open",
+      "ad_id_dev": "ca-app-pub-3940256099942544/9257395921",
+    }),
+    "banner_ad": jsonEncode({
+      "show": false,
+      "ad_id":
+          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_banner",
+      "ad_id_dev": "ca-app-pub-3940256099942544/6300978111",
+    }),
+    "native_ad": jsonEncode({
+      "show": false,
+      "ad_id":
+          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_native",
+      "ad_id_dev": "ca-app-pub-3940256099942544/2247696110",
+    }),
+    "interstitial_ad": jsonEncode({
+      "show": false,
+      "ad_id":
+          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_interstitial",
+      "ad_id_dev": "ca-app-pub-3940256099942544/1033173712",
+    }),
+    "reward_ad": jsonEncode({
+      "show": false,
+      "ad_id":
+          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_rewarded",
+      "ad_id_dev": "ca-app-pub-3940256099942544/5224354917",
+    }),
     "privacy_policy":
-        "https://sites.google.com/view/shubhmangal-textile/livecrichd-privacy-policy",
+        "https://shubhmangal-29833.web.app/livecric/privacy-policy",
     "new_update": false,
     "version_code": 3,
     "version_name": "1.0.0",
@@ -42,23 +59,25 @@ class RemoteConfigs {
   static String get appNameRc => _config.getString("app_name");
   static String get xRapidapiHostRc => _config.getString("x_rapidapi_host");
   static String get xRapidapiKeyRc => _config.getString("x_rapidapi_key");
-  static bool get showAppOpenRc => _config.getBool("show_app_open");
-  static bool get showBannerRc => _config.getBool("show_banner");
-  static bool get showNativeRc => _config.getBool("show_native");
-  static bool get showInterstitialRc => _config.getBool("show_interstitial");
-  static bool get showRewardRc => _config.getBool("show_reward");
-  static String get appOpenIdRc => _config.getString("app_open_id");
-  static String get bannerIdRc => _config.getString("banner_id");
-  static String get nativeIdRc => _config.getString("native_id");
-  static String get interstitialIdRc => _config.getString("interstitial_id");
-  static String get rewardedIdRc => _config.getString("reward_id");
+  static AdModel get appOpenAdRc =>
+      AdModel.fromJson(jsonDecode(_config.getString("app_open_ad")));
+  static AdModel get bannerAdRc =>
+      AdModel.fromJson(jsonDecode(_config.getString("banner_ad")));
+  static AdModel get nativeAdRc =>
+      AdModel.fromJson(jsonDecode(_config.getString("native_ad")));
+  static AdModel get interstitialAdRc =>
+      AdModel.fromJson(jsonDecode(_config.getString("interstitial_ad")));
+  static AdModel get rewardedAdRc =>
+      AdModel.fromJson(jsonDecode(_config.getString("interstitial_ad")));
   static String get privacyPolicyRc => _config.getString("privacy_policy");
   static bool get newUpdateRc => _config.getBool("new_update");
   static int get versionCodeRc => _config.getInt("version_code");
   static String get versionNameRc => _config.getString("version_name");
   static bool get showCopyrightRc => _config.getBool("show_copyright");
   static int get interstitialAdIntervalRc =>
-      _config.getInt("interstitial_ad_interval");
+      FlavorConfig.flavor == FlavorEnum.dev
+      ? 60
+      : _config.getInt("interstitial_ad_interval");
   static Map<dynamic, dynamic> get eventRc =>
       jsonDecode(_config.getString("event"));
   static List<String> get defaultStreamLinkRc =>
