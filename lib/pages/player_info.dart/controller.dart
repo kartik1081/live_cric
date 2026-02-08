@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:live_cric/models/crt/crt_player_info_model.dart';
-import 'package:live_cric/models/crt/crt_team_player_model.dart';
 import 'package:live_cric/network_services/network_endpoint.dart';
 import 'package:live_cric/network_services/network_utils.dart';
 import 'package:live_cric/utils/common.dart';
@@ -10,7 +9,7 @@ import 'package:live_cric/utils/configs.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class PlayerInfoController extends ChangeNotifier {
-  late final CrtTeamPlayerModel player;
+  late final dynamic playerId;
 
   bool _mounted = false;
   bool _loading = true;
@@ -19,7 +18,7 @@ class PlayerInfoController extends ChangeNotifier {
   bool get loading => _loading;
   CrtPlayerInfoModel? get playerInfo => _playerInfo;
 
-  PlayerInfoController(BuildContext context, {required this.player}) {
+  PlayerInfoController(BuildContext context, {required this.playerId}) {
     _mounted = true;
     getPlayerInfo(context);
   }
@@ -38,7 +37,7 @@ class PlayerInfoController extends ChangeNotifier {
       notify();
     }
     try {
-      final response = await buildHttpResponse("$playerInfoEp/${player.id}");
+      final response = await buildHttpResponse("$playerInfoEp/$playerId");
 
       switch (response.statusCode) {
         case 200:

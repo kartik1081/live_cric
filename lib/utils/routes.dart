@@ -140,7 +140,7 @@ class Routes {
           settings: RouteSettings(name: playerInfoRt),
           builder: (context) => ChangeNotifierProvider<PlayerInfoController>(
             create: (context) =>
-                PlayerInfoController(context, player: args[playerKey]),
+                PlayerInfoController(context, playerId: args[playerIdKey]),
             child: PlayerInfoView(),
           ),
         );

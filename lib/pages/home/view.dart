@@ -37,7 +37,7 @@ class HomeView extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () => RemoteConfigs.showCopyrightRc
-                          ? () => nb.showInDialog(
+                          ? nb.showInDialog(
                               barrierDismissible: false,
                               backgroundColor: popUp,
                               context,

@@ -49,7 +49,7 @@ class PlayerTile extends StatelessWidget {
       () => Navigator.pushNamed(
         context,
         Routes.playerInfoRt,
-        arguments: {playerKey: player},
+        arguments: {playerIdKey: player.id},
       ),
     );
   }

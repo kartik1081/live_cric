@@ -18,10 +18,6 @@ class PlayerInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<PlayerInfoController>(
-      context,
-      listen: false,
-    );
     return Scaffold(
       body: Column(
         children: [
@@ -38,9 +34,12 @@ class PlayerInfoView extends StatelessWidget {
               ),
               SizedBox(width: 7.w),
               nb.Marquee(
-                child: Text(
-                  "${controller.player.name}'s Info",
-                  style: Common.textStyle(isSpl: true, size: 22.sp),
+                child: Selector<PlayerInfoController, CrtPlayerInfoModel?>(
+                  selector: (p0, p1) => p1.playerInfo,
+                  builder: (context, playerInfo, child) => Text(
+                    "${playerInfo?.name ?? "Player"}'s Info",
+                    style: Common.textStyle(isSpl: true, size: 22.sp),
+                  ),
                 ),
               ).expand(),
               SizedBox(width: 13.w),

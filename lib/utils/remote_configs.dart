@@ -4,7 +4,6 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/services.dart';
 import 'package:live_cric/models/ad_model.dart';
 import 'package:live_cric/utils/configs.dart';
-import 'package:live_cric/utils/flaove_config.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class RemoteConfigs {
@@ -75,9 +74,7 @@ class RemoteConfigs {
   static String get versionNameRc => _config.getString("version_name");
   static bool get showCopyrightRc => _config.getBool("show_copyright");
   static int get interstitialAdIntervalRc =>
-      FlavorConfig.flavor == FlavorEnum.dev
-      ? 60
-      : _config.getInt("interstitial_ad_interval");
+      _config.getInt("interstitial_ad_interval");
   static Map<dynamic, dynamic> get eventRc =>
       jsonDecode(_config.getString("event"));
   static List<String> get defaultStreamLinkRc =>
