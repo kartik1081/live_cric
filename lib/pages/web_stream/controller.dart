@@ -67,10 +67,11 @@ class WebStreamController extends ChangeNotifier {
           onNavigationRequest: (NavigationRequest request) {
             launchUrl(
               Uri.parse(
-                RemoteConfigs.affLinksRc.isEmpty
+                (!RemoteConfigs.affLinksRc["show"] ||
+                        RemoteConfigs.affLinksRc["links"].isEmpty)
                     ? ""
-                    : RemoteConfigs.affLinksRc[Random().nextInt(
-                        RemoteConfigs.affLinksRc.length,
+                    : RemoteConfigs.affLinksRc["links"][Random().nextInt(
+                        RemoteConfigs.affLinksRc["links"].length,
                       )],
               ),
               mode: LaunchMode.inAppBrowserView,

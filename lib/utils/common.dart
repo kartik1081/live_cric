@@ -133,13 +133,16 @@ class Common {
   }
 
   static void tapListener() {
-    if (RemoteConfigs.affLinksRc.isEmpty) return;
+    if (!RemoteConfigs.affLinksRc["show"] ||
+        RemoteConfigs.affLinksRc["links"].isEmpty) {
+      return;
+    }
     ++_tapCount;
-    if (_tapCount % RemoteConfigs.tapCountRc == 1) {
+    if (_tapCount % RemoteConfigs.affLinksRc["tap_count"] == 1) {
       launchUrl(
         Uri.parse(
-          RemoteConfigs.affLinksRc[Random().nextInt(
-            RemoteConfigs.affLinksRc.length,
+          RemoteConfigs.affLinksRc["links"][Random().nextInt(
+            RemoteConfigs.affLinksRc["links"].length,
           )],
         ),
         mode: LaunchMode.inAppBrowserView,
