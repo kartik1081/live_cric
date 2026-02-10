@@ -62,11 +62,14 @@ class TeamInfoView extends StatelessWidget {
                 ],
               ),
               TextButton(
-                onPressed: () => Navigator.pushNamed(
-                  context,
-                  Routes.playerListRt,
-                  arguments: {teamKey: controller.team},
-                ),
+                onPressed: () {
+                  Common.tapListener();
+                  Navigator.pushNamed(
+                    context,
+                    Routes.playerListRt,
+                    arguments: {teamKey: controller.team},
+                  );
+                },
                 child: Text(
                   "Players",
                   style: Common.textStyle(
@@ -77,11 +80,14 @@ class TeamInfoView extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () => Navigator.pushNamed(
-                  context,
-                  Routes.teamNewsRt,
-                  arguments: {teamKey: controller.team},
-                ),
+                onPressed: () {
+                  Common.tapListener();
+                  Navigator.pushNamed(
+                    context,
+                    Routes.teamNewsRt,
+                    arguments: {teamKey: controller.team},
+                  );
+                },
                 child: Text(
                   "News",
                   style: Common.textStyle(

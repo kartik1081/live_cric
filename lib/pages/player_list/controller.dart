@@ -28,6 +28,7 @@ class PlayerListController extends ChangeNotifier {
   void dispose() {
     super.dispose();
     _mounted = false;
+    Common.tapListener();
   }
 
   void getPlayerList(BuildContext context, [bool load = false]) async {

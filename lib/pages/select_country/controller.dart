@@ -26,11 +26,13 @@ class SelectCountryController extends ChangeNotifier {
   }
 
   void selectCountry(String countryName) {
+    Common.tapListener();
     _selectedCountry = countryName;
     notify();
   }
 
   void saveCountry(BuildContext context) {
+    Common.tapListener();
     if (_selectedCountry == null || _selectedCountry!.isEmpty) {
       Common.showSnackbar(context, "Please select your country.");
       return;

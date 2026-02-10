@@ -27,6 +27,7 @@ class PlayerInfoController extends ChangeNotifier {
   void dispose() {
     super.dispose();
     _mounted = false;
+    Common.tapListener();
   }
 
   void getPlayerInfo(BuildContext context, [bool load = false]) async {

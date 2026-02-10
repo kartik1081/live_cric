@@ -51,12 +51,14 @@ class PrivacyController extends ChangeNotifier {
   }
 
   void updateCheck() {
+    Common.tapListener();
     if (_loading) return;
     _checked = !_checked;
     notify();
   }
 
   void onSubmit(BuildContext context) {
+    Common.tapListener();
     if (!_checked) {
       Common.showSnackbar(context, "Please accept privacy policy terms.");
       return;

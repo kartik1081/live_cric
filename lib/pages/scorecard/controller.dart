@@ -32,6 +32,7 @@ class ScorecardController extends ChangeNotifier {
   void dispose() {
     super.dispose();
     _mounted = false;
+    Common.tapListener();
   }
 
   Future<void> getScorecard(BuildContext context, {bool load = false}) async {

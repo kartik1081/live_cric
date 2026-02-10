@@ -40,12 +40,13 @@ class TeamTile extends StatelessWidget {
         ).expand(),
         Icon(Icons.arrow_forward_ios_rounded, color: soft, size: 15.w),
       ],
-    ).onTap(
-      () => Navigator.pushNamed(
+    ).onTap(() {
+      Common.tapListener();
+      Navigator.pushNamed(
         context,
         Routes.teamInfoRt,
         arguments: {teamKey: team},
-      ),
-    );
+      );
+    });
   }
 }

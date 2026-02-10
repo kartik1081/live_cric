@@ -93,9 +93,10 @@ class HomeView extends StatelessWidget {
                           size: 13.sp,
                         ),
                       ),
-                    ).onTap(
-                      () => Navigator.pushNamed(context, Routes.teamListRt),
-                    ),
+                    ).onTap(() {
+                      Common.tapListener();
+                      Navigator.pushNamed(context, Routes.teamListRt);
+                    }),
                   ],
                 ).paddingSymmetric(horizontal: 22.w),
                 SizedBox(height: 13.h),

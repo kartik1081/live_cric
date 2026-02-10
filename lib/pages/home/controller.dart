@@ -124,6 +124,7 @@ class HomeController extends ChangeNotifier {
   }
 
   void selectMatchType(int index) {
+    Common.tapListener();
     _selectedIndex = index;
     notify();
     pageController.animateToPage(
@@ -194,8 +195,9 @@ class HomeController extends ChangeNotifier {
                                           size: 18.h,
                                         ),
                                       ),
-                                    ).onTap(
-                                      () => Navigator.pushNamedAndRemoveUntil(
+                                    ).onTap(() {
+                                      Common.tapListener();
+                                      Navigator.pushNamedAndRemoveUntil(
                                         context,
                                         Routes.webStreamRt,
                                         arguments: {
@@ -205,8 +207,8 @@ class HomeController extends ChangeNotifier {
                                         (route) =>
                                             route.settings.name ==
                                             Routes.homeRt,
-                                      ),
-                                    ),
+                                      );
+                                    }),
                                 separatorBuilder: (context, index) =>
                                     SizedBox(height: 10.h),
                               ),

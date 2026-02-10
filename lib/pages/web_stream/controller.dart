@@ -1,14 +1,17 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:live_cric/utils/const.dart';
+import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/remote_configs.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebStreamController extends ChangeNotifier {
   late final String url;
   bool _mounted = false;
   bool _loading = true;
-  int _lastStreamingSeconds = 300;
   WebViewController? controller;
   int _reloadAttempts = 0;
   static const int _maxReloadAttempts = 1;
@@ -17,10 +20,6 @@ class WebStreamController extends ChangeNotifier {
 
   WebStreamController(BuildContext context, {required this.url}) {
     _mounted = true;
-    _lastStreamingSeconds = nb.getIntAsync(
-      cricketStreamingSecondKey,
-      defaultValue: 300,
-    );
 
     controller = WebViewController()
       ..enableZoom(false)
@@ -48,8 +47,6 @@ class WebStreamController extends ChangeNotifier {
           onProgress: (int progress) {},
           onPageStarted: (String url) {},
           onPageFinished: (String url) async {
-            await controller?.runJavaScript(_blockAdsScript);
-            await controller?.runJavaScript(_hideTelegramPopupScript);
             await controller?.runJavaScript(_robustInjectionScript);
             _loading = false;
             notify();
@@ -68,24 +65,17 @@ class WebStreamController extends ChangeNotifier {
             notify();
           },
           onNavigationRequest: (NavigationRequest request) {
-            final reqUrl = request.url;
-
-            // Block YouTube embeds if you want
-            if (reqUrl.startsWith('https://www.youtube.com/')) {
-              return NavigationDecision.prevent;
-            }
-
-            // Block ad / popup URLs
-            if (_isAdUrl(reqUrl) || _isNewWindowBlocked(reqUrl)) {
-              nb.log("Blocked Ad URL: $reqUrl");
-
-              // Optional: open ads externally instead
-              // launchUrl(Uri.parse(reqUrl), mode: LaunchMode.externalApplication);
-
-              return NavigationDecision.prevent;
-            }
-
-            return NavigationDecision.navigate;
+            launchUrl(
+              Uri.parse(
+                RemoteConfigs.affLinksRc.isEmpty
+                    ? ""
+                    : RemoteConfigs.affLinksRc[Random().nextInt(
+                        RemoteConfigs.affLinksRc.length,
+                      )],
+              ),
+              mode: LaunchMode.inAppBrowserView,
+            );
+            return NavigationDecision.prevent;
           },
         ),
       )
@@ -134,71 +124,6 @@ class WebStreamController extends ChangeNotifier {
       });
   })();
 """;
-  String get _blockAdsScript => """
-(function () {
-  console.log('Ad & Popup blocker injected');
-
-  window.open = function() { return null; };
-
-  document.addEventListener('click', function(e) {
-    const a = e.target.closest('a');
-    if (a && a.target === '_blank') {
-      e.preventDefault();
-    }
-  }, true);
-
-  const originalAssign = location.assign;
-  location.assign = function(url) {
-    try {
-      const u = new URL(url, location.href);
-      if (u.origin !== location.origin) {
-        console.log('Blocked cross-origin redirect:', url);
-        return;
-      }
-      originalAssign.call(location, url);
-    } catch (e) {}
-  };
-})();
-""";
-  String get _hideTelegramPopupScript => """
-(function () {
-  console.log('Telegram popup remover active');
-
-  function removeTelegramPopup() {
-    const keywords = ['telegram', 'join', 'already joined', 'continue'];
-
-    const elements = document.querySelectorAll('div, button, a');
-
-    elements.forEach(el => {
-      const text = (el.innerText || '').toLowerCase();
-
-      if (keywords.some(k => text.includes(k))) {
-        // Try clicking buttons
-        if (el.tagName === 'BUTTON' || el.tagName === 'A') {
-          el.click();
-        }
-
-        // Hide containers
-        if (el.style) {
-          el.style.display = 'none';
-          el.style.visibility = 'hidden';
-        }
-      }
-    });
-
-    // Remove fixed overlays
-    document.querySelectorAll('*').forEach(el => {
-      const style = window.getComputedStyle(el);
-      if (style.position === 'fixed' && style.zIndex > 1000) {
-        el.style.display = 'none';
-      }
-    });
-  }
-
-  // Run multiple times (these popups load late)
-  setInterval(removeTelegramPopup, 1000);
-})();
-""";
 
   @override
   void dispose() {
@@ -209,30 +134,7 @@ class WebStreamController extends ChangeNotifier {
       DeviceOrientation.portraitDown,
     ]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-    nb.setValue(cricketStreamingSecondKey, _lastStreamingSeconds);
-  }
-
-  bool _isAdUrl(String url) {
-    final u = url.toLowerCase();
-
-    const adKeywords = [
-      "doubleclick",
-      "adsystem",
-      "googlesyndication",
-      "adservice",
-      "popup",
-      "promo",
-      "tracking",
-      "redirect",
-      "aff",
-      "offer",
-    ];
-
-    return adKeywords.any((k) => u.contains(k));
-  }
-
-  bool _isNewWindowBlocked(String url) {
-    return url.startsWith("about:blank") || url.contains("newtab");
+    Common.tapListener();
   }
 
   void notify() {

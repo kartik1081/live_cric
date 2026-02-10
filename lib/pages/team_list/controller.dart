@@ -26,6 +26,7 @@ class TeamListController extends ChangeNotifier {
   void dispose() {
     super.dispose();
     _mounted = false;
+    Common.tapListener();
   }
 
   void getTeamInfo(BuildContext context, [bool load = false]) async {

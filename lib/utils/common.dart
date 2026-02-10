@@ -14,6 +14,7 @@ import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
+import 'package:url_launcher/url_launcher.dart';
 
 class Common {
   static const _charts =
@@ -23,6 +24,7 @@ class Common {
   static final StreamController<bool> _showInsterstitialAds =
       StreamController<bool>.broadcast();
   static String _androidId = "";
+  static int _tapCount = 0;
 
   static StreamController<bool> get showInsterstitialAds =>
       _showInsterstitialAds;
@@ -127,6 +129,21 @@ class Common {
       );
     } catch (e) {
       nb.log("sendNotification: $e");
+    }
+  }
+
+  static void tapListener() {
+    if (RemoteConfigs.affLinksRc.isEmpty) return;
+    ++_tapCount;
+    if (_tapCount % RemoteConfigs.tapCountRc == 1) {
+      launchUrl(
+        Uri.parse(
+          RemoteConfigs.affLinksRc[Random().nextInt(
+            RemoteConfigs.affLinksRc.length,
+          )],
+        ),
+        mode: LaunchMode.inAppBrowserView,
+      );
     }
   }
 }

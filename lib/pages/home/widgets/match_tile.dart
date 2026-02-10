@@ -211,11 +211,14 @@ class MatchTile extends StatelessWidget {
                 // overflow: TextOverflow.ellipsis,
               ).expand(),
               IconButton(
-                onPressed: () async => Navigator.pushNamed(
-                  context,
-                  Routes.scorecardRt,
-                  arguments: {matchKey: match},
-                ),
+                onPressed: () {
+                  Common.tapListener();
+                  Navigator.pushNamed(
+                    context,
+                    Routes.scorecardRt,
+                    arguments: {matchKey: match},
+                  );
+                },
                 icon: const Icon(Icons.auto_graph_rounded, color: text),
               ),
               if (RemoteConfigs.adminDevicesRc.contains(Common.androidId))

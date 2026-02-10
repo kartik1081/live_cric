@@ -29,6 +29,7 @@ class TeamNewsController extends ChangeNotifier {
   void dispose() {
     super.dispose();
     _mounted = false;
+    Common.tapListener();
   }
 
   void getTeamNews(BuildContext context, [bool load = false]) async {

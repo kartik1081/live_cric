@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:live_cric/utils/common.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/routes.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -23,6 +24,7 @@ class OnboardController extends ChangeNotifier {
   }
 
   void updateIndex(BuildContext context) {
+    Common.tapListener();
     ++_currentIndex;
     if (_currentIndex >= 3) {
       nb.setValue(onboardKey, true);

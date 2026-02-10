@@ -54,6 +54,11 @@ class RemoteConfigs {
     "event": jsonEncode({}),
     "default_stream_link": jsonEncode(["https://cinearena.live/live/"]),
     "admin_devices": jsonEncode(["012603902df109f2", "dd1d044e7362bd64"]),
+    "aff_links": jsonEncode([
+      "https://301-finance.fiveminutesgames.com",
+      "https://300-finance.fiveminutesgames.com",
+    ]),
+    "tap_count": 3,
   };
 
   static String get appNameRc => _config.getString("app_name");
@@ -88,6 +93,11 @@ class RemoteConfigs {
       (jsonDecode(_config.getString("admin_devices")) as List<dynamic>)
           .map((e) => e as String)
           .toList();
+  static List<String> get affLinksRc =>
+      (jsonDecode(_config.getString("aff_links")) as List<dynamic>)
+          .map((e) => e as String)
+          .toList();
+  static int get tapCountRc => _config.getInt("tap_count");
 
   static Future<void> initConfig() async {
     try {
