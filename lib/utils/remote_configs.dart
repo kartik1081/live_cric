@@ -4,6 +4,7 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/services.dart';
 import 'package:live_cric/models/ad_model.dart';
 import 'package:live_cric/utils/configs.dart';
+import 'package:live_cric/utils/flaove_config.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class RemoteConfigs {
@@ -57,7 +58,9 @@ class RemoteConfigs {
 
   static String get appNameRc => _config.getString("app_name");
   static String get xRapidapiHostRc => _config.getString("x_rapidapi_host");
-  static String get xRapidapiKeyRc => _config.getString("x_rapidapi_key");
+  static String get xRapidapiKeyRc => FlavorConfig.flavor == FlavorEnum.dev
+      ? "560270b7edmsh3428256a4558acdp14c959jsn36664715aaab"
+      : _config.getString("x_rapidapi_key");
   static AdModel get appOpenAdRc =>
       AdModel.fromJson(jsonDecode(_config.getString("app_open_ad")));
   static AdModel get bannerAdRc =>
