@@ -196,3 +196,5 @@ const String androidIdKey = 'android_id';
 const String showKey = "show";
 const String adIdKey = "ad_id";
 const String adIdDevKey = "ad_id_dev";
+const String controllerKey = "controller";
+const String editableKey = "editable";

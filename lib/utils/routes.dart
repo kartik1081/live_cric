@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:live_cric/pages/add_links/controller.dart';
+import 'package:live_cric/pages/add_links/view.dart';
 import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/pages/home/view.dart';
 import 'package:live_cric/pages/onboard/controller.dart';
@@ -42,6 +44,7 @@ class Routes {
   static const String playerInfoRt = "/player_info";
   static const String videoStreamRt = "/video_stream";
   static const String webStreamRt = "/web_stream";
+  static const String addLinksRt = "/add_links";
 
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
@@ -165,6 +168,16 @@ class Routes {
             create: (context) =>
                 WebStreamController(context, url: args[urlKey]),
             child: WebStreamView(),
+          ),
+        );
+      case addLinksRt:
+        final args = setting.arguments as dynamic;
+        return MaterialPageRoute(
+          settings: RouteSettings(name: addLinksRt),
+          builder: (context) => ChangeNotifierProvider<AddLinksController>(
+            create: (context) =>
+                AddLinksController(context, matchId: args[matchIdKey]),
+            child: AddLinksView(),
           ),
         );
       default:

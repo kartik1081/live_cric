@@ -64,18 +64,18 @@ class WebStreamController extends ChangeNotifier {
             _loading = false;
             notify();
           },
-          onNavigationRequest: (NavigationRequest request) {
-            launchUrl(
-              Uri.parse(
-                (!RemoteConfigs.affLinksRc["show"] ||
-                        RemoteConfigs.affLinksRc["links"].isEmpty)
-                    ? ""
-                    : RemoteConfigs.affLinksRc["links"][Random().nextInt(
-                        RemoteConfigs.affLinksRc["links"].length,
-                      )],
-              ),
-              mode: LaunchMode.inAppBrowserView,
-            );
+          onNavigationRequest: (NavigationRequest request) async {
+            if (RemoteConfigs.affLinksRc["show"] &&
+                RemoteConfigs.affLinksRc["links"].isNotEmpty) {
+              final url = Uri.parse(
+                RemoteConfigs.affLinksRc["links"][Random().nextInt(
+                  RemoteConfigs.affLinksRc["links"].length,
+                )],
+              );
+              if (await canLaunchUrl(url)) {
+                launchUrl(url, mode: LaunchMode.inAppBrowserView);
+              }
+            }
             return NavigationDecision.prevent;
           },
         ),

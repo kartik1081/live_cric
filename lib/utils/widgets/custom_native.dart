@@ -59,8 +59,8 @@ class _CustomNativeState extends State<CustomNative> {
             height: widget.nativeType == nativeVideo
                 ? 350
                 : widget.nativeType == nativeMedium
-                ? 310
-                : 125,
+                ? 320
+                : 140,
             child: AdWidget(ad: _nativeAd!),
           ).paddingOnly(
             top: widget.topPadding == 0 ? 0 : widget.topPadding.h,

@@ -4,6 +4,7 @@ import 'package:live_cric/models/crt/crt_match_model.dart';
 import 'package:live_cric/pages/home/controller.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
@@ -221,7 +222,9 @@ class MatchTile extends StatelessWidget {
                 },
                 icon: const Icon(Icons.auto_graph_rounded, color: text),
               ),
-              if (RemoteConfigs.adminDevicesRc.contains(Common.androidId))
+              if (RemoteConfigs.adminDevicesRc.contains(
+                Configs.auth.currentUser?.uid,
+              )) ...[
                 IconButton(
                   onPressed: () async => Common.sendNotification(
                     "${match.team1.teamSName} vs ${match.team2.teamSName}",
@@ -232,6 +235,15 @@ class MatchTile extends StatelessWidget {
                     color: text,
                   ),
                 ),
+                IconButton(
+                  onPressed: () async => Navigator.pushNamed(
+                    context,
+                    Routes.addLinksRt,
+                    arguments: {matchIdKey: match.matchId},
+                  ),
+                  icon: const Icon(Icons.add, color: text),
+                ),
+              ],
             ],
           ),
         ],

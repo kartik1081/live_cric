@@ -18,7 +18,7 @@ class CopyrightBox extends StatelessWidget {
         Text("Copyright", style: Common.textStyle(isSpl: true, size: 18.sp)),
         Divider(),
         Text(
-          "${RemoteConfigs.appNameRc} does not stream any of the channels included in this application, all the streaming links are from third part website available freely on the internet.\n\nWe're just giving way to stream and all content is the copyright of their owner.",
+          "${RemoteConfigs.appNameRc} does not stream any of the channels included in this application, all the streaming links are from third party website available freely on the internet.\n\nWe're just giving way to stream and all content is the copyright of their owner.",
           style: Common.textStyle(size: 14.sp),
         ),
         SizedBox(height: 40.h),

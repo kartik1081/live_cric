@@ -9,6 +9,7 @@ import 'package:live_cric/pages/home/widgets/copyright_box.dart';
 import 'package:live_cric/pages/home/widgets/match_tile.dart';
 import 'package:live_cric/utils/color.dart';
 import 'package:live_cric/utils/common.dart';
+import 'package:live_cric/utils/configs.dart';
 import 'package:live_cric/utils/const.dart';
 import 'package:live_cric/utils/remote_configs.dart';
 import 'package:live_cric/utils/routes.dart';
@@ -45,7 +46,9 @@ class HomeView extends StatelessWidget {
                             )
                           : null,
                       onLongPress: () async => await Clipboard.setData(
-                        ClipboardData(text: Common.androidId),
+                        ClipboardData(
+                          text: Configs.auth.currentUser?.uid ?? "",
+                        ),
                       ),
                       child: Row(
                         children: [
@@ -104,46 +107,43 @@ class HomeView extends StatelessWidget {
                     RemoteConfigs.eventRc["image_url"] != null)
                   AspectRatio(
                     aspectRatio: 16 / 9,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        CachedNetworkImage(
+                    child:
+                        Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            CachedNetworkImage(
                               imageUrl: RemoteConfigs.eventRc["image_url"],
                               fit: BoxFit.cover,
-                            )
-                            .cornerRadiusWithClipRRect(12.r)
-                            .onTap(
-                              () => Navigator.pushNamed(
-                                context,
-                                Routes.webStreamRt,
-                                arguments: {
-                                  urlKey: RemoteConfigs.eventRc["url"],
-                                },
+                            ).cornerRadiusWithClipRRect(12.r),
+                            Positioned(
+                              bottom: 13.h,
+                              right: 13.w,
+                              child: Container(
+                                width: 100.w,
+                                height: 40.h,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: primary50,
+                                  borderRadius: nb.radius(12.r),
+                                ),
+                                child: Text(
+                                  "Visit Event",
+                                  style: Common.textStyle(
+                                    color: black,
+                                    weight: FontWeight.w700,
+                                    size: 13.sp,
+                                  ),
+                                ),
                               ),
                             ),
-                        Positioned(
-                          bottom: 13.h,
-                          right: 13.w,
-                          child: Container(
-                            width: 100.w,
-                            height: 40.h,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: primary50,
-                              borderRadius: nb.radius(12.r),
-                            ),
-                            child: Text(
-                              "Visit Event",
-                              style: Common.textStyle(
-                                color: black,
-                                weight: FontWeight.w700,
-                                size: 13.sp,
-                              ),
-                            ),
+                          ],
+                        ).onTap(
+                          () => Navigator.pushNamed(
+                            context,
+                            Routes.webStreamRt,
+                            arguments: {urlKey: RemoteConfigs.eventRc["url"]},
                           ),
                         ),
-                      ],
-                    ),
                   ).paddingOnly(left: 22.w, right: 22.w, bottom: 22.h),
                 Selector<HomeController, Tuple2<bool, List<CrtMatchTypeModel>>>(
                   selector: (p0, p1) => Tuple2(p1.loading, p1.matchTypes),

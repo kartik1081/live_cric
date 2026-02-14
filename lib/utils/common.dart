@@ -4,7 +4,6 @@ import 'dart:isolate';
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:android_id/android_id.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,12 +22,10 @@ class Common {
   static final ReceivePort _receivePort = ReceivePort();
   static final StreamController<bool> _showInsterstitialAds =
       StreamController<bool>.broadcast();
-  static String _androidId = "";
   static int _tapCount = 0;
 
   static StreamController<bool> get showInsterstitialAds =>
       _showInsterstitialAds;
-  static String get androidId => _androidId;
 
   static TextStyle textStyle({
     Color? color,
@@ -112,12 +109,6 @@ class Common {
     });
   }
 
-  static void getAndroidDeviceId() async {
-    const androidId = AndroidId();
-    final id = await androidId.getId();
-    _androidId = id ?? "unknown";
-  }
-
   static void sendNotification(String title, String body) async {
     if (!await nb.isNetworkAvailable()) return;
 
@@ -133,20 +124,19 @@ class Common {
   }
 
   static void tapListener() {
-    if (!RemoteConfigs.affLinksRc["show"] ||
-        RemoteConfigs.affLinksRc["links"].isEmpty) {
-      return;
-    }
-    ++_tapCount;
-    if (_tapCount % RemoteConfigs.affLinksRc["tap_count"] == 1) {
-      launchUrl(
-        Uri.parse(
-          RemoteConfigs.affLinksRc["links"][Random().nextInt(
-            RemoteConfigs.affLinksRc["links"].length,
-          )],
-        ),
-        mode: LaunchMode.inAppBrowserView,
-      );
+    if (RemoteConfigs.affLinksRc["show"] &&
+        RemoteConfigs.affLinksRc["links"].isNotEmpty) {
+      ++_tapCount;
+      if (_tapCount % RemoteConfigs.affLinksRc["tap_count"] == 1) {
+        launchUrl(
+          Uri.parse(
+            RemoteConfigs.affLinksRc["links"][Random().nextInt(
+              RemoteConfigs.affLinksRc["links"].length,
+            )],
+          ),
+          mode: LaunchMode.inAppBrowserView,
+        );
+      }
     }
   }
 }

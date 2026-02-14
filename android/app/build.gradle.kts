@@ -71,7 +71,7 @@ android {
         }
         create("prod") {
             dimension = "default"
-            manifestPlaceholders["admob_app_id"] = "ca-app-pub-3822593515209932~5300548547"
+            manifestPlaceholders["admob_app_id"] = "ca-app-pub-4263828040563949~6053928567"
         }
     }
 }

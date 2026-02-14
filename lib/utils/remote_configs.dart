@@ -16,26 +16,22 @@ class RemoteConfigs {
     "x_rapidapi_key": "c89783400cmsh40a6a97cc3e0dd4p11104bjsnd09af3840a52",
     "app_open_ad": jsonEncode({
       "show": false,
-      "ad_id":
-          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_open",
+      "ad_id": "ca-app-pub-4263828040563949/8545070975",
       "ad_id_dev": "ca-app-pub-3940256099942544/9257395921",
     }),
     "banner_ad": jsonEncode({
       "show": false,
-      "ad_id":
-          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_banner",
+      "ad_id": "ca-app-pub-4263828040563949/2282204517",
       "ad_id_dev": "ca-app-pub-3940256099942544/6300978111",
     }),
     "native_ad": jsonEncode({
       "show": false,
-      "ad_id":
-          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_native",
+      "ad_id": "ca-app-pub-4263828040563949/8009173916",
       "ad_id_dev": "ca-app-pub-3940256099942544/2247696110",
     }),
     "interstitial_ad": jsonEncode({
       "show": false,
-      "ad_id":
-          "/22893901953/ca-mb-app-pub-2509511211458165-tag/uswa_com.apps.live_cric_interstitial",
+      "ad_id": "ca-app-pub-4263828040563949/9969122844",
       "ad_id_dev": "ca-app-pub-3940256099942544/1033173712",
     }),
     "reward_ad": jsonEncode({
@@ -53,7 +49,7 @@ class RemoteConfigs {
     "interstitial_ad_interval": 300,
     "event": jsonEncode({}),
     "default_stream_link": jsonEncode(["https://cinearena.live/live/"]),
-    "admin_devices": jsonEncode(["012603902df109f2", "dd1d044e7362bd64"]),
+    "admin_devices": jsonEncode([]),
     "aff_links": jsonEncode({
       "show": false,
       "tap_count": 3,
